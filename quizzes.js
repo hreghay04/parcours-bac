@@ -108,6 +108,21 @@ const QUIZZES = {
     explain:"Avec pénalité, l'espérance de note en répondant au hasard devient négative : répondre au hasard ne rapporte plus." }
 ],
 
+"M8": [
+  { q: "Le domaine de définition de la fonction \\(\\ln\\) est :", options:["\\(\\mathbb{R}\\)","\\(]0;+\\infty[\\)","\\([0;+\\infty[\\)","\\(\\mathbb{R}^*\\)"], correct:1,
+    explain:"On ne prend le logarithme que d'un nombre strictement positif : le domaine est \\(]0;+\\infty[\\)." },
+  { q: "La dérivée de \\(\\ln x\\) est :", options:["\\(\\dfrac1x\\)","\\(\\ln x\\)","\\(x\\ln x\\)","\\(-\\dfrac{1}{x^2}\\)"], correct:0,
+    explain:"\\(\\ln'(x)=\\dfrac1x\\) sur \\(]0;+\\infty[\\). Plus généralement \\((\\ln u)'=\\dfrac{u'}{u}\\)." },
+  { q: "\\(\\ln(ab)\\) (avec \\(a>0,\\ b>0\\)) est égal à :", options:["\\(\\ln a\\times\\ln b\\)","\\(\\ln a+\\ln b\\)","\\(\\ln a-\\ln b\\)","\\(a\\ln b\\)"], correct:1,
+    explain:"Le logarithme transforme les produits en sommes : \\(\\ln(ab)=\\ln a+\\ln b\\)." },
+  { q: "La dérivée de \\(\\sqrt{x}\\) est :", options:["\\(2\\sqrt x\\)","\\(\\dfrac{1}{2\\sqrt x}\\)","\\(\\dfrac{1}{\\sqrt x}\\)","\\(\\dfrac{1}{2x}\\)"], correct:1,
+    explain:"\\((\\sqrt x)'=\\dfrac{1}{2\\sqrt x}\\) sur \\(]0;+\\infty[\\) ; la fonction n'est pas dérivable en 0." },
+  { q: "Les courbes de \\(\\exp\\) et de \\(\\ln\\) sont symétriques par rapport à :", options:["l'axe des abscisses","l'axe des ordonnées","la droite \\(y=x\\)","l'origine"], correct:2,
+    explain:"\\(\\ln\\) est la réciproque de \\(\\exp\\) : leurs courbes sont symétriques par rapport à la première bissectrice \\(y=x\\)." },
+  { q: "La dérivée de \\(\\cos x\\) est :", options:["\\(\\sin x\\)","\\(-\\sin x\\)","\\(\\cos x\\)","\\(-\\cos x\\)"], correct:1,
+    explain:"\\(\\cos'(x)=-\\sin x\\) (et \\(\\sin'(x)=\\cos x\\))." }
+],
+
 "S1": [
   { q: "Sur un marché en concurrence parfaite, une entreprise est :", options:["faiseuse de prix","preneuse de prix","en situation de monopole","sans concurrent"], correct:1,
     explain:"Atomicité : aucun agent n'influence le prix, chacun est preneur de prix." },
