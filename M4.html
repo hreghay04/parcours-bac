@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M4 — Limites de fonctions et continuité</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="maths" data-module="M4">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html">M1 · Révisions analyse</a>
+<a href="M2.html">M2 · Suites, probas, géométrie</a>
+<a href="M3.html">M3 · Récurrence et limites</a>
+<a href="M4.html" class="active">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html">S1 · Économie (révisions)</a>
+<a href="S2.html">S2 · Socio & politique</a>
+<a href="S3.html">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · Mathématiques · Semaine 4 · Programme de terminale</p>
+  <h1>M4 — Limites de fonctions et continuité</h1>
+  <p class="sub">Limites · Asymptotes · Croissances comparées · Continuité et théorème des valeurs intermédiaires</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs de la semaine</span>
+<ul>
+<li>Calculer une limite de fonction en \(\pm\infty\) ou en un point, y compris par composition.</li>
+<li>Lever les formes indéterminées (factorisation par le terme dominant, quantité conjuguée).</li>
+<li>Interpréter une limite en termes d'asymptote horizontale ou verticale.</li>
+<li>Connaître les croissances comparées de l'exponentielle et des puissances.</li>
+<li>Appliquer le théorème des valeurs intermédiaires et son corollaire pour compter les solutions de \(f(x)=k\).</li>
+</ul>
+</div>
+
+<h2>1. Limites d'une fonction</h2>
+
+<div class="box def"><span class="label">Les situations à connaître</span>
+<ul>
+<li><strong>En \(\pm\infty\)</strong> : \(\lim_{x\to+\infty}f(x)\) peut être un réel \(\ell\) (la courbe s'aplatit sur la droite \(y=\ell\) : <strong>asymptote horizontale</strong>), ou \(\pm\infty\), ou ne pas exister.</li>
+<li><strong>En un réel \(a\)</strong> (souvent une valeur interdite) : si \(\lim_{x\to a}f(x)=\pm\infty\), la droite \(x=a\) est une <strong>asymptote verticale</strong>. On distingue au besoin limite à gauche (\(x\to a^-\)) et à droite (\(x\to a^+\)).</li>
+</ul>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 385 245" width="360" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(22,15)">
+  <line x1="0" y1="122.5" x2="340" y2="122.5" stroke="#333" stroke-width="1.1"/>
+  <line x1="181.3" y1="0" x2="181.3" y2="210" stroke="#333" stroke-width="1.1"/>
+  <line x1="136" y1="0" x2="136" y2="210" stroke="#b3261e" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <line x1="0" y1="105" x2="340" y2="105" stroke="#1b7a43" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <polyline fill="none" stroke="#1a5fb4" stroke-width="2" points="0,97.7 18.4,96.6 36.7,95 52,93.2 67.3,90.6 79.6,87.4 88.7,84 97.9,79 104,74 110.2,66.6 116.3,54.7 119.3,45.5 122.4,32.1"/>
+  <polyline fill="none" stroke="#1a5fb4" stroke-width="2" points="146.2,202.2 150.1,175.5 154,160.2 157.8,150.4 161.7,143.6 169.5,134.6 177.2,129.1 185,125.3 196.6,121.4 208.2,118.7 219.8,116.8 235.3,115 254.7,113.4 274.1,112.2 293.5,111.3 312.9,110.6 332.3,110.1 340,109.9"/>
+  <text x="100" y="18" font-size="10" fill="#b3261e">x = &#8722;2</text>
+  <text x="288" y="99" font-size="10" fill="#1b7a43">y = 2</text>
+  <text x="186" y="14" font-size="10" font-style="italic">y</text>
+  <text x="330" y="136" font-size="10" font-style="italic">x</text>
+  <text x="246" y="146" font-size="11" fill="#1a5fb4" font-style="italic">y = (2x&#8722;1)/(x+2)</text>
+</g>
+</svg>
+<div class="cap">Les deux asymptotes de l'exercice 3 : horizontale y = 2 (limites en &#177;&#8734;) et verticale x = &#8722;2 (limites infinies de part et d'autre de la valeur interdite).</div>
+</div>
+
+<div class="box theo"><span class="label">Limites usuelles</span>
+$$\lim_{x\to+\infty}x^n=+\infty \quad;\quad \lim_{x\to\pm\infty}\frac{1}{x^n}=0 \quad;\quad \lim_{x\to0^+}\frac1x=+\infty \quad;\quad \lim_{x\to0^-}\frac1x=-\infty$$
+$$\lim_{x\to+\infty}e^x=+\infty \qquad \lim_{x\to-\infty}e^x=0 \qquad \lim_{x\to+\infty}\sqrt x=+\infty$$
+</div>
+
+<div class="box theo"><span class="label">Opérations, composition, comparaison</span>
+<ul>
+<li>Mêmes règles d'opérations que pour les suites, mêmes <strong>quatre formes indéterminées</strong> : \(+\infty-\infty\), \(0\times\infty\), \(\infty/\infty\), \(0/0\).</li>
+<li><strong>Composition</strong> : si \(\lim_{x\to a}u(x)=b\) et \(\lim_{X\to b}g(X)=c\), alors \(\lim_{x\to a}g(u(x))=c\). (Poser \(X=u(x)\) et enchaîner les deux limites.)</li>
+<li>Les théorèmes de <strong>comparaison</strong> et des <strong>gendarmes</strong> s'énoncent comme pour les suites.</li>
+</ul>
+</div>
+
+<div class="box theo"><span class="label">Croissances comparées (résultats fondamentaux)</span>
+Pour tout entier \(n\geq1\) :
+$$\lim_{x\to+\infty}\frac{e^x}{x^n}=+\infty \qquad \lim_{x\to-\infty}x^n e^x=0 \qquad\text{(cas usuel : } \lim_{x\to+\infty}x\,e^{-x}=0\text{)}$$
+<em>À retenir : « l'exponentielle l'emporte sur toute puissance de \(x\) ».</em>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 345 225" width="320" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(28,10)">
+  <line x1="0" y1="190" x2="310" y2="190" stroke="#333" stroke-width="1.1"/>
+  <line x1="0" y1="0" x2="0" y2="190" stroke="#333" stroke-width="1.1"/>
+  <polyline fill="none" stroke="#b3261e" stroke-width="2.2" points="0,183.7 30,181.1 60,177.5 90,172.4 120,165.3 150,155.3 180,141.3 200,128.9 220,113.4 240,93.9 260,69.4 280,38.7 295,10.7 300,0.2"/>
+  <polyline fill="none" stroke="#1a5fb4" stroke-width="2" points="0,190 30,189.3 60,187.1 90,183.4 120,178.3 150,171.7 180,163.6 210,154.1 240,143.1 270,130.7 300,116.8"/>
+  <text x="238" y="60" font-size="11" fill="#b3261e" font-style="italic">y = e&#739;</text>
+  <text x="252" y="145" font-size="11" fill="#1a5fb4" font-style="italic">y = x&#178;</text>
+  <text x="300" y="204" font-size="10" font-style="italic">x</text>
+</g>
+</svg>
+<div class="cap">Croissances comparées : la courbe de e&#739; finit toujours par écraser celle de x&#8319;, même si elle démarre en dessous. « L'exponentielle l'emporte. »</div>
+</div>
+
+<div class="box methode"><span class="label">Méthode — quelle technique pour quelle FI ?</span>
+<ul>
+<li>Polynôme en \(\pm\infty\) : factoriser par le monôme de plus haut degré (ou citer « limite du terme de plus haut degré »).</li>
+<li>Quotient de polynômes en \(\pm\infty\) : factoriser haut et bas par les termes dominants.</li>
+<li>Quotient \(\frac00\) en un point \(a\) : factoriser par \((x-a)\) haut et bas, puis simplifier.</li>
+<li>Racines : quantité conjuguée. Mélange exp/puissances : croissances comparées.</li>
+</ul>
+</div>
+
+<h2>2. Continuité</h2>
+
+<div class="box def"><span class="label">Définition</span>
+\(f\) est <strong>continue en \(a\)</strong> si \(\lim_{x\to a}f(x)=f(a)\) ; continue sur un intervalle si elle l'est en chaque point (« courbe tracée sans lever le crayon »). Les fonctions polynômes, rationnelles, racine carrée, exponentielle, sinus et cosinus sont continues sur leur ensemble de définition, ainsi que leurs sommes, produits, quotients et composées. <strong>Toute fonction dérivable est continue</strong> (la réciproque est fausse).
+</div>
+
+<div class="box theo"><span class="label">Théorème des valeurs intermédiaires (TVI)</span>
+Si \(f\) est <strong>continue</strong> sur \([a;b]\), alors pour tout réel \(k\) compris entre \(f(a)\) et \(f(b)\), l'équation \(f(x)=k\) admet <strong>au moins une</strong> solution dans \([a;b]\).
+</div>
+
+<div class="box theo"><span class="label">Corollaire (fonction strictement monotone) — l'outil du bac</span>
+Si \(f\) est <strong>continue et strictement monotone</strong> sur \([a;b]\), alors pour tout \(k\) compris entre \(f(a)\) et \(f(b)\), l'équation \(f(x)=k\) admet <strong>une unique</strong> solution dans \([a;b]\). (S'étend aux intervalles ouverts ou non bornés en remplaçant \(f(a), f(b)\) par les limites.)
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 360 215" width="335" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(28,10)">
+  <line x1="0" y1="180" x2="320" y2="180" stroke="#333" stroke-width="1.1"/>
+  <line x1="0" y1="0" x2="0" y2="180" stroke="#333" stroke-width="1.1"/>
+  <path d="M 20,165 C 100,160 140,60 300,25" fill="none" stroke="#1a5fb4" stroke-width="2.2"/>
+  <line x1="0" y1="95" x2="320" y2="95" stroke="#c26a00" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <line x1="150" y1="95" x2="150" y2="180" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="150" cy="95" r="3.5" fill="#c26a00"/>
+  <line x1="20" y1="165" x2="20" y2="180" stroke="#999" stroke-width="1"/>
+  <line x1="300" y1="25" x2="300" y2="180" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="-16" y="99" font-size="10" fill="#c26a00" font-style="italic">k</text>
+  <text x="16" y="195" font-size="10" font-style="italic">a</text>
+  <text x="146" y="195" font-size="10" font-style="italic" fill="#c26a00">&#945;</text>
+  <text x="296" y="195" font-size="10" font-style="italic">b</text>
+  <text x="215" y="120" font-size="10" fill="#555" font-style="italic">f continue et strictement</text>
+  <text x="215" y="133" font-size="10" fill="#555" font-style="italic">croissante sur [a ; b]</text>
+</g>
+</svg>
+<div class="cap">Le corollaire du TVI : f étant continue et strictement croissante, la courbe ne peut traverser la droite y = k qu'une seule fois &#8594; solution unique &#945;.</div>
+</div>
+
+<div class="box resolu"><span class="label">Exemple résolu pas à pas — rédaction TVI complète</span>
+<p>Soit \(g(x)=e^x+x\). Montrons que l'équation \(g(x)=3\) admet une unique solution dans \([0;1]\), puis encadrons-la au dixième.</p>
+<p><strong>Étape 1 — les hypothèses :</strong> \(g\) est continue sur \([0;1]\) (somme de fonctions continues) et \(g'(x)=e^x+1&gt;0\), donc \(g\) est strictement croissante sur \([0;1]\).</p>
+<p><strong>Étape 2 — encadrer \(k=3\) par les valeurs aux bornes :</strong> \(g(0)=e^0+0=1&lt;3\) et \(g(1)=e+1\approx3{,}72&gt;3\) : donc \(3\) est compris entre \(g(0)\) et \(g(1)\).</p>
+<p><strong>Étape 3 — citer le théorème et conclure :</strong> d'après le corollaire du théorème des valeurs intermédiaires, l'équation \(g(x)=3\) admet une <strong>unique</strong> solution \(\alpha\) dans \([0;1]\).</p>
+<p><strong>Étape 4 — encadrer par balayage :</strong> \(g(0{,}7)\approx2{,}71&lt;3\) et \(g(0{,}8)\approx3{,}03&gt;3\), donc \(0{,}7&lt;\alpha&lt;0{,}8\). <em>(Les trois mots-clés à ne jamais oublier dans la copie : <strong>continue</strong>, <strong>strictement monotone</strong>, <strong>compris entre</strong>.)</em></p>
+</div>
+
+<div class="box methode"><span class="label">Méthode — rédaction type TVI</span>
+« \(f\) est continue et strictement croissante sur \([a;b]\) ; \(f(a)=\dots \lt k\) et \(f(b)=\dots \gt k\), donc \(k\) est compris entre \(f(a)\) et \(f(b)\). D'après le corollaire du TVI, l'équation \(f(x)=k\) admet une unique solution \(\alpha\) dans \([a;b]\). » Puis encadrement de \(\alpha\) par balayage à la calculatrice (table de valeurs, dichotomie).
+</div>
+
+<div class="box attention"><span class="label">Erreurs classiques</span>
+<ul>
+<li>Oublier de mentionner la <strong>continuité</strong> (ou la stricte monotonie pour l'unicité) : la conclusion tombe sans ces hypothèses.</li>
+<li>Une limite en \(+\infty\) qui vaut \(+\infty\) ne donne <strong>pas</strong> d'asymptote.</li>
+<li>Pour une valeur interdite, penser à étudier les limites <strong>à gauche et à droite</strong> (signes souvent opposés).</li>
+</ul>
+</div>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Limites sans indétermination <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+Déterminer :
+<ol style="columns:2">
+<li>\(\displaystyle\lim_{x\to+\infty} x^3+\frac2x\)</li>
+<li>\(\displaystyle\lim_{x\to-\infty} 5-2e^x\)</li>
+<li>\(\displaystyle\lim_{x\to 3^+} \frac{2}{x-3}\) et \(\displaystyle\lim_{x\to 3^-} \frac{2}{x-3}\)</li>
+<li>\(\displaystyle\lim_{x\to+\infty} \frac{-3}{\sqrt x+1}\)</li>
+<li>\(\displaystyle\lim_{x\to 0^+} \frac{1}{x^2}-\frac{5}{x}\) <em>(factoriser par \(1/x^2\))</em></li>
+<li>\(\displaystyle\lim_{x\to+\infty} e^{-x}+7\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Formes indéterminées <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+Déterminer :
+<ol>
+<li>\(\displaystyle\lim_{x\to-\infty} 2x^3-5x^2+x\)</li>
+<li>\(\displaystyle\lim_{x\to+\infty} \frac{3x^2-x+2}{2x^2+5}\) puis \(\displaystyle\lim_{x\to+\infty} \frac{x-1}{x^2+4}\)</li>
+<li>\(\displaystyle\lim_{x\to 2} \frac{x^2-4}{x-2}\)</li>
+<li>\(\displaystyle\lim_{x\to+\infty} \sqrt{x+3}-\sqrt{x}\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Asymptotes <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+Soit \(f(x)=\dfrac{2x-1}{x+2}\) définie sur \(\mathbb{R}\setminus\{-2\}\).
+<ol>
+<li>Déterminer les limites de \(f\) en \(+\infty\) et \(-\infty\). Interprétation graphique ?</li>
+<li>Déterminer les limites de \(f\) à gauche et à droite de \(-2\). Interprétation graphique ?</li>
+<li>Étudier les variations de \(f\) et dresser son tableau de variations complet (avec les limites).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Croissances comparées <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Déterminer :
+<ol style="columns:2">
+<li>\(\displaystyle\lim_{x\to+\infty} \frac{e^x}{x^2}\)</li>
+<li>\(\displaystyle\lim_{x\to+\infty} x^3e^{-x}\)</li>
+<li>\(\displaystyle\lim_{x\to+\infty} e^x-x^5\)</li>
+<li>\(\displaystyle\lim_{x\to-\infty} (x^2+x)e^{x}\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Composition <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+Déterminer :
+<ol style="columns:2">
+<li>\(\displaystyle\lim_{x\to+\infty} e^{-x^2}\)</li>
+<li>\(\displaystyle\lim_{x\to+\infty} \sqrt{\frac{4x+1}{x+1}}\)</li>
+<li>\(\displaystyle\lim_{x\to-\infty} e^{\frac{1}{x}}\)</li>
+<li>\(\displaystyle\lim_{x\to0^+} e^{1/x}\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 6 — TVI et dichotomie <span class="stars">★★</span> <span class="duree">(30 min)</span></div>
+Soit \(f(x)=x^3+x-1\).
+<ol>
+<li>Étudier les variations de \(f\) sur \(\mathbb{R}\) et ses limites en \(\pm\infty\).</li>
+<li>Démontrer que l'équation \(f(x)=0\) admet une unique solution \(\alpha\) dans \(\mathbb{R}\), et que \(\alpha\in[0;1]\).</li>
+<li>Par dichotomie (ou balayage), donner un encadrement de \(\alpha\) d'amplitude \(0{,}1\).</li>
+<li>Écrire une fonction Python <code>dichotomie(a, b, e)</code> qui renvoie un encadrement de \(\alpha\) d'amplitude inférieure à <code>e</code>.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 7 — Synthèse type bac <span class="stars">★★★</span> <span class="duree">(45 min — une séance)</span></div>
+Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=(x+2)e^{-x}\), de courbe \(\mathcal{C}\).
+<ol>
+<li>Déterminer la limite de \(f\) en \(-\infty\).</li>
+<li>Montrer que \(f(x) = x e^{-x} + 2e^{-x}\) et en déduire la limite de \(f\) en \(+\infty\). Interpréter graphiquement.</li>
+<li>Montrer que \(f'(x)=-(x+1)e^{-x}\) et dresser le tableau de variations complet de \(f\).</li>
+<li>Montrer que l'équation \(f(x)=2\) admet exactement <strong>deux</strong> solutions dans \(\mathbb{R}\), dont l'une est évidente ; donner un encadrement d'amplitude \(10^{-1}\) de l'autre.</li>
+</ol>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés détaillés — Module M4</div>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1</div>
+<ol>
+<li>\(+\infty+0=+\infty\).</li>
+<li>\(e^x\to0\) en \(-\infty\), donc limite \(5\).</li>
+<li>À droite : \(x-3\to0^+\) donc \(+\infty\). À gauche : \(x-3\to0^-\) donc \(-\infty\).</li>
+<li>Dénominateur \(\to+\infty\), donc limite \(0\).</li>
+<li>\(\dfrac{1}{x^2}-\dfrac5x = \dfrac{1}{x^2}(1-5x)\). Quand \(x\to0^+\) : \(\dfrac{1}{x^2}\to+\infty\) et \(1-5x\to1\), donc limite \(+\infty\).</li>
+<li>\(e^{-x}\to0\) : limite \(7\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>Terme de plus haut degré : \(2x^3\to-\infty\) quand \(x\to-\infty\).</li>
+<li>\(\dfrac{3x^2(1-\frac{1}{3x}+\frac{2}{3x^2})}{2x^2(1+\frac{5}{2x^2})}\to\dfrac32\) ; le second : \(\dfrac{x}{x^2}\times\dfrac{1-1/x}{1+4/x^2}\to0\).</li>
+<li>FI \(\frac00\) : \(\dfrac{(x-2)(x+2)}{x-2}=x+2\to4\).</li>
+<li>Conjuguée : \(\dfrac{(x+3)-x}{\sqrt{x+3}+\sqrt x}=\dfrac{3}{\sqrt{x+3}+\sqrt x}\to0\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>\(f(x)=\dfrac{x(2-1/x)}{x(1+2/x)}\to2\) en \(\pm\infty\) : la droite \(y=2\) est <strong>asymptote horizontale</strong> à \(\mathcal C\) en \(+\infty\) et en \(-\infty\).</li>
+<li>En \(-2\), le numérateur tend vers \(-5\neq 0\). À droite (\(x>-2\)) : \(x+2\to0^+\), donc \(f(x)\to\dfrac{-5}{0^+}=-\infty\). À gauche : \(f(x)\to+\infty\). La droite \(x=-2\) est <strong>asymptote verticale</strong>.</li>
+<li>\(f'(x)=\dfrac{2(x+2)-(2x-1)}{(x+2)^2}=\dfrac{5}{(x+2)^2}>0\) : \(f\) est strictement croissante sur \(]-\infty;-2[\) et sur \(]-2;+\infty[\) (deux intervalles distincts : ne pas dire « croissante sur \(\mathbb R\setminus\{-2\}\) »). Tableau : de \(2\) (limite en \(-\infty\)) vers \(+\infty\) sur le premier intervalle ; de \(-\infty\) vers \(2\) sur le second.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4</div>
+<ol>
+<li>Croissances comparées : \(+\infty\).</li>
+<li>\(x^3e^{-x}=\dfrac{x^3}{e^x}\to0\).</li>
+<li>\(e^x-x^5=e^x\left(1-\dfrac{x^5}{e^x}\right)\to+\infty\times1=+\infty\).</li>
+<li>\((x^2+x)e^x=x^2e^x+xe^x\to0+0=0\) (croissances comparées en \(-\infty\)).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5</div>
+<ol>
+<li>Poser \(X=-x^2\to-\infty\), et \(e^X\to0\) : limite \(0\).</li>
+<li>\(\dfrac{4x+1}{x+1}\to4\) puis \(\sqrt X\to2\) : limite \(2\).</li>
+<li>\(\dfrac1x\to0^-\), \(e^X\to e^0=1\) : limite \(1\).</li>
+<li>\(\dfrac1x\to+\infty\), donc \(e^{1/x}\to+\infty\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 6</div>
+<ol>
+<li>\(f'(x)=3x^2+1>0\) : \(f\) strictement croissante sur \(\mathbb R\) ; limites \(-\infty\) en \(-\infty\) et \(+\infty\) en \(+\infty\) (terme dominant \(x^3\)).</li>
+<li>\(f\) est continue (polynôme) et strictement croissante sur \(\mathbb R\), avec \(\lim_{-\infty}f=-\infty<0\) et \(\lim_{+\infty}f=+\infty>0\) : d'après le corollaire du TVI, \(f(x)=0\) admet une unique solution \(\alpha\). De plus \(f(0)=-1<0\) et \(f(1)=1>0\), donc \(\alpha\in[0;1]\).</li>
+<li>\(f(0{,}6)=-0{,}184<0\) et \(f(0{,}7)=0{,}043>0\) : donc \(0{,}6<\alpha<0{,}7\).</li>
+<li><pre style="background:#f5f5f5;border:1px solid #ddd;border-radius:3px;padding:6px 10px;font-size:9pt">def f(x):
+    return x**3 + x - 1
+
+def dichotomie(a, b, e):
+    while b - a > e:
+        m = (a + b) / 2
+        if f(m) &lt; 0:
+            a = m
+        else:
+            b = m
+    return a, b</pre></li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 7</div>
+<ol>
+<li>Quand \(x\to-\infty\) : \(x+2\to-\infty\) et \(e^{-x}\to+\infty\), donc \(f(x)\to-\infty\) (produit).</li>
+<li>\(f(x)=xe^{-x}+2e^{-x}\). Par croissances comparées \(xe^{-x}\to0\), et \(e^{-x}\to0\) : donc \(\lim_{+\infty}f=0\). La droite \(y=0\) (axe des abscisses) est asymptote horizontale à \(\mathcal C\) en \(+\infty\).</li>
+<li>Produit : \(f'(x)=1\times e^{-x}+(x+2)\times(-e^{-x})=e^{-x}\big(1-(x+2)\big)=-(x+1)e^{-x}\). Comme \(e^{-x}>0\), \(f'\) est du signe de \(-(x+1)\) : \(f\) croît sur \(]-\infty;-1]\), décroît ensuite. Maximum : \(f(-1)=(1)e^{1}=e\approx2{,}72\). Tableau : de \(-\infty\) à \(e\), puis de \(e\) vers \(0\).</li>
+<li>\(f(0)=2\) : \(x=0\) est solution évidente. Sur \(]-\infty;-1]\), \(f\) est continue, strictement croissante de \(-\infty\) à \(e\approx 2{,}72 > 2\) : le corollaire du TVI donne une unique solution \(\beta\) dans cet intervalle. Sur \([-1;+\infty[\), \(f\) est continue strictement décroissante de \(e\) vers \(0\) : unique solution, qui est \(0\). D'où exactement deux solutions : \(0\) et \(\beta\). Balayage : \(f(-1{,}6)=0{,}4\times e^{1{,}6}\approx1{,}98<2\) et \(f(-1{,}5)=0{,}5\times e^{1{,}5}\approx2{,}24>2\), donc \(-1{,}6<\beta<-1{,}5\).</li>
+</ol>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module M4 · Limites de fonctions et continuité.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

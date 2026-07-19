@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S3 — Les sources et défis de la croissance économique</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="ses" data-module="S3">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html">M1 · Révisions analyse</a>
+<a href="M2.html">M2 · Suites, probas, géométrie</a>
+<a href="M3.html">M3 · Récurrence et limites</a>
+<a href="M4.html">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html">S1 · Économie (révisions)</a>
+<a href="S2.html">S2 · Socio & politique</a>
+<a href="S3.html" class="active">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · SES · Semaine 3 · Programme de terminale</p>
+  <h1>S3 — Quels sont les sources et les défis de la croissance économique ?</h1>
+  <p class="sub">Premier questionnement de science économique du programme de terminale</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs d'apprentissage (programme officiel)</span>
+<ul>
+<li>Comprendre le processus de croissance et ses sources : accumulation des facteurs et productivité globale des facteurs (PGF) ; lien entre progrès technique et PGF.</li>
+<li>Comprendre que le progrès technique est endogène et résulte de l'innovation.</li>
+<li>Comprendre le rôle des institutions (droits de propriété) ; connaître la destruction créatrice.</li>
+<li>Comprendre comment le progrès technique peut engendrer des inégalités de revenus.</li>
+<li>Comprendre les limites écologiques de la croissance et le rôle ambivalent de l'innovation.</li>
+</ul>
+</div>
+
+<h2>1. Qu'est-ce que la croissance et d'où vient-elle ?</h2>
+<p>La <strong>croissance économique</strong> est l'augmentation soutenue et durable de la production d'un pays, mesurée par le <strong>PIB</strong> (somme des valeurs ajoutées). On raisonne souvent en <strong>PIB par habitant</strong> pour approcher le niveau de vie, et en <strong>volume</strong> (hors inflation) pour mesurer une vraie augmentation des quantités produites.</p>
+<div class="box def"><span class="label">Les deux sources de la croissance</span>
+<ol>
+<li><strong>L'accumulation des facteurs de production</strong> : plus de travail (population active, heures) et plus de capital (machines, bâtiments, infrastructures — via l'investissement). C'est la croissance <em>extensive</em>.</li>
+<li><strong>L'amélioration de l'efficacité de la combinaison productive</strong>, mesurée par la <strong>productivité globale des facteurs (PGF)</strong> : produire plus <em>avec autant</em> de facteurs. C'est la croissance <em>intensive</em>. La hausse de la PGF reflète pour l'essentiel le <strong>progrès technique</strong>.</li>
+</ol>
+</div>
+<p>Empiriquement, la PGF est le « résidu » : la part de la croissance que n'expliquent ni la hausse du travail ni celle du capital. Sur longue période, c'est elle qui explique l'essentiel de l'élévation du niveau de vie.</p>
+
+<div class="fig">
+<svg viewBox="0 0 475 210" width="450" xmlns="http://www.w3.org/2000/svg">
+  <rect x="15" y="12" width="150" height="32" rx="4" fill="#e8f3f0" stroke="#26695c"/>
+  <text x="90" y="28" font-size="10.5" text-anchor="middle" font-weight="bold">Travail</text>
+  <text x="90" y="39" font-size="8.5" text-anchor="middle" fill="#555">quantité, qualification</text>
+  <rect x="15" y="56" width="150" height="32" rx="4" fill="#e8f3f0" stroke="#26695c"/>
+  <text x="90" y="72" font-size="10.5" text-anchor="middle" font-weight="bold">Capital</text>
+  <text x="90" y="83" font-size="8.5" text-anchor="middle" fill="#555">via l'investissement</text>
+  <rect x="15" y="102" width="195" height="38" rx="4" fill="#eaf1fb" stroke="#1a5fb4" stroke-width="1.5"/>
+  <text x="112" y="118" font-size="10.5" text-anchor="middle" font-weight="bold" fill="#1a5fb4">PGF &#8212; efficacité de la combinaison</text>
+  <text x="112" y="131" font-size="8.5" text-anchor="middle" fill="#555">&#8776; progrès technique (croissance intensive)</text>
+  <rect x="330" y="48" width="128" height="58" rx="5" fill="#26695c"/>
+  <text x="394" y="73" font-size="12" text-anchor="middle" font-weight="bold" fill="#fff">PIB</text>
+  <text x="394" y="90" font-size="9.5" text-anchor="middle" fill="#fff">croissance économique</text>
+  <line x1="165" y1="28" x2="326" y2="62" stroke="#333" stroke-width="1.2"/>
+  <polygon points="330,63 320,60 322,66" fill="#333"/>
+  <line x1="165" y1="72" x2="326" y2="77" stroke="#333" stroke-width="1.2"/>
+  <polygon points="330,77 321,74 321,81" fill="#333"/>
+  <line x1="210" y1="118" x2="326" y2="95" stroke="#1a5fb4" stroke-width="1.6"/>
+  <polygon points="330,94 320,93 322,99" fill="#1a5fb4"/>
+  <rect x="15" y="168" width="200" height="32" rx="4" fill="#fdf7ee" stroke="#c26a00"/>
+  <text x="115" y="184" font-size="10" text-anchor="middle" font-weight="bold">Institutions</text>
+  <text x="115" y="195" font-size="8.5" text-anchor="middle" fill="#555">droits de propriété, brevets, stabilité</text>
+  <rect x="250" y="168" width="200" height="32" rx="4" fill="#fdf7ee" stroke="#c26a00"/>
+  <text x="350" y="184" font-size="10" text-anchor="middle" font-weight="bold">Innovation</text>
+  <text x="350" y="195" font-size="8.5" text-anchor="middle" fill="#555">R&amp;D, capital humain (endogène)</text>
+  <line x1="215" y1="184" x2="246" y2="184" stroke="#c26a00" stroke-width="1.4"/>
+  <polygon points="250,184 241,181 241,187" fill="#c26a00"/>
+  <text x="230" y="178" font-size="8" fill="#c26a00">incite</text>
+  <line x1="330" y1="168" x2="180" y2="143" stroke="#c26a00" stroke-width="1.4"/>
+  <polygon points="176,142 185,141 184,147" fill="#c26a00"/>
+  <text x="272" y="152" font-size="8" fill="#c26a00">alimente</text>
+</svg>
+<div class="cap">Les sources de la croissance en un schéma : accumulation des facteurs (haut) + gains de PGF, eux-mêmes produits par l'innovation qu'encouragent les institutions. Tout le chapitre tient sur cette image.</div>
+</div>
+
+<div class="box resolu"><span class="label">Exemple rédigé pas à pas — exploiter une décomposition de la croissance</span>
+<p>Un document indique : croissance du PIB = 2,0 % par an, dont contribution du travail 0,3 point, du capital 0,5 point, de la PGF 1,2 point.</p>
+<p><strong>Étape 1 — la phrase de lecture :</strong> « La hausse de la quantité de travail a contribué pour 0,3 point de pourcentage aux 2,0 % de croissance annuelle du PIB. » <em>(Une contribution se lit en <strong>points</strong>, jamais en %.)</em></p>
+<p><strong>Étape 2 — vérifier et calculer une part :</strong> \(0{,}3+0{,}5+1{,}2=2{,}0\) ✓. Part de la PGF : \(1{,}2/2{,}0=60\ \%\) de la croissance.</p>
+<p><strong>Étape 3 — interpréter avec le cours :</strong> la croissance est ici majoritairement <strong>intensive</strong> : elle vient plus de l'efficacité (progrès technique) que de l'augmentation des quantités de facteurs — configuration favorable à long terme, car l'accumulation de facteurs a des rendements décroissants.</p>
+</div>
+
+<h2>2. Un progrès technique endogène, porté par l'innovation et les institutions</h2>
+<p>Le progrès technique ne « tombe pas du ciel » : il est <strong>endogène</strong>, produit par les comportements économiques eux-mêmes :</p>
+<ul>
+<li>les <strong>dépenses de R&D</strong> des entreprises et des États, motivées par la perspective de profits (rente d'innovation, situation de monopole temporaire) ;</li>
+<li>l'accumulation de <strong>capital humain</strong> (éducation, santé, compétences) qui accroît la capacité à innover et à adopter les innovations ;</li>
+<li>les <strong>externalités positives de la connaissance</strong> : une idée peut être réutilisée par tous, ce qui rend la croissance auto-entretenue.</li>
+</ul>
+<div class="box def"><span class="label">Le rôle des institutions</span>
+Les <strong>institutions</strong> sont les règles du jeu économique. Les <strong>droits de propriété</strong> (dont les <strong>brevets</strong> pour la propriété intellectuelle) garantissent à l'innovateur et à l'investisseur qu'ils récolteront les fruits de leurs efforts : sans cette sécurité juridique, <em>l'incitation à investir et à innover</em> disparaît. Plus largement : stabilité politique, justice efficace, système financier, lutte contre la corruption. Le brevet illustre un <strong>dilemme</strong> : il incite à innover (monopole temporaire) mais freine la diffusion de l'innovation.
+</div>
+<div class="box def"><span class="label">La destruction créatrice (Schumpeter)</span>
+L'innovation fait naître de nouvelles activités, produits et emplois <em>en détruisant simultanément</em> les activités devenues obsolètes (le streaming a détruit le DVD, qui avait détruit la VHS). La croissance est donc un processus de <strong>destruction créatrice</strong> : globalement créateur de richesses, mais avec des perdants bien réels (secteurs, métiers, territoires déclassés).
+</div>
+
+<h2>3. Progrès technique et inégalités de revenus</h2>
+<p>Le progrès technique peut accroître les inégalités : il est <strong>biaisé en faveur des qualifiés</strong>. Le numérique et l'automatisation augmentent la productivité et la demande (donc les salaires) des travailleurs très qualifiés, mais remplacent les tâches <strong>routinières</strong> des qualifications intermédiaires — d'où une <strong>polarisation</strong> du marché du travail (emplois très qualifiés et emplois peu qualifiés de services peu automatisables progressent, le milieu se creuse). S'y ajoutent les revenus exceptionnels des innovateurs (rentes d'innovation, logique du « winner takes all » sur les marchés numériques).</p>
+
+<h2>4. Une croissance soutenable ? Les limites écologiques</h2>
+<div class="box def"><span class="label">L'essentiel</span>
+La croissance se heurte à des <strong>limites écologiques</strong> : <strong>épuisement des ressources</strong> (énergies fossiles, métaux, eau), <strong>pollutions</strong> et <strong>réchauffement climatique</strong>. La question de la <strong>soutenabilité</strong> : peut-on maintenir le bien-être des générations futures ? Deux positions :
+<ul>
+<li><strong>soutenabilité faible</strong> : les capitaux sont substituables — le capital physique, humain et technologique accumulé peut compenser la destruction de capital naturel ; l'<strong>innovation verte</strong> (renouvelables, efficacité énergétique, recyclage) peut « reculer les limites » ;</li>
+<li><strong>soutenabilité forte</strong> : certains capitaux naturels sont <strong>critiques</strong> et non substituables (climat stable, biodiversité) — le progrès technique ne suffira pas, notamment à cause de l'<strong>effet rebond</strong> (les gains d'efficacité abaissent les coûts, ce qui relance la consommation).</li>
+</ul>
+</div>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Maîtrise du vocabulaire <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+Définir en une ou deux phrases, de mémoire puis en vérifiant : croissance économique, PIB, productivité globale des facteurs, progrès technique endogène, institutions, droits de propriété, destruction créatrice, soutenabilité. <em>(Reporter ces définitions dans le lexique personnel.)</em>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Calculs sur le PIB <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+<ol>
+<li>Le PIB en volume d'un pays passe de 2 400 à 2 436 milliards d'euros en un an. Calculer le taux de croissance.</li>
+<li>Avec une croissance de 1,5 % par an, de combien le PIB augmente-t-il en 10 ans ? (utiliser le CM \(1{,}015^{10}\)) Et à 3 % par an ? Commenter la différence.</li>
+<li>Le PIB nominal a augmenté de 5 % et les prix de 3,2 %. Estimer la croissance réelle.</li>
+<li>Le PIB d'un pays augmente de 2 % et sa population de 2,5 %. Que devient le PIB par habitant ? Pourquoi cette nuance est-elle importante ?</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Analyse de document <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+<p>Contributions à la croissance annuelle moyenne d'un pays développé (données simplifiées, en points de %) :</p>
+<table>
+<tr><th>Période</th><th>Travail</th><th>Capital</th><th>PGF</th><th>Croissance du PIB</th></tr>
+<tr><td>1990-2005</td><td>0,4</td><td>0,9</td><td>1,2</td><td>2,5</td></tr>
+<tr><td>2005-2020</td><td>0,3</td><td>0,7</td><td>0,3</td><td>1,3</td></tr>
+</table>
+<ol>
+<li>Faire une phrase rigoureuse avec la donnée « 1,2 ».</li>
+<li>Vérifier la cohérence des lignes. Quelle est la première source de croissance sur 1990-2005 ?</li>
+<li>Qu'est-ce qui explique principalement le ralentissement de la croissance entre les deux périodes ? Pourquoi est-ce préoccupant à long terme ?</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Mobilisation de connaissances (format EC1) <span class="stars">★★★</span> <span class="duree">(25 min)</span></div>
+<p>« <strong>Montrez comment les droits de propriété influencent la croissance économique.</strong> »</p>
+<p>Réponse structurée d'une quinzaine de lignes : définition, mécanisme d'incitation, exemple (brevet), nuance éventuelle.</p>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Construire un raisonnement (mini-EC3) <span class="stars">★★★</span> <span class="duree">(40 min)</span></div>
+<p>« <strong>À l'aide de vos connaissances, vous montrerez que l'innovation joue un rôle ambivalent face aux limites écologiques de la croissance.</strong> »</p>
+<p>Construire d'abord un plan en deux parties (I. l'innovation aide à reculer les limites / II. mais elle ne les supprime pas), avec deux arguments par partie, puis rédiger l'introduction et la première partie.</p>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés — Module S3</div>
+<p class="corriges-warn">Comparer la structure des réponses rédigées, pas seulement le contenu.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1 (repères)</div>
+<p>Vérifier chaque définition contre la fiche de cours. Deux formulations à retenir mot pour mot : PGF = « part de la croissance qui ne s'explique pas par l'augmentation des quantités de facteurs, et qui mesure l'efficacité de leur combinaison » ; destruction créatrice = « processus par lequel les innovations rendent obsolètes les produits, techniques et emplois anciens tout en créant de nouvelles activités » (Schumpeter).</p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>\(\dfrac{2436-2400}{2400}\times100=1{,}5\ \%\).</li>
+<li>\(1{,}015^{10}\approx1{,}161\) soit ≈ +16 % ; \(1{,}03^{10}\approx1{,}344\) soit ≈ +34 %. Un écart de 1,5 point par an fait plus que doubler le gain sur 10 ans : les effets cumulés des taux de croissance sont puissants (c'est l'intérêt composé du module M2 !).</li>
+<li>≈ 5 − 3,2 = +1,8 % en volume (précisément \(1{,}05/1{,}032\approx1{,}0174\), soit +1,74 %).</li>
+<li>Il <strong>baisse</strong> d'environ 0,5 % : la production croît moins vite que la population. Un pays peut donc connaître la croissance du PIB et un appauvrissement moyen — d'où l'usage du PIB <em>par habitant</em> pour le niveau de vie.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>« Entre 1990 et 2005, la hausse de la PGF a contribué pour 1,2 point de pourcentage à la croissance annuelle moyenne du PIB, qui s'élevait à 2,5 %. »</li>
+<li>0,4 + 0,9 + 1,2 = 2,5 ✓ et 0,3 + 0,7 + 0,3 = 1,3 ✓. Première source sur 1990-2005 : la PGF (près de la moitié de la croissance).</li>
+<li>L'essentiel du ralentissement vient de l'effondrement de la contribution de la PGF (−0,9 point, contre −0,1 et −0,2 pour travail et capital) : le progrès technique se diffuse moins. Préoccupant car l'accumulation de facteurs a des rendements décroissants : sans PGF, la croissance s'essouffle inévitablement à long terme.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4 — éléments de réponse</div>
+<p>« Les <strong>droits de propriété</strong> sont les règles juridiques qui garantissent à un agent l'usage exclusif d'un bien ou d'une idée et la liberté d'en tirer un revenu. Ils constituent une <strong>institution</strong> favorable à la croissance par le canal des <strong>incitations</strong>.</p>
+<p>D'abord, ils sécurisent l'<strong>investissement</strong> : un entrepreneur n'immobilise du capital que s'il est protégé de l'expropriation et peut s'approprier les profits futurs ; là où les droits de propriété sont mal garantis, l'investissement et donc l'accumulation de capital restent faibles.</p>
+<p>Ensuite, ils stimulent l'<strong>innovation</strong> : le <strong>brevet</strong> confère à l'innovateur un monopole temporaire d'exploitation, qui lui permet de rentabiliser ses dépenses de R&D — sans brevet, tout concurrent copierait immédiatement l'invention et la rente d'innovation disparaîtrait, décourageant la recherche.</p>
+<p>On peut nuancer : un brevet trop long freine la <strong>diffusion</strong> du progrès technique. Les institutions doivent donc arbitrer entre incitation à innover et circulation des connaissances. »</p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5 — plan détaillé et repères de rédaction</div>
+<p><strong>Introduction</strong> : définir croissance et limites écologiques (épuisement, pollution, climat) ; annoncer le paradoxe (l'innovation, moteur de la croissance, est aussi invoquée pour la sauver) et le plan.</p>
+<p><strong>I. L'innovation permet de reculer les limites écologiques.</strong> (1) Innovations vertes : énergies renouvelables, efficacité énergétique — le <em>découplage</em> partiel entre croissance et émissions observé dans plusieurs pays européens. (2) L'innovation permet la substitution de ressources rares (recyclage, nouveaux matériaux) et l'élévation de la PGF : produire autant avec moins de ressources.</p>
+<p><strong>II. Mais elle ne supprime pas ces limites.</strong> (1) <strong>Effet rebond</strong> : les gains d'efficacité abaissent les coûts et stimulent la consommation totale (ex. voitures plus sobres mais plus nombreuses et plus lourdes). (2) Certains capitaux naturels sont <strong>critiques</strong> et non substituables (climat, biodiversité) : position de la soutenabilité forte — le progrès technique ne « remplace » pas un climat stable ; le découplage <em>absolu</em> et mondial reste à démontrer.</p>
+<p><strong>Conclusion</strong> : l'innovation est nécessaire mais non suffisante — renvoi à l'action publique (taxation, quotas, normes), objet du chapitre « regards croisés » sur l'environnement.</p>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module S3 · Les sources et défis de la croissance économique.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

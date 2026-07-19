@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M1 — Révisions d'analyse de première</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="maths" data-module="M1">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html" class="active">M1 · Révisions analyse</a>
+<a href="M2.html">M2 · Suites, probas, géométrie</a>
+<a href="M3.html">M3 · Récurrence et limites</a>
+<a href="M4.html">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html">S1 · Économie (révisions)</a>
+<a href="S2.html">S2 · Socio & politique</a>
+<a href="S3.html">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · Mathématiques · Semaine 1</p>
+  <h1>M1 — Révisions d'analyse de première</h1>
+  <p class="sub">Second degré · Dérivation · Fonction exponentielle</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs de la semaine</span>
+<ul>
+<li>Résoudre une équation ou inéquation du second degré et donner le signe d'un trinôme sans hésiter.</li>
+<li>Dériver toutes les fonctions du programme de première (somme, produit, quotient).</li>
+<li>Mener une étude complète de fonction : dérivée, signe, tableau de variations, extremums.</li>
+<li>Déterminer l'équation d'une tangente.</li>
+<li>Manipuler la fonction exponentielle : propriétés algébriques, équations, inéquations, dérivation.</li>
+</ul>
+</div>
+
+<h2>1. Le second degré</h2>
+
+<div class="box def"><span class="label">Définition</span>
+Un <strong>trinôme du second degré</strong> est une expression de la forme \(ax^2+bx+c\) avec \(a\neq 0\). Son <strong>discriminant</strong> est \(\Delta = b^2-4ac\).
+</div>
+
+<div class="box theo"><span class="label">Théorème — racines et signe</span>
+<ul>
+<li>Si \(\Delta > 0\) : deux racines réelles \(x_1=\dfrac{-b-\sqrt{\Delta}}{2a}\) et \(x_2=\dfrac{-b+\sqrt{\Delta}}{2a}\), et la factorisation \(ax^2+bx+c = a(x-x_1)(x-x_2)\). Le trinôme est du <strong>signe de \(a\)</strong> à l'extérieur des racines, du signe de \(-a\) entre les racines.</li>
+<li>Si \(\Delta = 0\) : une racine double \(x_0 = -\dfrac{b}{2a}\) ; le trinôme est du signe de \(a\) et s'annule seulement en \(x_0\).</li>
+<li>Si \(\Delta < 0\) : pas de racine réelle ; le trinôme est <strong>toujours du signe de \(a\)</strong>.</li>
+</ul>
+</div>
+
+<div class="box exemple"><span class="label">Exemple</span>
+\(-2x^2+5x-3\) : \(\Delta = 25-24 = 1 > 0\), racines \(x_1 = \dfrac{-5-1}{-4} = \dfrac{3}{2}\) et \(x_2 = \dfrac{-5+1}{-4} = 1\). Comme \(a=-2<0\), le trinôme est <strong>négatif</strong> à l'extérieur de \([1\,;\,3/2]\) et <strong>positif</strong> entre les racines.
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 340 185" width="330" xmlns="http://www.w3.org/2000/svg">
+  <line x1="15" y1="140" x2="325" y2="140" stroke="#333" stroke-width="1.2"/>
+  <path d="M 40,40 Q 170,290 300,40" fill="none" stroke="#1a5fb4" stroke-width="2.2"/>
+  <circle cx="112" cy="140" r="3.2" fill="#1a5fb4"/>
+  <circle cx="228" cy="140" r="3.2" fill="#1a5fb4"/>
+  <text x="100" y="130" font-size="12" font-style="italic">x&#8321;</text>
+  <text x="232" y="130" font-size="12" font-style="italic">x&#8322;</text>
+  <text x="63" y="168" font-size="16" text-anchor="middle" fill="#1b7a43" font-weight="bold">+</text>
+  <text x="170" y="168" font-size="16" text-anchor="middle" fill="#b3261e" font-weight="bold">&#8722;</text>
+  <text x="280" y="168" font-size="16" text-anchor="middle" fill="#1b7a43" font-weight="bold">+</text>
+  <text x="63" y="182" font-size="9" text-anchor="middle" fill="#666">signe de a</text>
+  <text x="170" y="182" font-size="9" text-anchor="middle" fill="#666">signe de &#8722;a</text>
+  <text x="280" y="182" font-size="9" text-anchor="middle" fill="#666">signe de a</text>
+  <text x="52" y="30" font-size="11" fill="#1a5fb4" font-style="italic">y = ax&#178;+bx+c  (ici a &gt; 0)</text>
+</svg>
+<div class="cap">Le signe du trinôme se lit sur la parabole : du signe de a à l'extérieur des racines, du signe de &#8722;a entre elles.</div>
+</div>
+
+<div class="box methode"><span class="label">Astuce — racines évidentes</span>
+Avant de calculer \(\Delta\), tester \(x=1\) et \(x=-1\) : si \(a+b+c=0\), alors \(1\) est racine et l'autre vaut \(\dfrac{c}{a}\) ; si \(a-b+c=0\), alors \(-1\) est racine et l'autre vaut \(-\dfrac{c}{a}\).
+</div>
+
+<h2>2. La dérivation</h2>
+
+<div class="box def"><span class="label">Définition</span>
+\(f\) est <strong>dérivable en \(a\)</strong> si le taux d'accroissement \(\dfrac{f(a+h)-f(a)}{h}\) admet une limite finie quand \(h\to 0\). Cette limite est le <strong>nombre dérivé</strong> \(f'(a)\) : c'est le coefficient directeur de la tangente à la courbe au point d'abscisse \(a\).
+</div>
+
+<div class="box theo"><span class="label">Tangente</span>
+La tangente à la courbe de \(f\) au point d'abscisse \(a\) a pour équation :
+$$y = f'(a)(x-a)+f(a)$$
+</div>
+
+<h3>Dérivées usuelles et opérations (à savoir par cœur)</h3>
+<table>
+<tr><th>\(f(x)\)</th><td>\(k\)</td><td>\(x\)</td><td>\(x^2\)</td><td>\(x^n\)</td><td>\(\dfrac{1}{x}\)</td><td>\(\sqrt{x}\)</td><td>\(e^x\)</td></tr>
+<tr><th>\(f'(x)\)</th><td>\(0\)</td><td>\(1\)</td><td>\(2x\)</td><td>\(nx^{n-1}\)</td><td>\(-\dfrac{1}{x^2}\)</td><td>\(\dfrac{1}{2\sqrt{x}}\)</td><td>\(e^x\)</td></tr>
+</table>
+<table>
+<tr><th>Fonction</th><td>\(u+v\)</td><td>\(ku\)</td><td>\(uv\)</td><td>\(\dfrac{1}{v}\)</td><td>\(\dfrac{u}{v}\)</td><td>\(e^{ax+b}\)</td></tr>
+<tr><th>Dérivée</th><td>\(u'+v'\)</td><td>\(ku'\)</td><td>\(u'v+uv'\)</td><td>\(-\dfrac{v'}{v^2}\)</td><td>\(\dfrac{u'v-uv'}{v^2}\)</td><td>\(a\,e^{ax+b}\)</td></tr>
+</table>
+
+<div class="box theo"><span class="label">Théorème — dérivée et variations</span>
+Sur un intervalle \(I\) : si \(f'\geq 0\) sur \(I\) alors \(f\) est croissante sur \(I\) ; si \(f'\leq 0\), décroissante ; si \(f'\) s'annule en changeant de signe en \(a\), alors \(f\) admet un <strong>extremum local</strong> en \(a\).
+</div>
+
+<div class="box methode"><span class="label">Méthode — étude de fonction (le rituel)</span>
+<ol>
+<li>Domaine de définition (valeurs interdites ?).</li>
+<li>Calculer \(f'(x)\) et <strong>factoriser au maximum</strong>.</li>
+<li>Étudier le signe de \(f'(x)\) (souvent : signe d'un trinôme, ou d'un facteur simple, car \(e^x>0\) toujours).</li>
+<li>Dresser le tableau de variations avec les valeurs des extremums.</li>
+</ol>
+</div>
+
+<div class="box resolu"><span class="label">Exemple résolu pas à pas — étude complète de \(f(x)=(x-1)e^x\)</span>
+<p><strong>Étape 1 : dériver.</strong> \(f=uv\) avec \(u=x-1\) et \(v=e^x\), donc
+\(f'(x)=1\times e^x+(x-1)e^x=(1+x-1)e^x=x\,e^x\). <em>(On factorise toujours : le signe se lira d'un coup d'œil.)</em></p>
+<p><strong>Étape 2 : étudier le signe de \(f'\).</strong> Pour tout réel \(x\), \(e^x&gt;0\) ; donc \(f'(x)\) est du signe de \(x\) : négatif sur \(]-\infty;0]\), positif sur \([0;+\infty[\). <em>(Le facteur exponentiel disparaît de l'analyse : réflexe indispensable.)</em></p>
+<p><strong>Étape 3 : conclure sur les variations.</strong> \(f\) est décroissante sur \(]-\infty;0]\) et croissante sur \([0;+\infty[\) ; elle admet donc un minimum global en \(0\), qui vaut \(f(0)=(0-1)e^0=-1\).</p>
+<p><strong>Étape 4 : rédiger le tableau</strong> : ligne de \(x\) (avec 0), ligne du signe de \(f'\) (&#8722; puis +), ligne des variations de \(f\) (flèche qui descend vers \(-1\), puis remonte). Un tableau sans la valeur \(-1\) serait incomplet.</p>
+</div>
+
+<div class="box attention"><span class="label">Erreurs classiques</span>
+<ul>
+<li>\((uv)' \neq u'v'\) — la dérivée d'un produit n'est <strong>pas</strong> le produit des dérivées.</li>
+<li>Ne pas oublier que \(e^x > 0\) pour tout \(x\) : dans un signe de dérivée, le facteur exponentiel disparaît de l'analyse.</li>
+<li>Un tableau de variations sans les valeurs aux bornes et aux extremums est incomplet.</li>
+</ul>
+</div>
+
+<h2>3. La fonction exponentielle</h2>
+
+<div class="box def"><span class="label">Définition</span>
+La fonction <strong>exponentielle</strong> est l'unique fonction \(f\) dérivable sur \(\mathbb{R}\) telle que \(f' = f\) et \(f(0)=1\). On note \(f(x)=e^x\), avec \(e \approx 2{,}718\).
+</div>
+
+<div class="box theo"><span class="label">Propriétés fondamentales</span>
+Pour tous réels \(a, b\) et tout entier \(n\) :
+$$e^{a+b}=e^a e^b \qquad e^{-a}=\frac{1}{e^a} \qquad e^{a-b}=\frac{e^a}{e^b} \qquad (e^a)^n = e^{na}$$
+<ul>
+<li>\(e^x > 0\) pour tout réel \(x\) ; la fonction exp est <strong>strictement croissante</strong> sur \(\mathbb{R}\).</li>
+<li>Conséquences : \(e^a = e^b \iff a=b\) et \(e^a < e^b \iff a < b\).</li>
+</ul>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 360 240" width="340" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(20,12)">
+  <line x1="0" y1="200" x2="330" y2="200" stroke="#333" stroke-width="1.2"/>
+  <line x1="188.7" y1="0" x2="188.7" y2="218" stroke="#333" stroke-width="1.2"/>
+  <line x1="70" y1="217.9" x2="320" y2="96" stroke="#c26a00" stroke-width="1.6"/>
+  <polyline fill="none" stroke="#1a5fb4" stroke-width="2.2" points="0,196 16,195.1 32,194.1 48,192.8 64,191.3 80,189.4 96,187.1 112,184.3 128,180.9 144,176.8 160,171.8 176,165.7 192,158.4 208,149.4 224,138.5 240,125.3 256,109.2 272,89.6 288,65.9 304,37 314.7,14.3"/>
+  <circle cx="188.7" cy="160" r="3.5" fill="#b3261e"/>
+  <text x="196" y="152" font-size="11" fill="#b3261e">(0 ; 1)</text>
+  <text x="262" y="52" font-size="12" fill="#1a5fb4" font-style="italic">y = e&#739;</text>
+  <text x="272" y="122" font-size="12" fill="#c26a00" font-style="italic">y = 1 + x</text>
+  <text x="180" y="212" font-size="10">0</text>
+</g>
+</svg>
+<div class="cap">La courbe de l'exponentielle reste au-dessus de sa tangente au point (0 ; 1) : c'est l'inégalité e&#739; &#8805; 1 + x de l'exercice 8.</div>
+</div>
+
+<div class="box methode"><span class="label">Méthode — équations et inéquations avec exp</span>
+<ul>
+<li>Se ramener à la forme \(e^{A}=e^{B}\) (ou \(e^A \le e^B\)) puis identifier les exposants : \(A = B\) (ou \(A\le B\)). Se rappeler que \(1 = e^0\).</li>
+<li>Si l'équation contient \(e^{2x}\) et \(e^x\) : poser \(X = e^x\) (donc \(e^{2x}=X^2\)), résoudre le trinôme en \(X\), puis ne garder que les solutions \(X>0\).</li>
+</ul>
+</div>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+<p style="font-style:italic;font-size:9.5pt;margin-top:0">À faire sur feuille, rédigés, sans regarder les corrigés. Environ 2 exercices par jour.</p>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Automatismes de dérivation <span class="stars">★</span> <span class="duree">(20 min)</span></div>
+Dériver les fonctions suivantes (préciser l'ensemble de dérivabilité si nécessaire) :
+<ol style="columns:2">
+<li>\(f(x)=3x^4-5x^2+7x-1\)</li>
+<li>\(g(x)=\dfrac{5}{x}-2\sqrt{x}\)</li>
+<li>\(h(x)=(2x+1)(x^2-3)\)</li>
+<li>\(k(x)=\dfrac{3x-1}{x+2}\)</li>
+<li>\(m(x)=x^2 e^x\)</li>
+<li>\(n(x)=e^{-3x+2}\)</li>
+<li>\(p(x)=\dfrac{e^x}{x}\)</li>
+<li>\(q(x)=\dfrac{1}{x^2+1}\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Second degré <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+<ol>
+<li>Résoudre dans \(\mathbb{R}\) : \(x^2-x-6=0\), puis \(2x^2+3x-5=0\) (chercher une racine évidente).</li>
+<li>Dresser le tableau de signes de \(T(x)=-x^2+4x-3\).</li>
+<li>Résoudre l'inéquation \(x^2 - x - 6 \le 0\).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Tangente <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+Soit \(f(x)=x^3-3x+1\), de courbe \(\mathcal{C}\).
+<ol>
+<li>Déterminer l'équation de la tangente \(T\) à \(\mathcal{C}\) au point d'abscisse \(2\).</li>
+<li>Existe-t-il des points de \(\mathcal{C}\) où la tangente est horizontale ? Si oui, lesquels ?</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Étude de fonction avec exponentielle <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=(2x-3)e^x\).
+<ol>
+<li>Montrer que \(f'(x)=(2x-1)e^x\).</li>
+<li>Étudier le signe de \(f'(x)\) et dresser le tableau de variations de \(f\).</li>
+<li>En déduire que \(f\) admet un minimum, dont on donnera la valeur exacte.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Équations et inéquations avec exp <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Résoudre dans \(\mathbb{R}\) :
+<ol>
+<li>\(e^{x^2}=e^{3x-2}\)</li>
+<li>\(e^{2x+1}\geq 1\)</li>
+<li>\(e^{2x}-3e^x+2=0\) <em>(indication : poser \(X=e^x\) ; on rappelle que \(e^0 = 1\) et on admettra qu'il existe un unique réel noté \(\alpha\) tel que \(e^{\alpha}=2\), valeur qu'on laissera sous cette forme)</em></li>
+<li>\((e^x-1)(e^x+4) < 0\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 6 — Fonction rationnelle <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+Soit \(f(x)=\dfrac{x^2+3}{x-1}\) définie sur \(\mathbb{R}\setminus\{1\}\).
+<ol>
+<li>Montrer que \(f'(x)=\dfrac{(x-3)(x+1)}{(x-1)^2}\).</li>
+<li>Dresser le tableau de variations de \(f\) (les limites ne sont pas demandées).</li>
+<li>La fonction \(f\) admet-elle un maximum local ? un minimum local ? Préciser leurs valeurs.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 7 — Problème d'optimisation <span class="stars">★★★</span> <span class="duree">(30 min)</span></div>
+Dans une plaque carrée de carton de côté 20 cm, on découpe aux quatre coins des carrés identiques de côté \(x\), puis on plie pour former une boîte sans couvercle.
+<ol>
+<li>Justifier que le volume de la boîte est \(V(x)=x(20-2x)^2\) et préciser l'intervalle d'étude pertinent pour \(x\).</li>
+<li>Montrer que \(V'(x)=(20-2x)(20-6x)\).</li>
+<li>En déduire la valeur de \(x\) qui rend le volume maximal, et la valeur exacte puis approchée de ce volume.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 8 — Vers la terminale : une inégalité classique <span class="stars">★★★</span> <span class="duree">(25 min)</span></div>
+On veut démontrer que pour tout réel \(x\) : \(e^x \geq 1+x\).
+<ol>
+<li>On pose \(g(x)=e^x-x-1\). Calculer \(g'(x)\) et étudier son signe.</li>
+<li>Dresser le tableau de variations de \(g\) et calculer \(g(0)\).</li>
+<li>Conclure. Interpréter graphiquement le résultat à l'aide de la tangente à la courbe de l'exponentielle en 0.</li>
+</ol>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés détaillés — Module M1</div>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé. Comparer sa rédaction, pas seulement ses résultats.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1</div>
+<ol>
+<li>\(f'(x)=12x^3-10x+7\)</li>
+<li>\(g'(x)=-\dfrac{5}{x^2}-\dfrac{1}{\sqrt{x}}\) sur \(]0\,;+\infty[\) <span class="rappel-inline">(car \((2\sqrt x)' = 2\times\frac{1}{2\sqrt x}=\frac{1}{\sqrt x}\))</span></li>
+<li>Produit : \(h'(x)=2(x^2-3)+(2x+1)(2x)=6x^2+2x-6\)</li>
+<li>Quotient : \(k'(x)=\dfrac{3(x+2)-(3x-1)}{(x+2)^2}=\dfrac{7}{(x+2)^2}\) sur \(\mathbb{R}\setminus\{-2\}\)</li>
+<li>Produit : \(m'(x)=2xe^x+x^2e^x=x(x+2)e^x\) <span class="rappel-inline">(toujours factoriser !)</span></li>
+<li>\(n'(x)=-3e^{-3x+2}\)</li>
+<li>\(p'(x)=\dfrac{e^x\cdot x - e^x}{x^2}=\dfrac{(x-1)e^x}{x^2}\) sur \(\mathbb{R}^*\)</li>
+<li>Forme \(\dfrac1v\) : \(q'(x)=-\dfrac{2x}{(x^2+1)^2}\)</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>\(x^2-x-6\) : \(\Delta=1+24=25\), racines \(x=\dfrac{1\pm 5}{2}\), soit \(\boxed{-2 \text{ et } 3}\).<br>
+\(2x^2+3x-5\) : \(a+b+c=2+3-5=0\) donc \(1\) est racine évidente, l'autre vaut \(\dfrac{c}{a}=-\dfrac{5}{2}\).</li>
+<li>\(T(x)=-x^2+4x-3\) : \(a+b+c=0\) donc racines \(1\) et \(\dfrac{-3}{-1}=3\). Comme \(a=-1<0\) : \(T(x)<0\) sur \(]-\infty;1[\,\cup\,]3;+\infty[\), \(T(x)>0\) sur \(]1;3[\), nul en 1 et 3.</li>
+<li>Le trinôme \(x^2-x-6\) (avec \(a=1>0\)) est négatif ou nul entre ses racines : \(S=[-2\,;3]\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>\(f'(x)=3x^2-3\), donc \(f'(2)=9\) et \(f(2)=8-6+1=3\). Équation : \(y=f'(2)(x-2)+f(2)=9(x-2)+3\), soit \(\boxed{y=9x-15}\).</li>
+<li>Tangente horizontale \(\iff f'(x)=0 \iff 3x^2-3 = 0\iff x^2=1 \iff x=\pm 1\). Points : \((1\,;f(1))=(1\,;-1)\) et \((-1\,;f(-1))=(-1\,;3)\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4</div>
+<ol>
+<li>Produit \(u v\) avec \(u=2x-3\), \(v=e^x\) : \(f'(x)=2e^x+(2x-3)e^x=(2+2x-3)e^x=(2x-1)e^x\). ✓</li>
+<li>Comme \(e^x>0\) pour tout \(x\), \(f'(x)\) est du signe de \(2x-1\) : négatif sur \(\left]-\infty;\frac12\right[\), positif sur \(\left]\frac12;+\infty\right[\). Donc \(f\) est décroissante puis croissante.</li>
+<li>\(f\) admet donc un minimum (global) en \(x=\dfrac12\) : \(f\!\left(\dfrac12\right)=(1-3)e^{1/2}=\boxed{-2\sqrt{e}}\approx -3{,}30\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5</div>
+<ol>
+<li>\(e^{x^2}=e^{3x-2}\iff x^2=3x-2 \iff x^2-3x+2=0\). Racine évidente \(1\), autre racine \(2\). \(S=\{1\,;2\}\).</li>
+<li>\(e^{2x+1}\geq 1 = e^0 \iff 2x+1\geq 0 \iff x \geq -\dfrac12\). \(S=\left[-\frac12;+\infty\right[\).</li>
+<li>Avec \(X=e^x>0\) : \(X^2-3X+2=0\), racines \(X=1\) et \(X=2\) (toutes deux \(>0\)). Alors \(e^x=1=e^0\) donne \(x=0\), et \(e^x=2\) donne \(x=\alpha\) (le réel admis, qu'on appellera \(\ln 2\) en terminale). \(S=\{0\,;\alpha\}\).</li>
+<li>\(e^x+4>0\) toujours, donc le produit est du signe de \(e^x-1\), qui est \(\lt 0\iff e^x \lt e^0 \iff x \lt 0\). \(S=\,]-\infty\,;0[\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 6</div>
+<ol>
+<li>\(f'(x)=\dfrac{2x(x-1)-(x^2+3)}{(x-1)^2}=\dfrac{x^2-2x-3}{(x-1)^2}\). Le trinôme \(x^2-2x-3\) a pour racines \(-1\) et \(3\) (car \(a-b+c=1+2-3=0\)), d'où la factorisation \((x-3)(x+1)\). ✓</li>
+<li>Le dénominateur \((x-1)^2>0\) sur le domaine ; \(f'\) est du signe de \((x-3)(x+1)\) : positif sur \(]-\infty;-1]\), négatif sur \([-1;1[\,\cup\,]1;3]\), positif sur \([3;+\infty[\). \(f\) est donc croissante, décroissante (de part et d'autre de la valeur interdite 1), puis croissante.</li>
+<li>Maximum local en \(-1\) : \(f(-1)=\dfrac{4}{-2}=-2\). Minimum local en \(3\) : \(f(3)=\dfrac{12}{2}=6\). <span class="rappel-inline">(Remarquer qu'un « maximum local » peut être inférieur à un « minimum local » quand la fonction a une valeur interdite entre les deux.)</span></li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 7</div>
+<ol>
+<li>La base de la boîte est un carré de côté \(20-2x\) et la hauteur est \(x\), d'où \(V(x)=x(20-2x)^2\). Il faut \(x>0\) et \(20-2x>0\), donc \(x\in\,]0\,;10[\).</li>
+<li>Produit avec \(u=x\), \(v=(20-2x)^2\). On sait que \(v'=2\times(-2)(20-2x)=-4(20-2x)\). Donc
+\(V'(x)=(20-2x)^2-4x(20-2x)=(20-2x)\big[(20-2x)-4x\big]=(20-2x)(20-6x)\). ✓</li>
+<li>Sur \(]0;10[\), \(20-2x>0\) ; \(V'\) est donc du signe de \(20-6x\) : positif si \(x<\dfrac{10}{3}\), négatif après. Maximum en \(x=\dfrac{10}{3}\) cm :
+\(V\!\left(\dfrac{10}{3}\right)=\dfrac{10}{3}\left(20-\dfrac{20}{3}\right)^2=\dfrac{10}{3}\times\dfrac{1600}{9}=\dfrac{16\,000}{27}\approx 593\ \text{cm}^3\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 8</div>
+<ol>
+<li>\(g'(x)=e^x-1\). Or \(e^x-1>0 \iff e^x>e^0\iff x>0\). Donc \(g'<0\) sur \(]-\infty;0[\) et \(g'>0\) sur \(]0;+\infty[\).</li>
+<li>\(g\) est décroissante puis croissante : elle admet un minimum global en \(0\), et \(g(0)=e^0-0-1=0\).</li>
+<li>Pour tout \(x\), \(g(x)\geq g(0) = 0\), c'est-à-dire \(e^x\geq 1+x\). ∎<br>
+Graphiquement : la droite \(y=1+x\) est la tangente à la courbe de l'exponentielle en 0 (car \(\exp'(0)=e^0=1\) et \(\exp(0)=1\)) ; l'inégalité signifie que <strong>la courbe de l'exponentielle est toujours au-dessus de sa tangente en 0</strong>. En terminale, on dira que c'est une conséquence de la <em>convexité</em> de l'exponentielle (module M5).</li>
+</ol>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module M1 · Révisions d'analyse de première · Conforme au programme de spécialité mathématiques.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

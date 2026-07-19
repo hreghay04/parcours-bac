@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S2 — Révisions de sociologie et science politique</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="ses" data-module="S2">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html">M1 · Révisions analyse</a>
+<a href="M2.html">M2 · Suites, probas, géométrie</a>
+<a href="M3.html">M3 · Récurrence et limites</a>
+<a href="M4.html">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html">S1 · Économie (révisions)</a>
+<a href="S2.html" class="active">S2 · Socio & politique</a>
+<a href="S3.html">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · SES · Semaine 2</p>
+  <h1>S2 — Révisions de sociologie et science politique</h1>
+  <p class="sub">Socialisation · Liens sociaux · Déviance · Opinion publique et vote + statistiques descriptives</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs de la semaine</span>
+<ul>
+<li>Expliquer le processus de socialisation et son caractère différencié (genre, milieu social).</li>
+<li>Mobiliser les notions de lien social et l'analyse de Durkheim.</li>
+<li>Définir la déviance comme construction sociale (normes, étiquetage, chiffre noir).</li>
+<li>Décrire les grands déterminants du vote et les limites des sondages.</li>
+<li>Calculer moyenne (simple, pondérée) et médiane ; lire un tableau à double entrée ; distinguer corrélation et causalité.</li>
+</ul>
+</div>
+
+<h2>1. La socialisation</h2>
+<p>La <strong>socialisation</strong> est le processus par lequel un individu intériorise les <strong>normes</strong> (règles de comportement) et les <strong>valeurs</strong> (idéaux collectifs) de la société. La socialisation <strong>primaire</strong> (enfance : famille, école, pairs, médias) pèse durablement ; la socialisation <strong>secondaire</strong> (conjugale, professionnelle…) prolonge, ajuste ou transforme les dispositions acquises.</p>
+<div class="box def"><span class="label">L'essentiel à retenir</span>
+La socialisation est <strong>différenciée</strong> : selon le <strong>genre</strong> (jouets, encouragements, orientations scolaires différenciés entre filles et garçons) et selon le <strong>milieu social</strong> (rapport au langage, à la lecture, à l'école). Ces différences produisent des trajectoires inégales <em>sans qu'aucune décision explicite ne soit prise</em> — mécanisme central pour comprendre, en terminale, les inégalités scolaires et la structure sociale.
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 470 185" width="440" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="90" height="24" rx="4" fill="#e8f3f0" stroke="#26695c"/>
+  <text x="55" y="26" font-size="10.5" text-anchor="middle" font-weight="bold">Famille</text>
+  <rect x="125" y="10" width="90" height="24" rx="4" fill="#e8f3f0" stroke="#26695c"/>
+  <text x="170" y="26" font-size="10.5" text-anchor="middle" font-weight="bold">École</text>
+  <rect x="240" y="10" width="90" height="24" rx="4" fill="#e8f3f0" stroke="#26695c"/>
+  <text x="285" y="26" font-size="10.5" text-anchor="middle" font-weight="bold">Pairs</text>
+  <rect x="355" y="10" width="100" height="24" rx="4" fill="#e8f3f0" stroke="#26695c"/>
+  <text x="405" y="26" font-size="10.5" text-anchor="middle" font-weight="bold">Médias</text>
+  <line x1="55" y1="34" x2="200" y2="64" stroke="#333" stroke-width="1.1"/>
+  <line x1="170" y1="34" x2="215" y2="64" stroke="#333" stroke-width="1.1"/>
+  <line x1="285" y1="34" x2="245" y2="64" stroke="#333" stroke-width="1.1"/>
+  <line x1="405" y1="34" x2="262" y2="64" stroke="#333" stroke-width="1.1"/>
+  <rect x="105" y="64" width="255" height="26" rx="4" fill="#eaf1fb" stroke="#1a5fb4"/>
+  <text x="232" y="81" font-size="11" text-anchor="middle" font-weight="bold">Intériorisation de normes et de valeurs</text>
+  <line x1="175" y1="90" x2="120" y2="118" stroke="#333" stroke-width="1.1"/>
+  <line x1="290" y1="90" x2="345" y2="118" stroke="#333" stroke-width="1.1"/>
+  <rect x="30" y="118" width="180" height="24" rx="4" fill="#fdf7ee" stroke="#c26a00"/>
+  <text x="120" y="134" font-size="10.5" text-anchor="middle">différenciée selon le <tspan font-weight="bold">milieu social</tspan></text>
+  <rect x="255" y="118" width="180" height="24" rx="4" fill="#fdf7ee" stroke="#c26a00"/>
+  <text x="345" y="134" font-size="10.5" text-anchor="middle">différenciée selon le <tspan font-weight="bold">genre</tspan></text>
+  <line x1="120" y1="142" x2="215" y2="162" stroke="#333" stroke-width="1.1"/>
+  <line x1="345" y1="142" x2="250" y2="162" stroke="#333" stroke-width="1.1"/>
+  <text x="232" y="176" font-size="10.5" text-anchor="middle" font-style="italic">&#8594; goûts, aspirations, trajectoires scolaires et professionnelles inégales</text>
+</svg>
+<div class="cap">Le processus de socialisation en un schéma : des instances multiples, une intériorisation, des effets différenciés — la trame de l'exercice 5.</div>
+</div>
+
+<h2>2. Les liens sociaux</h2>
+<p>Pour <strong>Durkheim</strong>, la cohésion des sociétés traditionnelles repose sur la <strong>solidarité mécanique</strong> (similitude des individus, conscience collective forte) ; les sociétés modernes, marquées par la division du travail, développent une <strong>solidarité organique</strong> (complémentarité d'individus différenciés). Quatre grands types de liens : filiation (famille), participation élective (amis, couple), participation organique (travail), citoyenneté (communauté politique). L'affaiblissement de ces liens expose à l'<strong>isolement</strong> et à la désaffiliation — notions réinvesties en terminale à propos du pouvoir intégrateur du travail.</p>
+
+<h2>3. Déviance et contrôle social</h2>
+<div class="box def"><span class="label">Notions clés</span>
+La <strong>déviance</strong> est la transgression des normes en vigueur dans un groupe : elle est <strong>relative</strong> (à l'époque, au lieu, au groupe) — c'est une <strong>construction sociale</strong>, pas une propriété de l'acte. Le <strong>contrôle social</strong> (formel : police, justice ; informel : regards, moqueries, réputation) fait respecter les normes. L'approche de l'<strong>étiquetage</strong> (Becker) montre que la déviance résulte aussi de la désignation par autrui : « le déviant est celui à qui l'étiquette a été appliquée avec succès ».
+</div>
+<p>Mesurer la délinquance est difficile : les statistiques policières ne captent que les faits connus (le <strong>chiffre noir</strong> échappe) ; les <strong>enquêtes de victimation</strong> complètent la mesure mais ont leurs propres limites (mémoire, faits sans victime directe).</p>
+
+<h2>4. Opinion publique et comportements électoraux</h2>
+<ul>
+<li>Les <strong>sondages</strong> mesurent l'opinion à partir d'échantillons représentatifs (quotas) : ils comportent des marges d'erreur, dépendent de la formulation des questions et peuvent influencer l'opinion qu'ils prétendent mesurer.</li>
+<li>Le <strong>vote</strong> dépend de <strong>variables lourdes</strong> (catégorie socioprofessionnelle, diplôme, âge, patrimoine, religion) mais est devenu plus <strong>volatil</strong> : l'électeur « stratège » décide plus tard, change davantage. L'<strong>abstention</strong> est socialement située : elle croît quand le diplôme et l'âge diminuent — distinction utile : abstention « dans le jeu » (protestataire) / « hors du jeu » (éloignement politique).</li>
+</ul>
+
+<h2>5. Savoir-faire statistiques</h2>
+<div class="box methode"><span class="label">Les outils à automatiser</span>
+<ul>
+<li><strong>Moyenne pondérée</strong> : \(\bar x=\dfrac{\sum n_i x_i}{\sum n_i}\) — chaque valeur compte proportionnellement à son effectif.</li>
+<li><strong>Médiane</strong> : valeur qui partage la population en deux moitiés. Elle est <strong>insensible aux valeurs extrêmes</strong>, contrairement à la moyenne (revenus : moyenne > médiane car les hauts revenus « tirent » la moyenne).</li>
+<li><strong>Tableau à double entrée</strong> : toujours repérer <em>sur quel total</em> est calculé un pourcentage (ligne ou colonne). Phrase type : « Parmi les X, Y % sont… ».</li>
+<li><strong>Corrélation ≠ causalité</strong> : deux variables peuvent évoluer ensemble à cause d'une <strong>troisième variable</strong> (facteur confondant) ou par hasard ; la causalité peut aussi être <strong>inversée</strong>.</li>
+</ul>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 385 125" width="360" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(20,12)">
+  <line x1="0" y1="70" x2="340" y2="70" stroke="#333" stroke-width="1.2"/>
+  <circle cx="26.2" cy="70" r="4" fill="#26695c"/><circle cx="29.3" cy="61" r="4" fill="#26695c"/><circle cx="32.4" cy="70" r="4" fill="#26695c"/><circle cx="35.5" cy="61" r="4" fill="#26695c"/><circle cx="38.6" cy="70" r="4" fill="#26695c"/><circle cx="44.8" cy="70" r="4" fill="#26695c"/><circle cx="51" cy="70" r="4" fill="#26695c"/><circle cx="63.4" cy="70" r="4" fill="#26695c"/><circle cx="317.6" cy="70" r="4" fill="#b3261e"/>
+  <line x1="38.6" y1="30" x2="38.6" y2="82" stroke="#1b7a43" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <line x1="71" y1="30" x2="71" y2="82" stroke="#c26a00" stroke-width="1.4" stroke-dasharray="4,3"/>
+  <text x="30" y="22" font-size="9.5" fill="#1b7a43" font-weight="bold">médiane : 1 700 &#8364;</text>
+  <text x="80" y="42" font-size="9.5" fill="#c26a00" font-weight="bold">moyenne &#8776; 2 222 &#8364;</text>
+  <text x="317" y="94" font-size="9.5" fill="#b3261e" text-anchor="end">6 200 &#8364; : une seule valeur extrême</text>
+  <text x="20" y="94" font-size="9.5" fill="#666">salaires groupés entre 1 500 et 2 100 &#8364;</text>
+</g>
+</svg>
+<div class="cap">Les salaires de l'exercice 2 sur un axe : la valeur extrême « tire » la moyenne loin du groupe, la médiane reste au milieu des salariés. D'où son usage pour les revenus.</div>
+</div>
+
+<div class="box resolu"><span class="label">Exemple rédigé pas à pas — % en ligne ou % en colonne ?</span>
+<p>Dans une enquête, 100 cadres et 100 ouvriers sont interrogés : 60 cadres déclarent lire des livres régulièrement, contre 30 ouvriers.</p>
+<p><strong>Lecture « en ligne » (au sein de chaque groupe) :</strong> « 60 % <em>des cadres</em> lisent régulièrement » — le total de référence est le groupe des cadres.</p>
+<p><strong>Lecture « en colonne » (au sein des lecteurs) :</strong> il y a \(60+30=90\) lecteurs, dont 60 cadres : « les cadres représentent \(60/90\approx67\ \%\) <em>des lecteurs réguliers</em> » — le total de référence a changé !</p>
+<p><strong>Le réflexe :</strong> avant toute phrase, se demander « <em>sur quel total ce pourcentage est-il calculé ?</em> » et commencer la phrase par « Parmi les X… ». Confondre les deux lectures est l'erreur statistique la plus sanctionnée au bac (voir exercice 3, question 2).</p>
+</div>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Vrai ou faux (justifier) <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+<ol>
+<li>La socialisation s'achève à la fin de l'enfance.</li>
+<li>Pour Durkheim, la solidarité organique caractérise les sociétés à faible division du travail.</li>
+<li>Un même comportement peut être déviant dans un groupe et valorisé dans un autre.</li>
+<li>Les statistiques policières mesurent l'ensemble de la délinquance réelle.</li>
+<li>Le diplôme est corrélé positivement à la participation électorale.</li>
+<li>La médiane des revenus est généralement supérieure à la moyenne.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Moyenne et médiane <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Dans une petite entreprise de 9 salariés, les salaires mensuels nets sont (en €) : 1 500, 1 550, 1 600, 1 650, 1 700, 1 800, 1 900, 2 100, 6 200.
+<ol>
+<li>Calculer le salaire moyen et le salaire médian.</li>
+<li>Lequel décrit le mieux la situation « typique » d'un salarié ? Pourquoi ?</li>
+<li>Le patron affirme : « le salaire moyen dans mon entreprise dépasse 2 200 € ». A-t-il menti ? Que dirait un syndicaliste ?</li>
+<li>Une classe a obtenu 12 de moyenne dans un groupe de 25 élèves et 8 dans un groupe de 15 élèves. Calculer la moyenne de l'ensemble (moyenne pondérée).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Lire un tableau à double entrée <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+<p>Pratique d'une activité sportive régulière selon le diplôme (données fictives mais réalistes, en % de chaque groupe) :</p>
+<table>
+<tr><th></th><th>Sans diplôme</th><th>Bac</th><th>Diplôme du supérieur</th><th>Ensemble</th></tr>
+<tr><th>Pratique régulière</th><td>32</td><td>48</td><td>63</td><td>49</td></tr>
+<tr><th>Pas de pratique régulière</th><td>68</td><td>52</td><td>37</td><td>51</td></tr>
+</table>
+<ol>
+<li>Faire une phrase rigoureuse avec la donnée « 63 ».</li>
+<li>Peut-on dire que « 63 % des sportifs réguliers sont diplômés du supérieur » ? Pourquoi ?</li>
+<li>Calculer l'écart en points entre diplômés du supérieur et non-diplômés, puis le rapport entre leurs taux de pratique. Rédiger une phrase pour chacun.</li>
+<li>Proposer deux explications sociologiques de cette corrélation (penser socialisation et conditions de vie).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Corrélation ou causalité ? <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+Pour chaque affirmation, dire si la causalité invoquée est convaincante et proposer, le cas échéant, une autre explication (troisième variable ou causalité inversée) :
+<ol>
+<li>« Les ventes de glaces et les noyades augmentent ensemble : les glaces provoquent des noyades. »</li>
+<li>« Les élèves qui ont beaucoup de livres à la maison réussissent mieux : acheter des livres améliore les notes. »</li>
+<li>« Les personnes hospitalisées meurent plus que les autres : l'hôpital est dangereux. »</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Mobilisation de connaissances (format EC1) <span class="stars">★★★</span> <span class="duree">(25 min)</span></div>
+<p>« <strong>Montrez, à l'aide de deux exemples, que la socialisation est différenciée selon le genre.</strong> »</p>
+<p>Rédiger une réponse structurée (définition, deux exemples développés avec mécanisme, conclusion) d'une quinzaine de lignes.</p>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés — Module S2</div>
+<p class="corriges-warn">Vérifier la précision des phrases de lecture statistique : c'est un point noté au bac.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1</div>
+<ol>
+<li><strong>Faux</strong> : la socialisation secondaire se poursuit toute la vie (travail, couple, migration…).</li>
+<li><strong>Faux</strong> : c'est l'inverse — la solidarité organique naît de la forte division du travail, qui rend les individus complémentaires.</li>
+<li><strong>Vrai</strong> : la déviance est relative aux normes du groupe (ex. tatouages, consommation d'alcool selon les milieux et les époques).</li>
+<li><strong>Faux</strong> : elles ignorent le chiffre noir (faits non déclarés ou non constatés) ; d'où le recours aux enquêtes de victimation.</li>
+<li><strong>Vrai</strong> : plus le diplôme est élevé, plus la participation électorale est forte (sentiment de compétence politique).</li>
+<li><strong>Faux</strong> : c'est l'inverse — les très hauts revenus tirent la moyenne vers le haut, la médiane reste au « milieu ».</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>Moyenne : \(\dfrac{1500+1550+1600+1650+1700+1800+1900+2100+6200}{9}=\dfrac{20\,000}{9}\approx2\,222\) €. Médiane : 5<sup>e</sup> valeur sur 9 = <strong>1 700 €</strong>.</li>
+<li>La médiane : 8 salariés sur 9 gagnent moins que la moyenne, gonflée par le salaire de 6 200 € (probablement le dirigeant).</li>
+<li>Il n'a pas menti (2 222 > 2 200) mais l'indicateur est trompeur ; le syndicaliste citerait la médiane : « la moitié des salariés gagne au plus 1 700 € ».</li>
+<li>\(\bar x=\dfrac{25\times12+15\times8}{40}=\dfrac{300+120}{40}=10{,}5\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>« Selon ces données, 63 % des diplômés du supérieur pratiquent régulièrement une activité sportive. »</li>
+<li><strong>Non</strong> : le pourcentage est calculé au sein de chaque groupe de diplôme (en colonne), pas au sein des sportifs. Pour l'affirmer, il faudrait connaître la répartition des sportifs par diplôme.</li>
+<li>Écart : 63 − 32 = <strong>31 points</strong> de pourcentage. Rapport : 63/32 ≈ <strong>2</strong> : les diplômés du supérieur ont une probabilité de pratique environ deux fois supérieure à celle des sans-diplôme.</li>
+<li>Pistes : socialisation au sport pendant les études (offre sportive des campus, normes de santé intériorisées) ; conditions de vie et de travail (revenus permettant l'accès aux équipements, horaires plus flexibles, moindre pénibilité physique du travail qui rend le sport « attractif »).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4</div>
+<ol>
+<li>Troisième variable : la <strong>chaleur estivale</strong> augmente à la fois la consommation de glaces et la fréquentation des lieux de baignade.</li>
+<li>Corrélation largement due à une troisième variable : le <strong>milieu social et culturel</strong> des parents (capital culturel), qui influence à la fois la présence de livres et l'accompagnement scolaire. Acheter des livres sans changer les pratiques n'aurait qu'un effet limité.</li>
+<li><strong>Causalité inversée</strong> (effet de sélection) : on est hospitalisé <em>parce qu'</em>on est gravement malade ; ce n'est pas l'hôpital qui cause la surmortalité.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5 — éléments de réponse rédigée</div>
+<p>« La socialisation désigne le processus d'intériorisation des normes et des valeurs. Elle est <strong>différenciée selon le genre</strong> : filles et garçons n'intériorisent pas les mêmes dispositions.</p>
+<p>Premier exemple : dès la petite enfance, les <strong>jouets</strong> proposés diffèrent — poupées et dînettes orientent les filles vers le soin et la sphère domestique, jeux de construction et figurines d'action orientent les garçons vers la manipulation technique et la compétition. Ces expériences répétées façonnent des goûts qui paraissent ensuite « naturels ».</p>
+<p>Deuxième exemple : à l'école, les <strong>encouragements et les orientations</strong> restent genrés — à niveau comparable en mathématiques, les filles s'orientent moins vers les filières scientifiques les plus valorisées, en partie parce que l'entourage anticipe pour elles d'autres rôles et qu'elles ont intériorisé un moindre « sentiment de compétence ».</p>
+<p>Ainsi, par imprégnation et sans intention explicite, la socialisation différenciée contribue à reproduire des inégalités entre les sexes, visibles ensuite sur le marché du travail. »</p>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module S2 · Révisions de sociologie et science politique.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

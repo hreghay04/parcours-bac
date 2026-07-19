@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M6 — Combinatoire et dénombrement</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="maths" data-module="M6">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html">M1 · Révisions analyse</a>
+<a href="M2.html">M2 · Suites, probas, géométrie</a>
+<a href="M3.html">M3 · Récurrence et limites</a>
+<a href="M4.html">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html" class="active">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html">S1 · Économie (révisions)</a>
+<a href="S2.html">S2 · Socio & politique</a>
+<a href="S3.html">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · Mathématiques · Semaine 6 · Programme de terminale</p>
+  <h1>M6 — Combinatoire et dénombrement</h1>
+  <p class="sub">Principes additif et multiplicatif · k-uplets · Permutations · Combinaisons</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs de la semaine</span>
+<ul>
+<li>Utiliser les principes additif et multiplicatif pour compter.</li>
+<li>Distinguer les quatre situations types : k-uplets, k-uplets d'éléments distincts, permutations, combinaisons.</li>
+<li>Calculer avec les factorielles et les coefficients binomiaux.</li>
+<li>Connaître et démontrer les propriétés des \(\binom{n}{k}\) : symétrie, relation de Pascal, somme.</li>
+<li>Se poser les deux bonnes questions : <em>l'ordre compte-t-il ? les répétitions sont-elles permises ?</em></li>
+</ul>
+</div>
+
+<h2>1. Les deux principes de base</h2>
+
+<div class="box theo"><span class="label">Principes</span>
+<ul>
+<li><strong>Principe additif</strong> : si \(A\) et \(B\) sont des ensembles <strong>disjoints</strong>, alors \(\#(A\cup B)=\#A+\#B\). (On additionne quand on découpe en cas incompatibles.)</li>
+<li><strong>Principe multiplicatif</strong> : si une situation se construit en plusieurs étapes indépendantes offrant \(n_1\), puis \(n_2\), … choix, le nombre total est \(n_1\times n_2\times\cdots\). En particulier \(\#(A\times B)=\#A\times\#B\) (produit cartésien).</li>
+</ul>
+</div>
+
+<h2>2. Les quatre situations types</h2>
+
+<div class="box theo"><span class="label">Tableau récapitulatif (à connaître parfaitement)</span>
+Soit un ensemble \(E\) à \(n\) éléments.
+<table style="width:100%">
+<tr><th>Situation</th><th>Ordre ?</th><th>Répétition ?</th><th>Nombre</th><th>Exemple</th></tr>
+<tr><td>\(k\)-uplet de \(E\)</td><td>oui</td><td>oui</td><td>\(n^k\)</td><td>code PIN à 4 chiffres : \(10^4\)</td></tr>
+<tr><td>\(k\)-uplet d'éléments <strong>distincts</strong> (arrangement)</td><td>oui</td><td>non</td><td>\(\dfrac{n!}{(n-k)!}\)</td><td>tiercé dans l'ordre : \(\frac{n!}{(n-3)!}\)</td></tr>
+<tr><td>Permutation de \(E\)</td><td>oui</td><td>non (\(k=n\))</td><td>\(n!\)</td><td>classements de \(n\) élèves</td></tr>
+<tr><td><strong>Combinaison</strong> : partie à \(k\) éléments</td><td><strong>non</strong></td><td>non</td><td>\(\dbinom{n}{k}=\dfrac{n!}{k!\,(n-k)!}\)</td><td>main de 5 cartes</td></tr>
+</table>
+<p style="margin-top:4px">avec \(n! = n\times(n-1)\times\cdots\times2\times1\) et la convention \(0!=1\).</p>
+</div>
+
+<div class="box theo"><span class="label">Propriétés des coefficients binomiaux</span>
+$$\binom n0=\binom nn=1 \qquad \binom n1=n \qquad \binom nk=\binom{n}{n-k} \ \text{(symétrie)}$$
+$$\text{Relation de Pascal : } \binom nk+\binom{n}{k+1}=\binom{n+1}{k+1} \qquad\qquad \sum_{k=0}^{n}\binom nk=2^n$$
+La dernière formule dit qu'un ensemble à \(n\) éléments possède \(2^n\) parties (chaque élément est dedans ou pas : \(2\times2\times\cdots\times2\)).
+</div>
+
+<div class="box resolu"><span class="label">Exemple résolu pas à pas — un digicode</span>
+<p>Un digicode se compose de 2 lettres <strong>distinctes</strong> choisies parmi \(\{A,B,C,D,E\}\), suivies de 3 chiffres (répétitions permises). Combien de codes possibles ? Combien contiennent au moins un chiffre pair ?</p>
+<p><strong>Étape 1 — classer chaque bloc avec les deux questions.</strong> Lettres : l'ordre compte (AB ≠ BA), pas de répétition → arrangement : \(5\times4=20\) choix. Chiffres : ordre + répétition → 3-uplets : \(10^3=1\,000\) choix.</p>
+<p><strong>Étape 2 — assembler par le principe multiplicatif :</strong> \(20\times1\,000=20\,000\) codes.</p>
+<p><strong>Étape 3 — « au moins un » : passer par le complémentaire.</strong> Codes sans aucun chiffre pair : les 3 chiffres sont pris parmi \(\{1,3,5,7,9\}\), soit \(5^3=125\) possibilités, d'où \(20\times125=2\,500\) codes « tout impair ». Par complémentaire : \(20\,000-2\,500=17\,500\) codes contiennent au moins un chiffre pair. <em>(Compter directement « au moins un » obligerait à distinguer 1, 2 ou 3 chiffres pairs : trois fois plus de travail.)</em></p>
+</div>
+
+<div class="box methode"><span class="label">Méthode — le réflexe en deux questions</span>
+Devant tout problème de dénombrement :
+<ol>
+<li><strong>L'ordre compte-t-il ?</strong> (un « mot », un podium, un code → oui ; une « main », un comité, un choix de fruits → non)</li>
+<li><strong>Peut-on répéter un élément ?</strong></li>
+</ol>
+Puis repérer si le problème se découpe en <strong>étapes</strong> (multiplier) ou en <strong>cas disjoints</strong> (additionner). Pour « au moins un… », penser au <strong>complémentaire</strong>.
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 460 200" width="430" xmlns="http://www.w3.org/2000/svg">
+  <rect x="140" y="5" width="190" height="26" rx="4" fill="#eaf1fb" stroke="#1a5fb4"/>
+  <text x="235" y="22" font-size="11.5" text-anchor="middle" font-weight="bold">L'ordre compte-t-il ?</text>
+  <line x1="185" y1="31" x2="125" y2="70" stroke="#333" stroke-width="1.2"/>
+  <line x1="290" y1="31" x2="355" y2="70" stroke="#333" stroke-width="1.2"/>
+  <text x="138" y="52" font-size="10" fill="#1b7a43" font-weight="bold">oui</text>
+  <text x="330" y="52" font-size="10" fill="#b3261e" font-weight="bold">non</text>
+  <rect x="30" y="70" width="190" height="26" rx="4" fill="#eaf1fb" stroke="#1a5fb4"/>
+  <text x="125" y="87" font-size="11.5" text-anchor="middle" font-weight="bold">Répétition possible ?</text>
+  <rect x="290" y="70" width="160" height="52" rx="4" fill="#f2faf5" stroke="#1b7a43"/>
+  <text x="370" y="88" font-size="11" text-anchor="middle" font-weight="bold">Combinaison</text>
+  <text x="370" y="106" font-size="10.5" text-anchor="middle">n! / ( k! (n&#8722;k)! )</text>
+  <line x1="80" y1="96" x2="55" y2="138" stroke="#333" stroke-width="1.2"/>
+  <line x1="170" y1="96" x2="200" y2="138" stroke="#333" stroke-width="1.2"/>
+  <text x="48" y="118" font-size="10" fill="#1b7a43" font-weight="bold">oui</text>
+  <text x="196" y="118" font-size="10" fill="#b3261e" font-weight="bold">non</text>
+  <rect x="8" y="138" width="105" height="48" rx="4" fill="#fdf7ee" stroke="#c26a00"/>
+  <text x="60" y="156" font-size="11" text-anchor="middle" font-weight="bold">k-uplet</text>
+  <text x="60" y="174" font-size="11" text-anchor="middle">n&#7501;</text>
+  <rect x="135" y="138" width="135" height="48" rx="4" fill="#fdf7ee" stroke="#c26a00"/>
+  <text x="202" y="153" font-size="11" text-anchor="middle" font-weight="bold">arrangement</text>
+  <text x="202" y="168" font-size="10.5" text-anchor="middle">n! / (n&#8722;k)!</text>
+  <text x="202" y="181" font-size="9" text-anchor="middle" fill="#666">(permutation n! si k = n)</text>
+</svg>
+<div class="cap">Le réflexe en deux questions, sous forme d'arbre : toute situation de dénombrement se classe en suivant ces branches.</div>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 300 180" width="270" xmlns="http://www.w3.org/2000/svg">
+  <text x="150" y="20" font-size="11" text-anchor="middle">1</text>
+  <text x="135" y="42" font-size="11" text-anchor="middle">1</text><text x="165" y="42" font-size="11" text-anchor="middle">1</text>
+  <text x="120" y="64" font-size="11" text-anchor="middle">1</text><text x="150" y="64" font-size="11" text-anchor="middle">2</text><text x="180" y="64" font-size="11" text-anchor="middle">1</text>
+  <text x="105" y="86" font-size="11" text-anchor="middle">1</text><text x="135" y="86" font-size="11" text-anchor="middle">3</text><text x="165" y="86" font-size="11" text-anchor="middle">3</text><text x="195" y="86" font-size="11" text-anchor="middle">1</text>
+  <text x="90" y="108" font-size="11" text-anchor="middle">1</text><text x="120" y="108" font-size="11" text-anchor="middle" fill="#1a5fb4" font-weight="bold">4</text><text x="150" y="108" font-size="11" text-anchor="middle" fill="#1a5fb4" font-weight="bold">6</text><text x="180" y="108" font-size="11" text-anchor="middle">4</text><text x="210" y="108" font-size="11" text-anchor="middle">1</text>
+  <text x="75" y="130" font-size="11" text-anchor="middle">1</text><text x="105" y="130" font-size="11" text-anchor="middle">5</text><text x="135" y="130" font-size="11" text-anchor="middle" fill="#b3261e" font-weight="bold">10</text><text x="165" y="130" font-size="11" text-anchor="middle">10</text><text x="195" y="130" font-size="11" text-anchor="middle">5</text><text x="225" y="130" font-size="11" text-anchor="middle">1</text>
+  <text x="60" y="152" font-size="11" text-anchor="middle">1</text><text x="90" y="152" font-size="11" text-anchor="middle">6</text><text x="120" y="152" font-size="11" text-anchor="middle">15</text><text x="150" y="152" font-size="11" text-anchor="middle">20</text><text x="180" y="152" font-size="11" text-anchor="middle">15</text><text x="210" y="152" font-size="11" text-anchor="middle">6</text><text x="240" y="152" font-size="11" text-anchor="middle">1</text>
+  <line x1="122" y1="112" x2="132" y2="120" stroke="#b3261e" stroke-width="1.2"/>
+  <line x1="148" y1="112" x2="138" y2="120" stroke="#b3261e" stroke-width="1.2"/>
+  <text x="262" y="108" font-size="9.5" fill="#1a5fb4">4 + 6</text>
+  <text x="262" y="130" font-size="9.5" fill="#b3261e">= 10</text>
+</svg>
+<div class="cap">Le triangle de Pascal : chaque coefficient est la somme des deux du dessus (relation de Pascal, démontrée à l'exercice 6). La ligne n donne les &#8222;n parmi k&#8220; et sa somme vaut 2&#8319;.</div>
+</div>
+
+<div class="box attention"><span class="label">Erreurs classiques</span>
+<ul>
+<li>Utiliser \(\binom nk\) quand l'ordre compte (ou \(n^k\) quand il ne compte pas).</li>
+<li>Compter deux fois les mêmes objets quand les cas ne sont pas disjoints.</li>
+<li>« Au moins un » calculé directement au lieu de \(1 -\) (aucun) : possible mais périlleux.</li>
+</ul>
+</div>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Calculs de base <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+<ol>
+<li>Calculer \(5!\), \(\dfrac{8!}{6!}\), \(\dbinom52\), \(\dbinom{10}{3}\), \(\dbinom{100}{98}\).</li>
+<li>Simplifier \(\dfrac{n!}{(n-2)!}\) et vérifier que \(\dbinom n2=\dfrac{n(n-1)}{2}\).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Codes et mots de passe <span class="stars">★</span> <span class="duree">(20 min)</span></div>
+<ol>
+<li>Combien de codes à 4 chiffres peut-on former ? Combien avec 4 chiffres tous différents ?</li>
+<li>Un mot de passe comporte 8 caractères choisis parmi les 26 lettres minuscules et les 10 chiffres. Combien y en a-t-il ? Combien contiennent au moins un chiffre ?</li>
+<li>Combien d'anagrammes (mots ayant un sens ou non) du mot MATHS ? Et du mot ANNEE ? <em>(attention aux lettres répétées)</em></li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Podiums et tirages <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Une course réunit 12 coureurs.
+<ol>
+<li>Combien de podiums (1<sup>er</sup>, 2<sup>e</sup>, 3<sup>e</sup>) possibles ?</li>
+<li>Combien de façons de désigner 3 qualifiés (sans ordre) ?</li>
+<li>Expliquer le lien entre les deux réponses (pourquoi un facteur \(3!\) ?).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Comités avec contraintes <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+Une classe compte 18 filles et 12 garçons. On forme un comité de 5 élèves.
+<ol>
+<li>Combien de comités possibles ?</li>
+<li>Combien de comités formés de 3 filles et 2 garçons ?</li>
+<li>Combien de comités contenant au moins une fille ?</li>
+<li>Combien de comités contenant Aïcha <strong>ou</strong> Karim (ou les deux) ?</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Mains de cartes <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+On tire une main de 5 cartes dans un jeu de 32 cartes.
+<ol>
+<li>Combien de mains possibles ?</li>
+<li>Combien contiennent exactement 2 as ?</li>
+<li>Combien contiennent uniquement des cœurs ? En déduire la probabilité de cet événement (arrondie à \(10^{-5}\)).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 6 — Démonstrations <span class="stars">★★★</span> <span class="duree">(30 min)</span></div>
+<ol>
+<li>Démontrer par le calcul la symétrie \(\dbinom nk=\dbinom{n}{n-k}\), puis l'interpréter par un raisonnement de dénombrement (« choisir qui entre » / « choisir qui reste »).</li>
+<li>Démontrer la relation de Pascal \(\dbinom nk+\dbinom n{k+1}=\dbinom{n+1}{k+1}\) par un raisonnement combinatoire : parmi les parties à \(k+1\) éléments d'un ensemble à \(n+1\) éléments, distinguer celles qui contiennent un élément fixé \(a\) et celles qui ne le contiennent pas.</li>
+<li>En déduire les premières lignes du triangle de Pascal jusqu'à \(n=6\).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 7 — Synthèse : dénombrement et probabilités <span class="stars">★★★</span> <span class="duree">(30 min)</span></div>
+Un sac contient 6 boules rouges et 4 boules bleues, indiscernables au toucher. On en tire simultanément 3.
+<ol>
+<li>Combien de tirages possibles ?</li>
+<li>Déterminer la probabilité d'obtenir exactement \(k\) boules rouges, pour \(k=0,1,2,3\). Vérifier que la somme des quatre probabilités vaut 1.</li>
+<li>Soit \(X\) le nombre de boules rouges tirées. Calculer \(E(X)\). Comparer à \(3\times\dfrac{6}{10}\) et commenter.</li>
+</ol>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés détaillés — Module M6</div>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1</div>
+<ol>
+<li>\(5!=120\) ; \(\dfrac{8!}{6!}=8\times7=56\) ; \(\dbinom52=\dfrac{5\times4}{2}=10\) ; \(\dbinom{10}3=\dfrac{10\times9\times8}{6}=120\) ; \(\dbinom{100}{98}=\dbinom{100}{2}=\dfrac{100\times99}{2}=4\,950\) (symétrie !).</li>
+<li>\(\dfrac{n!}{(n-2)!}=n(n-1)\) ; \(\dbinom n2=\dfrac{n!}{2!(n-2)!}=\dfrac{n(n-1)}{2}\). ✓</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>\(10^4=10\,000\) (4-uplets) ; tous différents : \(10\times9\times8\times7=5\,040\).</li>
+<li>\(36^8\approx2{,}82\times10^{12}\). Au moins un chiffre = complémentaire de « aucun chiffre » : \(36^8-26^8\approx2{,}61\times10^{12}\).</li>
+<li>MATHS : 5 lettres distinctes, \(5!=120\) anagrammes. ANNEE : \(\dfrac{5!}{2!\,2!}=30\) (on divise par les permutations internes des deux N et des deux E).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>Ordre, sans répétition : \(12\times11\times10=1\,320\).</li>
+<li>Sans ordre : \(\dbinom{12}3=220\).</li>
+<li>Chaque groupe de 3 qualifiés peut s'ordonner de \(3!=6\) façons en un podium : \(1\,320=220\times6\). D'où la formule générale \(\binom nk=\dfrac{n!/(n-k)!}{k!}\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4</div>
+<ol>
+<li>\(\dbinom{30}5=142\,506\).</li>
+<li>Étapes indépendantes : \(\dbinom{18}3\times\dbinom{12}2=816\times66=53\,856\).</li>
+<li>Complémentaire (aucune fille = 5 garçons) : \(\dbinom{30}5-\dbinom{12}5=142\,506-792=141\,714\).</li>
+<li>Complémentaire (ni Aïcha ni Karim : on choisit 5 élèves parmi les 28 autres) : \(\dbinom{30}5-\dbinom{28}5=142\,506-98\,280=44\,226\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5</div>
+<ol>
+<li>\(\dbinom{32}5=201\,376\).</li>
+<li>2 as parmi 4 <em>et</em> 3 cartes parmi les 28 non-as : \(\dbinom42\times\dbinom{28}3=6\times3\,276=19\,656\).</li>
+<li>Il y a 8 cœurs : \(\dbinom85=56\) mains. Probabilité : \(\dfrac{56}{201\,376}\approx0{,}00028\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 6</div>
+<ol>
+<li>Calcul : \(\dbinom{n}{n-k}=\dfrac{n!}{(n-k)!\,\big(n-(n-k)\big)!}=\dfrac{n!}{(n-k)!\,k!}=\dbinom nk\). Interprétation : choisir les \(k\) membres d'un groupe revient exactement à choisir les \(n-k\) exclus — il y a donc autant de choix des uns que des autres.</li>
+<li>Fixons un élément \(a\) d'un ensemble \(E\) à \(n+1\) éléments, et comptons les parties à \(k+1\) éléments de \(E\). Celles qui <strong>contiennent</strong> \(a\) : il reste \(k\) éléments à choisir parmi les \(n\) autres, soit \(\binom nk\). Celles qui <strong>ne contiennent pas</strong> \(a\) : \(k+1\) éléments parmi \(n\), soit \(\binom n{k+1}\). Les deux cas sont disjoints et couvrent tout : \(\binom{n+1}{k+1}=\binom nk+\binom n{k+1}\). ∎</li>
+<li>Lignes du triangle : 1 · 1 1 · 1 2 1 · 1 3 3 1 · 1 4 6 4 1 · 1 5 10 10 5 1 · 1 6 15 20 15 6 1.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 7</div>
+<ol>
+<li>Tirage simultané = sans ordre : \(\dbinom{10}3=120\).</li>
+<li>\(P(X=k)=\dfrac{\binom6k\binom4{3-k}}{120}\) :
+\(P(X=0)=\dfrac{1\times4}{120}=\dfrac{4}{120}\) ; \(P(X=1)=\dfrac{6\times6}{120}=\dfrac{36}{120}\) ; \(P(X=2)=\dfrac{15\times4}{120}=\dfrac{60}{120}\) ; \(P(X=3)=\dfrac{20\times1}{120}=\dfrac{20}{120}\). Somme : \(\dfrac{4+36+60+20}{120}=1\). ✓</li>
+<li>\(E(X)=\dfrac{0\times4+1\times36+2\times60+3\times20}{120}=\dfrac{216}{120}=1{,}8\). Or \(3\times\dfrac{6}{10}=1{,}8\) : en moyenne, la proportion de rouges du sac (60 %) se retrouve dans le tirage. <span class="rappel-inline">(Résultat général élégant — et non évident, car les tirages ne sont pas indépendants !)</span></li>
+</ol>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module M6 · Combinatoire et dénombrement.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

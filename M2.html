@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M2 — Révisions : suites, probabilités, géométrie</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="maths" data-module="M2">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html">M1 · Révisions analyse</a>
+<a href="M2.html" class="active">M2 · Suites, probas, géométrie</a>
+<a href="M3.html">M3 · Récurrence et limites</a>
+<a href="M4.html">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html">S1 · Économie (révisions)</a>
+<a href="S2.html">S2 · Socio & politique</a>
+<a href="S3.html">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · Mathématiques · Semaine 2</p>
+  <h1>M2 — Révisions : suites, probabilités, géométrie</h1>
+  <p class="sub">Suites arithmétiques et géométriques · Probabilités conditionnelles · Variables aléatoires · Produit scalaire</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs de la semaine</span>
+<ul>
+<li>Reconnaître et exploiter une suite arithmétique ou géométrique (terme général, sommes).</li>
+<li>Étudier le sens de variation d'une suite.</li>
+<li>Construire un arbre pondéré, utiliser la formule des probabilités totales, tester l'indépendance.</li>
+<li>Déterminer la loi d'une variable aléatoire, calculer et interpréter espérance et variance.</li>
+<li>Calculer un produit scalaire de trois façons et prouver une orthogonalité.</li>
+</ul>
+</div>
+
+<h2>1. Les suites numériques</h2>
+
+<div class="box def"><span class="label">Deux modes de génération</span>
+Une suite \((u_n)\) peut être définie de façon <strong>explicite</strong> (\(u_n = f(n)\) : on calcule directement le terme de rang \(n\)) ou <strong>par récurrence</strong> (\(u_{n+1}=f(u_n)\) et un premier terme : chaque terme se calcule à partir du précédent).
+</div>
+
+<div class="box theo"><span class="label">Suites arithmétiques et géométriques (à savoir par cœur)</span>
+<table style="width:100%">
+<tr><th></th><th>Arithmétique (raison \(r\))</th><th>Géométrique (raison \(q\))</th></tr>
+<tr><th>Relation</th><td>\(u_{n+1}=u_n+r\)</td><td>\(u_{n+1}=q\,u_n\)</td></tr>
+<tr><th>Terme général</th><td>\(u_n=u_0+nr = u_p+(n-p)r\)</td><td>\(u_n=u_0\,q^n = u_p\,q^{n-p}\)</td></tr>
+<tr><th>Somme utile</th><td>\(1+2+\cdots+n=\dfrac{n(n+1)}{2}\)</td><td>\(1+q+\cdots+q^n=\dfrac{1-q^{n+1}}{1-q}\) (si \(q\neq1\))</td></tr>
+</table>
+<p style="margin-top:4px">Somme de termes consécutifs : (nombre de termes) × (premier + dernier)/2 pour l'arithmétique ; premier terme × \(\dfrac{1-q^{\text{nb de termes}}}{1-q}\) pour la géométrique.</p>
+</div>
+
+<div class="box methode"><span class="label">Méthode — sens de variation d'une suite</span>
+<ul>
+<li>Étudier le <strong>signe de \(u_{n+1}-u_n\)</strong> (méthode universelle).</li>
+<li>Si tous les termes sont strictement positifs : comparer \(\dfrac{u_{n+1}}{u_n}\) à 1.</li>
+<li>Si \(u_n=f(n)\) : utiliser le sens de variation de \(f\) sur \([0;+\infty[\).</li>
+</ul>
+</div>
+
+<div class="box attention"><span class="label">Erreur classique</span>
+Une suite géométrique de raison \(q\) avec \(0 \lt q \lt 1\) et \(u_0>0\) est <strong>décroissante</strong> (on multiplie par un nombre plus petit que 1). Ne pas confondre « raison positive » et « suite croissante ».
+</div>
+
+<div class="box resolu"><span class="label">Exemple résolu pas à pas — suite arithmético-géométrique (le schéma à retenir)</span>
+<p>Une salle de sport compte \(u_0=1\,000\) abonnés ; chaque année elle en conserve 90 % et en recrute 200 : \(u_{n+1}=0{,}9\,u_n+200\). Exprimons \(u_n\).</p>
+<p><strong>Étape 1 — chercher le point fixe :</strong> on résout \(\ell=0{,}9\,\ell+200\), soit \(0{,}1\,\ell=200\), donc \(\ell=2\,000\). <em>(C'est la valeur d'équilibre : si on y est, on y reste.)</em></p>
+<p><strong>Étape 2 — poser la suite auxiliaire</strong> \(v_n=u_n-2\,000\) et montrer qu'elle est géométrique :
+\(v_{n+1}=u_{n+1}-2000=0{,}9u_n+200-2000=0{,}9u_n-1800=0{,}9(u_n-2000)=0{,}9\,v_n\). Donc \((v_n)\) est géométrique de raison \(0{,}9\), avec \(v_0=1000-2000=-1000\).</p>
+<p><strong>Étape 3 — revenir à \(u_n\) :</strong> \(v_n=-1000\times0{,}9^n\), d'où \(u_n=2\,000-1\,000\times0{,}9^n\).</p>
+<p><strong>Étape 4 — interpréter :</strong> comme \(0{,}9^n\) s'approche de 0, le nombre d'abonnés croît vers 2 000 sans jamais le dépasser. <em>(Ce schéma en 4 étapes est celui de l'exercice 3 et d'innombrables sujets de bac.)</em></p>
+</div>
+
+<h2>2. Probabilités conditionnelles</h2>
+
+<div class="box def"><span class="label">Définition</span>
+Si \(P(A)\neq 0\), la <strong>probabilité de \(B\) sachant \(A\)</strong> est :
+$$P_A(B)=\frac{P(A\cap B)}{P(A)} \qquad\text{d'où}\qquad P(A\cap B)=P(A)\times P_A(B)$$
+</div>
+
+<div class="box theo"><span class="label">Formule des probabilités totales</span>
+Si \(A\) et \(\overline{A}\) forment une partition de l'univers (plus généralement \(A_1,\dots,A_n\)) :
+$$P(B)=P(A\cap B)+P(\overline{A}\cap B)=P(A)\,P_A(B)+P(\overline{A})\,P_{\overline{A}}(B)$$
+C'est la formule « des feuilles de l'arbre » : on additionne les chemins qui mènent à \(B\).
+</div>
+
+<div class="box def"><span class="label">Indépendance</span>
+\(A\) et \(B\) sont <strong>indépendants</strong> si \(P(A\cap B)=P(A)\times P(B)\), autrement dit si \(P_A(B)=P(B)\) : savoir que \(A\) est réalisé ne change pas la probabilité de \(B\).
+</div>
+
+<div class="box methode"><span class="label">Méthode — l'arbre pondéré</span>
+<ul>
+<li>1<sup>er</sup> niveau : l'événement dont on connaît la probabilité <em>a priori</em> ; 2<sup>e</sup> niveau : les probabilités conditionnelles.</li>
+<li>La somme des probabilités issues d'un même nœud vaut 1.</li>
+<li>Probabilité d'un chemin = produit des probabilités des branches.</li>
+<li>Pour « remonter l'arbre » (calculer \(P_B(A)\) alors que l'arbre donne \(P_A(B)\)) : revenir à la définition \(P_B(A)=\dfrac{P(A\cap B)}{P(B)}\).</li>
+</ul>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 430 175" width="410" xmlns="http://www.w3.org/2000/svg">
+  <line x1="25" y1="85" x2="120" y2="45" stroke="#333" stroke-width="1.3"/>
+  <line x1="25" y1="85" x2="120" y2="125" stroke="#333" stroke-width="1.3"/>
+  <line x1="140" y1="41" x2="228" y2="25" stroke="#333" stroke-width="1.3"/>
+  <line x1="140" y1="49" x2="228" y2="65" stroke="#333" stroke-width="1.3"/>
+  <line x1="140" y1="121" x2="228" y2="105" stroke="#333" stroke-width="1.3"/>
+  <line x1="140" y1="129" x2="228" y2="145" stroke="#333" stroke-width="1.3"/>
+  <text x="62" y="54" font-size="10" fill="#c26a00">0,6</text>
+  <text x="62" y="120" font-size="10" fill="#c26a00">0,4</text>
+  <text x="176" y="24" font-size="10" fill="#c26a00">0,02</text>
+  <text x="176" y="60" font-size="10" fill="#c26a00">0,98</text>
+  <text x="176" y="104" font-size="10" fill="#c26a00">0,05</text>
+  <text x="176" y="143" font-size="10" fill="#c26a00">0,95</text>
+  <text x="126" y="49" font-size="12" font-weight="bold">A</text>
+  <text x="126" y="129" font-size="12" font-weight="bold">A&#772;</text>
+  <text x="234" y="29" font-size="12" font-weight="bold">D</text>
+  <text x="234" y="69" font-size="12" font-weight="bold">D&#772;</text>
+  <text x="234" y="109" font-size="12" font-weight="bold">D</text>
+  <text x="234" y="149" font-size="12" font-weight="bold">D&#772;</text>
+  <text x="258" y="29" font-size="10" fill="#1a5fb4">&#8594; P(A&#8745;D) = 0,6 &#215; 0,02 = 0,012</text>
+  <text x="258" y="109" font-size="10" fill="#1a5fb4">&#8594; P(A&#772;&#8745;D) = 0,4 &#215; 0,05 = 0,020</text>
+  <text x="258" y="132" font-size="10" fill="#1b7a43">P(D) = 0,012 + 0,020 = 0,032</text>
+</svg>
+<div class="cap">L'arbre pondéré de l'exercice 4 : un chemin = un produit ; la probabilité de D = la somme des chemins qui y mènent (probabilités totales).</div>
+</div>
+
+<h2>3. Variables aléatoires</h2>
+
+<div class="box def"><span class="label">Loi, espérance, variance</span>
+Une <strong>variable aléatoire</strong> \(X\) associe un réel à chaque issue. Sa <strong>loi</strong> est la donnée des \(P(X=x_i)\). Alors :
+$$E(X)=\sum_i x_i\,P(X=x_i) \qquad V(X)=\sum_i x_i^2\,P(X=x_i) - E(X)^2 \qquad \sigma(X)=\sqrt{V(X)}$$
+\(E(X)\) s'interprète comme la <strong>valeur moyenne</strong> de \(X\) sur un très grand nombre de répétitions ; \(\sigma(X)\) mesure la dispersion autour de cette moyenne.
+</div>
+
+<h2>4. Produit scalaire (rappels utiles pour la géométrie de terminale)</h2>
+
+<div class="box theo"><span class="label">Trois expressions du produit scalaire</span>
+$$\vec u\cdot\vec v = \|\vec u\|\,\|\vec v\|\cos(\vec u,\vec v) \qquad \vec u\cdot\vec v = xx'+yy' \qquad \vec u\cdot\vec v = \frac12\left(\|\vec u+\vec v\|^2-\|\vec u\|^2-\|\vec v\|^2\right)$$
+<ul>
+<li>\(\vec u \perp \vec v \iff \vec u\cdot\vec v = 0\).</li>
+<li>\(\|\vec u\|^2 = \vec u\cdot\vec u = x^2+y^2\).</li>
+<li>Al-Kashi dans un triangle : \(a^2=b^2+c^2-2bc\cos\widehat{A}\).</li>
+</ul>
+</div>
+<p><em>En terminale, ces formules s'étendent à l'espace (coordonnées \((x,y,z)\)) : les avoir parfaitement en main en dimension 2 rend le chapitre de géométrie dans l'espace beaucoup plus simple.</em></p>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+<p style="font-style:italic;font-size:9.5pt;margin-top:0">Environ 2 exercices par jour ; l'exercice 3 prépare directement le chapitre de terminale sur les suites.</p>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Reconnaître et calculer <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+<ol>
+<li>\((u_n)\) est arithmétique avec \(u_3=11\) et \(u_8=26\). Déterminer la raison et \(u_0\), puis exprimer \(u_n\).</li>
+<li>\((v_n)\) est géométrique avec \(v_1=6\) et \(v_4=48\). Déterminer la raison (positive) et exprimer \(v_n\).</li>
+<li>Calculer \(S=1+2+3+\cdots+100\), puis \(T=1+\dfrac12+\dfrac14+\cdots+\dfrac{1}{2^{10}}\).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Sens de variation <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Étudier le sens de variation des suites suivantes :
+<ol>
+<li>\(u_n = n^2-4n+1\) (utiliser \(u_{n+1}-u_n\))</li>
+<li>\(v_n = \dfrac{3^n}{n+1}\) pour \(n\geq 0\) (utiliser \(\dfrac{v_{n+1}}{v_n}\))</li>
+<li>\(w_n = 5\times 0{,}8^n\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Suite arithmético-géométrique (vers la terminale) <span class="stars">★★</span> <span class="duree">(30 min)</span></div>
+Chaque année, une médiathèque conserve 80 % de ses abonnés et gagne 600 nouveaux abonnés. En 2026 (année 0), elle compte \(u_0=1\,200\) abonnés. On note \(u_{n}\) le nombre d'abonnés l'année \(n\), de sorte que \(u_{n+1}=0{,}8\,u_n+600\).
+<ol>
+<li>Calculer \(u_1\) et \(u_2\). La suite \((u_n)\) est-elle arithmétique ? géométrique ?</li>
+<li>On pose \(v_n = u_n - 3\,000\). Montrer que \((v_n)\) est géométrique de raison \(0{,}8\) et préciser \(v_0\).</li>
+<li>En déduire \(v_n\) puis \(u_n\) en fonction de \(n\).</li>
+<li>Vers quoi semble tendre le nombre d'abonnés à long terme ? Interpréter concrètement.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Arbre pondéré et probabilités totales <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+Une usine produit des pièces sur deux machines : la machine A fournit 60 % de la production, la machine B le reste. 2 % des pièces de A sont défectueuses, contre 5 % pour B. On prélève une pièce au hasard. On note \(A\) : « la pièce vient de A » et \(D\) : « la pièce est défectueuse ».
+<ol>
+<li>Construire l'arbre pondéré.</li>
+<li>Calculer \(P(A\cap D)\) puis \(P(D)\).</li>
+<li>La pièce prélevée est défectueuse. Quelle est la probabilité qu'elle vienne de la machine B ?</li>
+<li>Les événements \(A\) et \(D\) sont-ils indépendants ? Justifier.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Variable aléatoire <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Un jeu coûte 2 € : on tire une carte dans un jeu de 32 cartes. Un as rapporte 10 €, une figure (roi, dame, valet) rapporte 4 €, toute autre carte ne rapporte rien. On note \(G\) le gain <em>algébrique</em> du joueur (gain reçu moins la mise).
+<ol>
+<li>Déterminer la loi de probabilité de \(G\).</li>
+<li>Calculer \(E(G)\). Le jeu est-il favorable au joueur ?</li>
+<li>Calculer \(V(G)\) puis \(\sigma(G)\) (arrondi au centième).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 6 — Produit scalaire <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+Dans un repère orthonormé, on donne \(A(1;2)\), \(B(5;4)\) et \(C(2;7)\).
+<ol>
+<li>Calculer \(\overrightarrow{AB}\cdot\overrightarrow{AC}\).</li>
+<li>Le triangle \(ABC\) est-il rectangle en \(A\) ?</li>
+<li>Calculer \(\|\overrightarrow{AB}\|\) et \(\|\overrightarrow{AC}\|\), puis une valeur approchée au degré près de l'angle \(\widehat{BAC}\).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 7 — Répétition d'expériences : « au moins un » <span class="stars">★★★</span> <span class="duree">(25 min)</span></div>
+On lance un dé équilibré à 6 faces \(n\) fois de suite, de façon indépendante.
+<ol>
+<li>Quelle est la probabilité de n'obtenir <strong>aucun</strong> six en \(n\) lancers ?</li>
+<li>En déduire la probabilité \(p_n\) d'obtenir <strong>au moins un</strong> six.</li>
+<li>Calculer \(p_1\), \(p_4\) et \(p_{10}\) (arrondis au millième). Que semble-t-il se passer quand \(n\) devient grand ?</li>
+<li>À l'aide de la calculatrice, déterminer le plus petit entier \(n\) tel que \(p_n \geq 0{,}99\). <em>(Ce type de question sera résolu par le calcul avec le logarithme en terminale — et le comportement de \((5/6)^n\) est une limite de suite géométrique, chapitre M3.)</em></li>
+</ol>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés détaillés — Module M2</div>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1</div>
+<ol>
+<li>\(u_8=u_3+5r\) donc \(26=11+5r\) et \(r=3\). Puis \(u_0=u_3-3r=11-9=2\), d'où \(u_n=2+3n\).</li>
+<li>\(v_4=v_1 q^3\) donc \(q^3=\dfrac{48}{6}=8\) et \(q=2\). Alors \(v_n=v_1 q^{n-1}=6\times 2^{n-1}=3\times 2^n\).</li>
+<li>\(S=\dfrac{100\times 101}{2}=5\,050\). \(T\) est la somme de 11 termes d'une suite géométrique de raison \(\dfrac12\) : \(T=\dfrac{1-(1/2)^{11}}{1-1/2}=2\left(1-\dfrac{1}{2048}\right)=\dfrac{2047}{1024}\approx 1{,}999\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>\(u_{n+1}-u_n=(n+1)^2-4(n+1)+1-(n^2-4n+1)=2n-3\). Négatif pour \(n\leq 1\), positif pour \(n\geq 2\) : la suite décroît jusqu'à \(u_2\) puis croît à partir du rang 2 (elle n'est donc pas monotone sur \(\mathbb{N}\)).</li>
+<li>Tous les termes sont \(>0\) et \(\dfrac{v_{n+1}}{v_n}=\dfrac{3^{n+1}}{n+2}\times\dfrac{n+1}{3^n}=\dfrac{3(n+1)}{n+2}\). Or \(3(n+1)\ge n+2 \iff 2n+1\ge 0\), vrai ; et même \(3(n+1)>n+2\) pour tout \(n\ge 0\). Donc \(\dfrac{v_{n+1}}{v_n}>1\) : \((v_n)\) est strictement croissante.</li>
+<li>\((w_n)\) est géométrique de raison \(0{,}8\in\,]0;1[\) et de premier terme positif : elle est strictement décroissante (\(w_{n+1}-w_n=5\times0{,}8^n(0{,}8-1)<0\)).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>\(u_1=0{,}8\times1200+600=1\,560\) ; \(u_2=0{,}8\times1560+600=1\,848\). Ni arithmétique (\(u_1-u_0=360\neq u_2-u_1=288\)), ni géométrique (\(u_1/u_0=1{,}3\neq u_2/u_1\approx1{,}18\)).</li>
+<li>\(v_{n+1}=u_{n+1}-3000=0{,}8u_n+600-3000=0{,}8u_n-2400=0{,}8(u_n-3000)=0{,}8\,v_n\). Donc \((v_n)\) est géométrique de raison \(0{,}8\), avec \(v_0=1200-3000=-1800\).</li>
+<li>\(v_n=-1800\times0{,}8^n\), d'où \(u_n=3000-1800\times0{,}8^n\).</li>
+<li>Comme \(0{,}8^n\) se rapproche de 0 quand \(n\) grandit, \(u_n\) tend vers \(3\,000\) : le nombre d'abonnés se stabilise autour de 3 000 à long terme (et comme \(v_n<0\), il s'en approche par valeurs inférieures, en croissant). <span class="rappel-inline">Ce raisonnement sera justifié rigoureusement au module M3 avec les limites.</span></li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4</div>
+<ol>
+<li>Arbre : branche \(A\) (0,6) puis \(D\) (0,02) / \(\overline D\) (0,98) ; branche \(\overline A\) (0,4) puis \(D\) (0,05) / \(\overline D\) (0,95).</li>
+<li>\(P(A\cap D)=0{,}6\times0{,}02=0{,}012\). Probabilités totales : \(P(D)=0{,}012+0{,}4\times0{,}05=0{,}012+0{,}020=0{,}032\).</li>
+<li>\(P_D(\overline A)=\dfrac{P(\overline A\cap D)}{P(D)}=\dfrac{0{,}020}{0{,}032}=0{,}625\). Il y a 62,5 % de chances qu'elle vienne de B : bien que B produise moins, elle fournit la majorité des pièces défectueuses.</li>
+<li>\(P(A)\times P(D)=0{,}6\times0{,}032=0{,}0192\neq 0{,}012=P(A\cap D)\) : les événements ne sont <strong>pas indépendants</strong> (le taux de défaut dépend de la machine).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5</div>
+<ol>
+<li>Un jeu de 32 cartes contient 4 as et 12 figures. Valeurs de \(G\) : \(10-2=8\) (proba \(4/32=1/8\)), \(4-2=2\) (proba \(12/32=3/8\)), \(-2\) (proba \(16/32=1/2\)).</li>
+<li>\(E(G)=8\times\dfrac18+2\times\dfrac38-2\times\dfrac12=1+\dfrac34-1=\dfrac34=0{,}75\) €. L'espérance est positive : le jeu est favorable au joueur (en moyenne, il gagne 75 centimes par partie sur un grand nombre de parties).</li>
+<li>\(E(G^2)=64\times\dfrac18+4\times\dfrac38+4\times\dfrac12=8+1{,}5+2=11{,}5\). Donc \(V(G)=11{,}5-0{,}75^2=10{,}9375\) et \(\sigma(G)\approx 3{,}31\) €.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 6</div>
+<ol>
+<li>\(\overrightarrow{AB}(4;2)\), \(\overrightarrow{AC}(1;5)\) : \(\overrightarrow{AB}\cdot\overrightarrow{AC}=4\times1+2\times5=14\).</li>
+<li>\(14\neq 0\) : les vecteurs ne sont pas orthogonaux, le triangle n'est pas rectangle en \(A\).</li>
+<li>\(\|\overrightarrow{AB}\|=\sqrt{16+4}=\sqrt{20}=2\sqrt5\) ; \(\|\overrightarrow{AC}\|=\sqrt{1+25}=\sqrt{26}\). Alors \(\cos\widehat{BAC}=\dfrac{14}{2\sqrt5\times\sqrt{26}}=\dfrac{14}{2\sqrt{130}}\approx0{,}614\), d'où \(\widehat{BAC}\approx 52°\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 7</div>
+<ol>
+<li>Par indépendance des lancers : \(\left(\dfrac56\right)^n\).</li>
+<li>Événement contraire : \(p_n=1-\left(\dfrac56\right)^n\).</li>
+<li>\(p_1=\dfrac16\approx0{,}167\) ; \(p_4=1-(5/6)^4\approx0{,}518\) ; \(p_{10}\approx0{,}838\). Quand \(n\) grandit, \(p_n\) se rapproche de 1 : on est presque sûr d'obtenir au moins un six.</li>
+<li>À la calculatrice : \(p_{25}\approx0{,}9896\) et \(p_{26}\approx0{,}9913\). Le plus petit entier est \(\boxed{n=26}\). <span class="rappel-inline">(La suite \((5/6)^n\) est géométrique de raison dans \(]0;1[\) : sa limite est 0, donc \(p_n\to1\) — vocabulaire précis au module M3.)</span></li>
+</ol>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module M2 · Révisions de première : suites, probabilités, géométrie.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

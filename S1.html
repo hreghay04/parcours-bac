@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S1 — Révisions d'économie de première</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="ses" data-module="S1">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html">M1 · Révisions analyse</a>
+<a href="M2.html">M2 · Suites, probas, géométrie</a>
+<a href="M3.html">M3 · Récurrence et limites</a>
+<a href="M4.html">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html" class="active">S1 · Économie (révisions)</a>
+<a href="S2.html">S2 · Socio & politique</a>
+<a href="S3.html">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · SES · Semaine 1</p>
+  <h1>S1 — Révisions d'économie de première</h1>
+  <p class="sub">Marché · Défaillances du marché · Financement de l'économie · Monnaie + les savoir-faire quantitatifs indispensables</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs de la semaine</span>
+<ul>
+<li>Réexpliquer le fonctionnement d'un marché concurrentiel (offre, demande, équilibre).</li>
+<li>Identifier les trois grandes défaillances du marché — elles reviennent partout en terminale.</li>
+<li>Distinguer les modes de financement de l'économie et expliquer la création monétaire.</li>
+<li>Maîtriser les calculs exigés au bac : taux de variation, coefficient multiplicateur, indices, valeurs nominale et réelle.</li>
+</ul>
+</div>
+
+<h2>1. Le marché concurrentiel</h2>
+<p>Sur un marché en <strong>concurrence parfaite</strong>, aucun acheteur ni vendeur ne peut influencer le prix : chacun est <strong>preneur de prix</strong>. La <strong>demande</strong> est décroissante avec le prix, l'<strong>offre</strong> est croissante. Le <strong>prix d'équilibre</strong> égalise offre et demande ; à ce prix, tous les échanges mutuellement avantageux ont lieu.</p>
+<div class="box def"><span class="label">Notions clés</span>
+<strong>Surplus du consommateur</strong> : écart entre le prix maximal qu'il était prêt à payer et le prix payé. <strong>Surplus du producteur</strong> : écart entre le prix reçu et le prix minimal acceptable. À l'équilibre concurrentiel, le surplus total est maximal : c'est le sens de l'expression « <strong>gains à l'échange</strong> ».
+</div>
+<p>Un déplacement <em>le long</em> d'une courbe (le prix change) ne doit jamais être confondu avec un déplacement <em>de</em> la courbe (autre facteur : revenus, coûts, goûts, réglementation). Ce réflexe graphique est explicitement exigé par le programme de terminale.</p>
+
+<div class="fig">
+<svg viewBox="0 0 370 235" width="340" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(32,10)">
+  <line x1="0" y1="190" x2="300" y2="190" stroke="#333" stroke-width="1.2"/>
+  <line x1="0" y1="0" x2="0" y2="190" stroke="#333" stroke-width="1.2"/>
+  <line x1="20" y1="30" x2="260" y2="170" stroke="#b3261e" stroke-width="2"/>
+  <line x1="20" y1="170" x2="260" y2="30" stroke="#1b7a43" stroke-width="2"/>
+  <line x1="65" y1="30" x2="295" y2="164" stroke="#b3261e" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <circle cx="140" cy="100" r="3.6" fill="#26695c"/>
+  <circle cx="162.5" cy="86.8" r="3.6" fill="#c26a00"/>
+  <line x1="0" y1="100" x2="140" y2="100" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="140" y1="100" x2="140" y2="190" stroke="#999" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="178" y1="52" x2="218" y2="52" stroke="#555" stroke-width="1.3"/>
+  <polygon points="218,52 210,48 210,56" fill="#555"/>
+  <text x="-26" y="104" font-size="10" fill="#26695c" font-weight="bold">P*</text>
+  <text x="134" y="204" font-size="10" fill="#26695c" font-weight="bold">Q*</text>
+  <text x="264" y="176" font-size="11" fill="#b3261e" font-weight="bold">D</text>
+  <text x="264" y="30" font-size="11" fill="#1b7a43" font-weight="bold">O</text>
+  <text x="298" y="158" font-size="11" fill="#b3261e" font-weight="bold">D&#8242;</text>
+  <text x="-22" y="12" font-size="10" font-style="italic">Prix</text>
+  <text x="256" y="204" font-size="10" font-style="italic">Quantité</text>
+</g>
+</svg>
+<div class="cap">Le marché concurrentiel : l'équilibre (P*, Q*) est au croisement de l'offre O et de la demande D. Si la demande augmente (D se déplace en D&#8242;, flèche), le nouvel équilibre (point orange) a un prix et une quantité plus élevés — c'est le mécanisme de l'exercice 3.</div>
+</div>
+
+<h2>2. Les marchés imparfaitement concurrentiels</h2>
+<p>Quand un vendeur peut influencer le prix, il dispose d'un <strong>pouvoir de marché</strong>. Formes principales : le <strong>monopole</strong> (un seul offreur — sources : innovation protégée par brevet, monopole naturel lié aux économies d'échelle, barrières légales) et l'<strong>oligopole</strong> (quelques offreurs, entre guerre des prix et <strong>entente</strong> illicite). Conséquences : prix plus élevés et quantités plus faibles qu'en concurrence — d'où les <strong>politiques de la concurrence</strong>, étudiées en terminale au niveau européen.</p>
+
+<h2>3. Les défaillances du marché (à maîtriser absolument pour la terminale)</h2>
+<div class="box def"><span class="label">Les trois défaillances</span>
+<ol>
+<li><strong>Externalités</strong> : conséquences d'une activité sur autrui sans compensation par le marché — négatives (pollution) ou positives (vaccination, recherche). Le marché produit « trop » de nuisances et « pas assez » d'activités bénéfiques.</li>
+<li><strong>Biens collectifs et biens communs</strong> : voir tableau ci-dessous. Les biens communs (poissons des océans, climat) sont menacés de surexploitation ; les biens collectifs ne sont pas produits spontanément par le marché (problème du <strong>passager clandestin</strong>).</li>
+<li><strong>Asymétries d'information</strong> : un contractant en sait plus que l'autre. <strong>Sélection adverse</strong> (avant le contrat : les « mauvais » produits chassent les bons, ex. voitures d'occasion) et <strong>aléa moral</strong> (après le contrat : l'assuré devient moins prudent).</li>
+</ol>
+</div>
+<table>
+<tr><th></th><th>Excluable</th><th>Non excluable</th></tr>
+<tr><th>Rival</th><td>Bien privé (baguette de pain)</td><td><strong>Bien commun</strong> (banc de poissons)</td></tr>
+<tr><th>Non rival</th><td>Bien de club (chaîne payante)</td><td><strong>Bien collectif</strong> (éclairage public, défense)</td></tr>
+</table>
+<div class="box notions"><span class="label">Pourquoi c'est crucial pour la terminale</span>
+Le chapitre « Quelle action publique pour l'environnement ? » repose sur les <em>externalités négatives</em> et les <em>biens communs</em> ; le chapitre sur les <em>crises financières</em> mobilise l'<em>aléa moral</em> des banques ; celui sur le <em>chômage</em> utilise les asymétries d'information (salaire d'efficience). Ces notions de première sont les fondations de l'année.
+</div>
+
+<h2>4. Le financement de l'économie</h2>
+<p>Les agents à <strong>besoin de financement</strong> (souvent entreprises et État) rencontrent les agents à <strong>capacité de financement</strong> (souvent ménages) de deux façons : <strong>autofinancement</strong> mis à part,</p>
+<ul>
+<li><strong>financement externe direct</strong> : sur les marchés financiers, par émission d'<strong>actions</strong> (titre de propriété, dividende) ou d'<strong>obligations</strong> (titre de créance, intérêt) ;</li>
+<li><strong>financement externe indirect (intermédié)</strong> : par le <strong>crédit bancaire</strong>.</li>
+</ul>
+<p>Le <strong>taux d'intérêt</strong> est le prix du temps : il rémunère le prêteur, couvre le risque de défaut et, pour l'emprunteur, représente le coût du crédit.</p>
+
+<h2>5. La monnaie et sa création</h2>
+<div class="box def"><span class="label">Notions clés</span>
+<strong>Fonctions de la monnaie</strong> : unité de compte, intermédiaire des échanges, réserve de valeur. <strong>Création monétaire</strong> : « les crédits font les dépôts » — quand une banque accorde un crédit, elle crée de la monnaie scripturale par simple jeu d'écriture ; le remboursement détruit cette monnaie. La <strong>banque centrale</strong> encadre ce pouvoir : elle fixe le <strong>taux directeur</strong> (coût du refinancement des banques), fournit la monnaie centrale et veille à la stabilité des prix — en terminale, on étudiera la politique monétaire de la BCE.
+</div>
+
+<h2>6. Savoir-faire quantitatifs (exigibles au bac)</h2>
+<div class="box methode"><span class="label">Les formules à automatiser</span>
+<ul>
+<li><strong>Taux de variation</strong> : \(\dfrac{V_A - V_D}{V_D}\times100\) (arrivée moins départ, sur départ).</li>
+<li><strong>Coefficient multiplicateur</strong> : \(CM=\dfrac{V_A}{V_D}=1+\dfrac{t}{100}\). Ex. : +25 % ⟺ CM = 1,25 ; −20 % ⟺ CM = 0,8.</li>
+<li><strong>Indice</strong> (base 100 en année de référence) : \(I=\dfrac{V_t}{V_{réf}}\times100\). Un indice 132 signifie « +32 % depuis la référence ».</li>
+<li><strong>Variations successives</strong> : on <strong>multiplie les CM</strong> (jamais on n'additionne les %) : +10 % puis +20 % ⟹ \(1{,}1\times1{,}2=1{,}32\) soit +32 %.</li>
+<li><strong>Nominal vs réel</strong> : la valeur <strong>réelle</strong> est corrigée de l'inflation. En approximation : taux réel ≈ taux nominal − inflation (vrai aussi pour le taux d'intérêt réel).</li>
+</ul>
+</div>
+<div class="box resolu"><span class="label">Exemple rédigé pas à pas — taux, CM et indices sur un même cas</span>
+<p>Le prix d'un abonnement passe de 40 € à 46 €, puis baisse de 10 % l'année suivante.</p>
+<p><strong>Étape 1 — le taux de variation :</strong> \(\dfrac{46-40}{40}\times100=+15\ \%\), soit un coefficient multiplicateur de \(1{,}15\).</p>
+<p><strong>Étape 2 — enchaîner les évolutions :</strong> une baisse de 10 % correspond à un CM de \(0{,}9\). Évolution totale : \(1{,}15\times0{,}9=1{,}035\), soit <strong>+3,5 %</strong> au total — et non \(15-10=+5\ \%\) : on <em>multiplie les CM</em>, on n'additionne jamais les pourcentages.</p>
+<p><strong>Étape 3 — traduire en indice :</strong> base 100 au départ, l'indice vaut \(115\) après un an, puis \(115\times0{,}9=103{,}5\) : on retrouve les +3,5 %. <em>(Un indice n'est rien d'autre qu'un CM multiplié par 100 : passer de l'un à l'autre doit être instantané.)</em></p>
+<p><strong>Étape 4 — la phrase de conclusion :</strong> « Entre le début et la fin de la période, le prix de l'abonnement a augmenté de 3,5 %, passant de 40 € à \(40\times1{,}035=41{,}40\) €. »</p>
+</div>
+
+<div class="box attention"><span class="label">Pièges classiques</span>
+Ne pas confondre <strong>points de pourcentage</strong> (10 % → 12 % : +2 points) et <strong>pourcentage d'évolution</strong> (+20 %). Une baisse de 50 % suivie d'une hausse de 50 % ne ramène pas au départ (\(0{,}5\times1{,}5=0{,}75\)).
+</div>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Vrai ou faux (justifier en une phrase) <span class="stars">★</span> <span class="duree">(15 min)</span></div>
+<ol>
+<li>Sur un marché concurrentiel, une entreprise peut fixer librement son prix.</li>
+<li>Si le prix d'un bien augmente, la courbe de demande se déplace vers la gauche.</li>
+<li>Un monopole produit moins et vend plus cher qu'un marché concurrentiel.</li>
+<li>L'éclairage public est un bien commun.</li>
+<li>La vaccination engendre une externalité positive.</li>
+<li>Quand une banque accorde un crédit, elle prête l'argent déposé par ses clients.</li>
+<li>Une action est un titre de créance qui rapporte un intérêt fixe.</li>
+<li>Si l'inflation est de 4 % et le taux d'intérêt nominal de 3 %, le taux réel est positif.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Calculs : taux, CM, indices <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+<ol>
+<li>Le PIB d'un pays passe de 2 500 à 2 575 milliards d'euros. Calculer le taux de croissance et le coefficient multiplicateur.</li>
+<li>Un loyer augmente de 3 % par an pendant 3 ans. Quelle est la hausse totale en % ? (Comparer avec « 3 × 3 = 9 % ».)</li>
+<li>L'indice du prix d'un panier est passé de 100 (en 2015) à 121 (en 2025). Traduire par un taux de variation, puis par un CM. Que vaut l'indice si les prix augmentent encore de 10 % ?</li>
+<li>Le salaire nominal d'un employé augmente de 2 % alors que les prix augmentent de 5 %. Que devient (environ) son salaire réel ? Calculer précisément avec les CM : \(\dfrac{1{,}02}{1{,}05}\).</li>
+<li>Le chômage passe de 8 % à 7 % de la population active. Exprimer l'évolution en points de pourcentage, puis en pourcentage.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Raisonner sur un marché <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Le marché du café est initialement à l'équilibre. Pour chacun des événements suivants, indiquer quelle courbe se déplace, dans quel sens, et l'effet sur le prix et la quantité d'équilibre :
+<ol>
+<li>Une sécheresse détruit une partie des récoltes au Brésil.</li>
+<li>Une étude médicale très médiatisée vante les bienfaits du café.</li>
+<li>Le gouvernement instaure une taxe d'un montant fixe par kilo, payée par les producteurs.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Classer les biens <span class="stars">★</span> <span class="duree">(10 min)</span></div>
+Placer dans le tableau rivalité/excluabilité : un feu d'artifice municipal, une place de cinéma, les nappes phréatiques, un vélo, la signalisation routière, un stock de poissons en haute mer. Justifier brièvement pour deux d'entre eux.
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Mobilisation de connaissances (format EC1) <span class="stars">★★★</span> <span class="duree">(25 min)</span></div>
+<p>« <strong>À l'aide d'un exemple, montrez comment une asymétrie d'information peut conduire à une défaillance du marché.</strong> »</p>
+<p>Rédiger une réponse structurée d'une quinzaine de lignes : définition, mécanisme, exemple, conclusion. (C'est le format exact de la première partie de l'épreuve composée du bac.)</p>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés — Module S1</div>
+<p class="corriges-warn">Comparer aussi la précision du vocabulaire : en SES, la rigueur des définitions fait la note.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1</div>
+<ol>
+<li><strong>Faux</strong> : en concurrence parfaite, l'entreprise est preneuse de prix (atomicité).</li>
+<li><strong>Faux</strong> : une hausse du prix provoque un déplacement <em>le long</em> de la courbe ; la courbe ne se déplace que si un autre déterminant change.</li>
+<li><strong>Vrai</strong> : le monopoleur restreint les quantités pour vendre plus cher — c'est la perte de surplus qui justifie les politiques de la concurrence.</li>
+<li><strong>Faux</strong> : non rival et non excluable, c'est un bien <em>collectif</em> ; un bien commun est rival et non excluable.</li>
+<li><strong>Vrai</strong> : la personne vaccinée protège aussi les autres, sans être payée pour ce bénéfice social.</li>
+<li><strong>Faux</strong> : la banque crée de la monnaie scripturale par le crédit (« les crédits font les dépôts »).</li>
+<li><strong>Faux</strong> : c'est l'obligation ; l'action est un titre de propriété rémunéré par un dividende variable.</li>
+<li><strong>Faux</strong> : taux réel ≈ 3 − 4 = −1 % : le prêteur perd du pouvoir d'achat.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>\(\dfrac{2575-2500}{2500}\times100=3\ \%\) ; CM \(=\dfrac{2575}{2500}=1{,}03\).</li>
+<li>\(1{,}03^3=1{,}0927\) : hausse totale ≈ 9,27 %, un peu plus que 9 % — les hausses se composent (intérêts composés).</li>
+<li>Indice 121 = +21 % depuis 2015 ; CM = 1,21. Après +10 % : \(121\times1{,}1=133{,}1\).</li>
+<li>Approximation : 2 − 5 = −3 %. Précisément : \(\dfrac{1{,}02}{1{,}05}\approx0{,}971\), soit −2,9 % de salaire réel : son pouvoir d'achat baisse.</li>
+<li>−1 <strong>point</strong> de pourcentage ; en évolution relative : \(\dfrac{7-8}{8}\times100=-12{,}5\ \%\) du taux de chômage.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>L'<strong>offre diminue</strong> (courbe vers la gauche) : prix d'équilibre ↑, quantité ↓.</li>
+<li>La <strong>demande augmente</strong> (courbe vers la droite) : prix ↑ et quantité ↑.</li>
+<li>La taxe renchérit le coût de production : l'<strong>offre se déplace vers la gauche/haut</strong> du montant de la taxe ; prix payé par les consommateurs ↑ (mais généralement de moins que la taxe : la charge se partage entre producteurs et consommateurs), quantité ↓.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4</div>
+<p>Biens privés (rival, excluable) : vélo, place de cinéma (la salle est excluable ; le siège, rival). Biens communs (rival, non excluable) : nappes phréatiques, poissons de haute mer. Biens collectifs (non rival, non excluable) : feu d'artifice municipal, signalisation routière. Justifications types : « la consommation d'eau de la nappe par un agriculteur réduit celle disponible pour les autres (rivalité), et il est très difficile d'empêcher les forages (non-excluabilité) » ; « le feu d'artifice peut être regardé par tous sans réduire le “stock” de spectacle ».</p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5 — éléments de réponse rédigée</div>
+<p>« Une <strong>asymétrie d'information</strong> désigne une situation où, lors d'un échange, une partie dispose d'informations que l'autre n'a pas. Elle peut empêcher le marché de fonctionner efficacement, c'est-à-dire provoquer une <strong>défaillance du marché</strong>.</p>
+<p>Prenons le marché des voitures d'occasion. Le vendeur connaît l'état réel de son véhicule, pas l'acheteur. Celui-ci, craignant d'acheter un mauvais véhicule, n'est prêt à payer qu'un prix moyen. À ce prix, les propriétaires de bonnes voitures renoncent à vendre : la qualité moyenne des voitures offertes baisse, ce qui pousse les acheteurs à réduire encore leur prix. C'est la <strong>sélection adverse</strong> : “les mauvais produits chassent les bons”, et le marché peut se réduire fortement alors que des échanges mutuellement avantageux existaient.</p>
+<p>L'asymétrie d'information conduit donc le marché, livré à lui-même, à une allocation inefficace des ressources — ce qui justifie des remèdes : garanties, labels, contrôle technique obligatoire, réglementation. »</p>
+<p class="rappel-inline">Structure attendue : définition → mécanisme enchaîné (avec connecteurs logiques) → exemple précis → phrase de conclusion. Environ 15 lignes suffisent pour 4 points.</p>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module S1 · Révisions d'économie de première et savoir-faire quantitatifs.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

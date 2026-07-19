@@ -1,0 +1,287 @@
+/* Parcours d'été — feuille de style commune */
+@page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+
+:root {
+  --accent: #1a5fb4;
+  --accent-light: #eaf1fb;
+  --ink: #1c1c1c;
+}
+body.ses { --accent: #26695c; --accent-light: #e8f3f0; }
+body.planning { --accent: #8f3f71; --accent-light: #f7ecf3; }
+
+* { box-sizing: border-box; }
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ink);
+  font-size: 10.5pt;
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+  hyphens: auto;
+}
+
+h1, h2, h3, h4 { font-family: 'Helvetica Neue', Arial, sans-serif; text-align: left; hyphens: none; }
+
+.doc-header {
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+}
+.doc-header .kicker {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 8.5pt;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0 0 2px 0;
+}
+.doc-header h1 { font-size: 19pt; margin: 0 0 2px 0; }
+.doc-header .sub { font-size: 10pt; color: #555; font-style: italic; margin: 0; }
+
+h2 {
+  font-size: 13.5pt;
+  color: var(--accent);
+  border-bottom: 1.5px solid var(--accent);
+  padding-bottom: 2px;
+  margin: 20px 0 8px 0;
+  break-after: avoid;
+}
+h3 { font-size: 11.5pt; margin: 14px 0 5px 0; break-after: avoid; }
+p { margin: 5px 0; }
+ul, ol { margin: 5px 0; padding-left: 22px; }
+li { margin: 2.5px 0; }
+
+table { border-collapse: collapse; margin: 8px auto; font-size: 9.5pt; }
+th, td { border: 1px solid #999; padding: 4px 8px; text-align: center; }
+th { background: var(--accent-light); font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 9pt; }
+
+/* Encadrés */
+.box {
+  border: 1px solid #ccc;
+  border-left: 4px solid var(--accent);
+  border-radius: 3px;
+  padding: 7px 11px;
+  margin: 9px 0;
+  break-inside: avoid;
+  background: #fff;
+}
+.box .label {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 8.5pt;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 3px;
+}
+.def { border-left-color: #1a5fb4; background: #f4f8fd; }
+.def .label { color: #1a5fb4; }
+.theo { border-left-color: #1b7a43; background: #f2faf5; }
+.theo .label { color: #1b7a43; }
+.methode { border-left-color: #c26a00; background: #fdf7ee; }
+.methode .label { color: #c26a00; }
+.exemple { border-left-color: #888; background: #f7f7f7; }
+.exemple .label { color: #666; }
+.attention { border-left-color: #b3261e; background: #fdf1f0; }
+.attention .label { color: #b3261e; }
+.notions { border-left-color: #6741d9; background: #f6f3fc; }
+.notions .label { color: #6741d9; }
+
+.objectifs {
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 10px 0 14px 0;
+  break-inside: avoid;
+}
+.objectifs .label {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; font-size: 9pt; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--accent);
+}
+.objectifs ul { list-style: none; padding-left: 4px; margin-top: 4px; }
+.objectifs li::before { content: "☐ "; color: var(--accent); }
+
+/* Exercices */
+.exo {
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 11px 0;
+  break-inside: avoid;
+}
+.exo .exo-head {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; font-size: 10pt;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+.exo .stars { color: #d4a017; letter-spacing: 1px; }
+.exo .duree { color: #777; font-weight: 400; font-size: 8.5pt; font-style: italic; }
+
+/* Corrigés */
+.corriges-start { break-before: page; }
+.corriges-banner {
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 13pt;
+  padding: 8px 14px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+.corriges-warn { font-style: italic; color: #666; font-size: 9.5pt; margin-bottom: 12px; }
+.cor {
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 12px;
+  margin: 12px 0;
+}
+.cor .cor-head {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; font-size: 10pt; color: var(--accent);
+}
+.rappel-inline { font-style: italic; color: #555; }
+
+/* Figures */
+.fig { text-align: center; margin: 10px auto; break-inside: avoid; }
+.fig svg { max-width: 100%; height: auto; }
+.fig .cap {
+  font-size: 8.5pt; color: #666; font-style: italic;
+  margin-top: 2px; text-align: center;
+}
+
+/* Exemple résolu pas à pas */
+.resolu { border-left-color: #0b7285; background: #eef8fa; }
+.resolu .label { color: #0b7285; }
+
+/* ---- Quiz interactif ---- */
+.quiz {
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin: 18px 0;
+  background: #fff;
+}
+.quiz-head {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; font-size: 14pt; color: var(--accent);
+  margin: 0 0 2px 0;
+}
+.quiz-sub { font-size: 10pt; color: #666; font-style: italic; margin: 0 0 12px 0; }
+.q { border-top: 1px solid #eee; padding: 12px 0 4px 0; }
+.q:first-of-type { border-top: none; }
+.q-num {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; font-size: 9pt; color: var(--accent);
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.q-text { margin: 3px 0 9px 0; font-size: 11pt; }
+.opt {
+  display: block; width: 100%; text-align: left;
+  border: 1.5px solid #ccc; border-radius: 6px;
+  padding: 9px 13px; margin: 6px 0;
+  background: #fafafa; cursor: pointer;
+  font-family: inherit; font-size: 10.5pt; color: var(--ink);
+  transition: background .12s, border-color .12s;
+}
+.opt:hover:not(:disabled) { background: #f0f4fb; border-color: var(--accent); }
+.opt .tick { float: right; font-weight: 700; }
+.opt.correct { background: #e7f6ec; border-color: #1b7a43; color: #12572f; }
+.opt.wrong   { background: #fdecea; border-color: #b3261e; color: #8a1c16; }
+.opt.correct .tick { color: #1b7a43; }
+.opt.wrong .tick { color: #b3261e; }
+.opt:disabled { cursor: default; }
+.q-explain {
+  display: none; margin: 8px 0 4px 0; padding: 9px 12px;
+  background: #f5f7fa; border-left: 3px solid var(--accent);
+  border-radius: 4px; font-size: 10pt;
+}
+.q-explain.show { display: block; }
+.quiz-score {
+  margin-top: 14px; padding: 12px 14px; border-radius: 6px;
+  background: var(--accent-light); border: 1px solid var(--accent);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 12pt; font-weight: 700; color: var(--accent);
+  text-align: center; display: none;
+}
+.quiz-score.show { display: block; }
+.quiz-reset {
+  display: inline-block; margin-top: 10px;
+  font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10pt;
+  padding: 7px 15px; border-radius: 6px; cursor: pointer;
+  background: var(--accent); color: #fff; border: none;
+}
+
+/* ---- Layout du site (barre latérale de navigation) ---- */
+.site-shell { display: flex; align-items: flex-start; gap: 0; }
+.sidebar {
+  width: 245px; flex-shrink: 0; position: sticky; top: 0;
+  height: 100vh; overflow-y: auto;
+  background: #f6f7f9; border-right: 1px solid #ddd;
+  padding: 18px 14px; font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.sidebar h2 { font-size: 12pt; margin: 0 0 4px 0; border: none; color: var(--ink); padding: 0; }
+.sidebar .tag { font-size: 8pt; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+.sidebar .grp { font-size: 8.5pt; text-transform: uppercase; letter-spacing: 1px; color: #999; margin: 16px 0 5px 0; }
+.sidebar a {
+  display: block; padding: 6px 9px; margin: 2px 0; border-radius: 6px;
+  font-size: 10pt; color: #333; text-decoration: none;
+}
+.sidebar a:hover { background: #e9edf2; }
+.sidebar a.active { background: var(--accent); color: #fff; font-weight: 600; }
+.content-area { flex: 1; padding: 26px 34px; max-width: 900px; }
+
+/* Planning */
+.planning-table { width: 100%; font-size: 9.5pt; }
+.planning-table td { text-align: left; vertical-align: top; }
+.planning-table .wk { font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 700; white-space: nowrap; }
+
+.footer-note {
+  margin-top: 22px;
+  padding-top: 8px;
+  border-top: 1px solid #ccc;
+  font-size: 8.5pt;
+  color: #777;
+  font-style: italic;
+}
+.katex { font-size: 1.04em; }
+
+/* ---- Barre mobile + menu ---- */
+.topbar {
+  display: none;
+  position: sticky; top: 0; z-index: 20;
+  background: var(--accent); color: #fff;
+  padding: 10px 14px; font-family: 'Helvetica Neue', Arial, sans-serif;
+  align-items: center; gap: 12px;
+}
+.topbar a { color: #fff; text-decoration: none; font-weight: 600; font-size: 11pt; }
+.topbar #menu-toggle { background: none; border: 1.5px solid rgba(255,255,255,.6); color:#fff; border-radius: 5px; padding: 4px 9px; font-size: 12pt; cursor: pointer; }
+@media (max-width: 760px) {
+  .topbar { display: flex; }
+  .sidebar { display: none; position: fixed; top: 44px; left: 0; z-index: 19; box-shadow: 2px 0 12px rgba(0,0,0,.2); }
+  .sidebar.open { display: block; }
+  .content-area { padding: 16px; }
+}
+
+/* ---- Page d'accueil ---- */
+.home-wrap { max-width: 1000px; margin: 0 auto; padding: 30px 26px 50px; }
+.home-hero { border-bottom: 3px solid var(--accent); padding-bottom: 16px; margin-bottom: 8px; }
+.home-hero .kicker { font-family:'Helvetica Neue',Arial,sans-serif; font-size:9pt; letter-spacing:2px; text-transform:uppercase; color:var(--accent); font-weight:600; margin:0; }
+.home-hero h1 { font-family:'Helvetica Neue',Arial,sans-serif; font-size:26pt; margin:4px 0; }
+.home-hero p { color:#555; font-size:11.5pt; margin:0; }
+.home-grp { font-family:'Helvetica Neue',Arial,sans-serif; font-size:11pt; text-transform:uppercase; letter-spacing:1.5px; color:#888; margin:26px 0 10px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:14px; }
+.card {
+  display:block; text-decoration:none; color:var(--ink);
+  border:1px solid #ddd; border-left:4px solid var(--card-accent,#1a5fb4); border-radius:8px;
+  padding:14px 16px; background:#fff; transition:box-shadow .15s, transform .15s;
+}
+.card:hover { box-shadow:0 4px 16px rgba(0,0,0,.1); transform:translateY(-2px); }
+.card .code { font-family:'Helvetica Neue',Arial,sans-serif; font-weight:700; font-size:10pt; color:var(--card-accent,#1a5fb4); }
+.card .ttl { font-family:'Helvetica Neue',Arial,sans-serif; font-weight:600; font-size:11.5pt; margin:3px 0 2px; }
+.card .wk { font-size:9pt; color:#888; }
+.card.ses { --card-accent:#26695c; }
+.home-foot { margin-top:34px; padding-top:14px; border-top:1px solid #ddd; font-size:9.5pt; color:#777; font-style:italic; }

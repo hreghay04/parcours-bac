@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M3 — Suites : récurrence et limites</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
+</head>
+<body class="maths" data-module="M3">
+<div class="topbar">
+  <button id="menu-toggle" aria-label="menu">☰</button>
+  <a href="index.html">Parcours d'été — Sommaire</a>
+</div>
+<div class="site-shell">
+<nav class="sidebar">
+<span class="tag">Parcours d'été</span>
+<h2>Vers la Terminale</h2>
+<a href="index.html">🏠 Accueil</a>
+<a href="planning.html">📋 Mode d'emploi</a>
+<div class="grp">Mathématiques</div>
+<a href="M1.html">M1 · Révisions analyse</a>
+<a href="M2.html">M2 · Suites, probas, géométrie</a>
+<a href="M3.html" class="active">M3 · Récurrence et limites</a>
+<a href="M4.html">M4 · Limites et continuité</a>
+<a href="M5.html">M5 · Dérivation, convexité</a>
+<a href="M6.html">M6 · Dénombrement</a>
+<a href="M7.html">M7 · Problèmes bilan</a>
+<div class="grp">SES</div>
+<a href="S1.html">S1 · Économie (révisions)</a>
+<a href="S2.html">S2 · Socio & politique</a>
+<a href="S3.html">S3 · Croissance</a>
+<a href="S4.html">S4 · Commerce international</a>
+<a href="S5.html">S5 · Structure sociale</a>
+<a href="S6.html">S6 · École & mobilité</a>
+<a href="S7.html">S7 · Méthodologie</a>
+</nav>
+<main class="content-area">
+
+
+<div class="doc-header">
+  <p class="kicker">Parcours d'été · Mathématiques · Semaine 3 · Programme de terminale</p>
+  <h1>M3 — Suites : récurrence et limites</h1>
+  <p class="sub">Raisonnement par récurrence · Limites de suites · Théorèmes de comparaison et de convergence</p>
+</div>
+
+<div class="objectifs"><span class="label">Objectifs de la semaine</span>
+<ul>
+<li>Rédiger une démonstration par récurrence complète et rigoureuse.</li>
+<li>Connaître les limites usuelles et calculer une limite par opérations.</li>
+<li>Reconnaître une forme indéterminée et savoir la lever.</li>
+<li>Connaître la limite de \((q^n)\) selon les valeurs de \(q\).</li>
+<li>Utiliser les théorèmes de comparaison, des gendarmes et de convergence monotone.</li>
+<li>Mener l'étude complète d'une suite \(u_{n+1}=f(u_n)\) : le grand classique du bac.</li>
+</ul>
+</div>
+
+<h2>1. Le raisonnement par récurrence</h2>
+
+<div class="box theo"><span class="label">Principe de récurrence</span>
+Soit \(P(n)\) une propriété dépendant d'un entier \(n\). Si :
+<ol>
+<li><strong>Initialisation</strong> : \(P(n_0)\) est vraie ;</li>
+<li><strong>Hérédité</strong> : pour tout \(n\geq n_0\), si \(P(n)\) est vraie alors \(P(n+1)\) est vraie ;</li>
+</ol>
+alors \(P(n)\) est vraie pour tout entier \(n\geq n_0\). (Image : la première marche + savoir monter d'une marche = on monte tout l'escalier.)
+</div>
+
+<div class="box methode"><span class="label">Méthode — la rédaction type (à imiter systématiquement)</span>
+<ol>
+<li>Énoncer clairement la propriété : « Pour \(n\geq n_0\), soit \(P(n)\) : “…” ».</li>
+<li><em>Initialisation</em> : vérifier \(P(n_0)\) par un calcul explicite.</li>
+<li><em>Hérédité</em> : « Soit \(n\geq n_0\) tel que \(P(n)\) est vraie (hypothèse de récurrence). Montrons \(P(n+1)\). » — partir de l'hypothèse et transformer (souvent : appliquer la relation de récurrence de la suite, une fonction croissante, ou multiplier une inégalité par un nombre positif).</li>
+<li><em>Conclusion</em> : « Par récurrence, \(P(n)\) est vraie pour tout \(n\geq n_0\). »</li>
+</ol>
+</div>
+
+<div class="box resolu"><span class="label">Exemple résolu pas à pas — une récurrence rédigée intégralement</span>
+<p>La suite \((u_n)\) vérifie \(u_0=2\) et \(u_{n+1}=3u_n-2\). Montrons que pour tout \(n\) : \(u_n=3^n+1\).</p>
+<p><em>« Pour \(n\geq0\), soit \(P(n)\) la propriété : “\(u_n=3^n+1\)”. »</em> — <em>on énonce d'abord la propriété, avec le rang.</em></p>
+<p><strong>Initialisation :</strong> pour \(n=0\), \(3^0+1=1+1=2=u_0\). Donc \(P(0)\) est vraie. — <em>un calcul explicite des deux côtés, pas une simple affirmation.</em></p>
+<p><strong>Hérédité :</strong> soit \(n\geq0\) tel que \(P(n)\) est vraie, c'est-à-dire \(u_n=3^n+1\) (hypothèse de récurrence). Alors :
+\(u_{n+1}=3u_n-2=3(3^n+1)-2=3^{n+1}+3-2=3^{n+1}+1\).
+Donc \(P(n+1)\) est vraie. — <em>on part de la relation de récurrence et on y injecte l'hypothèse ; l'objectif \(3^{n+1}+1\) doit apparaître à la fin, pas être supposé.</em></p>
+<p><strong>Conclusion :</strong> par récurrence, pour tout entier \(n\geq0\), \(u_n=3^n+1\). ∎</p>
+</div>
+
+<div class="box attention"><span class="label">Erreurs qui coûtent cher</span>
+<ul>
+<li>Écrire « supposons \(P(n)\) vraie <em>pour tout</em> \(n\) » : c'est ce qu'on veut démontrer ! On suppose \(P(n)\) pour <strong>un</strong> entier \(n\) fixé.</li>
+<li>Oublier l'initialisation (l'hérédité seule ne prouve rien).</li>
+<li>Multiplier une inégalité par un nombre sans vérifier son signe.</li>
+</ul>
+</div>
+
+<h2>2. Limite d'une suite</h2>
+
+<div class="box def"><span class="label">Définitions</span>
+<ul>
+<li>\(\lim u_n = \ell\) (suite <strong>convergente</strong>) : tout intervalle ouvert contenant \(\ell\) contient tous les termes \(u_n\) à partir d'un certain rang.</li>
+<li>\(\lim u_n = +\infty\) : tout intervalle \(]A;+\infty[\) contient tous les termes à partir d'un certain rang.</li>
+<li>Une suite qui ne converge pas <strong>diverge</strong> (vers \(\pm\infty\), ou sans limite, comme \((-1)^n\)).</li>
+</ul>
+</div>
+
+<div class="box theo"><span class="label">Limites usuelles</span>
+$$\lim_{n\to+\infty} n = \lim n^2 = \lim n^k = \lim\sqrt n = +\infty \qquad \lim_{n\to+\infty}\frac1n = \lim\frac{1}{n^k} = \lim\frac{1}{\sqrt n}=0$$
+<strong>Suite géométrique</strong> \((q^n)\) : si \(q>1\), \(\lim q^n=+\infty\) ; si \(-1 \lt q \lt 1\), \(\lim q^n=0\) ; si \(q=1\), limite 1 ; si \(q\leq -1\), pas de limite.
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 370 215" width="350" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(25,10)">
+  <line x1="0" y1="180" x2="330" y2="180" stroke="#333" stroke-width="1.2"/>
+  <line x1="0" y1="0" x2="0" y2="180" stroke="#333" stroke-width="1.2"/>
+  <line x1="0" y1="152.3" x2="330" y2="152.3" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <polyline fill="none" stroke="#1b7a43" stroke-width="2" points="0,152.3 32,157.8 64,162.3 96,165.8 128,168.7 160,170.9 192,172.7 224,174.2 256,175.4 288,176.3 320,177"/>
+  <polyline fill="none" stroke="#b3261e" stroke-width="2" points="0,152.3 32,146.8 64,140.1 96,132.1 128,122.6 160,111.1 192,97.3 224,80.8 256,60.9 288,37.1 320,8.5"/>
+  <text x="-14" y="156" font-size="10">1</text>
+  <text x="-14" y="184" font-size="10">0</text>
+  <text x="230" y="60" font-size="11" fill="#b3261e" font-style="italic">q = 1,2 : vers +&#8734;</text>
+  <text x="180" y="165" font-size="11" fill="#1b7a43" font-style="italic">q = 0,8 : vers 0</text>
+  <text x="315" y="196" font-size="10" font-style="italic">n</text>
+</g>
+</svg>
+<div class="cap">Le comportement de q&#8319; : décroissance vers 0 si 0 &lt; q &lt; 1, explosion vers +&#8734; si q &gt; 1. Toute l'étude des suites géométriques tient dans cette image.</div>
+</div>
+
+<div class="box theo"><span class="label">Opérations et formes indéterminées</span>
+Les limites se combinent naturellement (somme, produit, quotient), <strong>sauf</strong> dans quatre cas, les <strong>formes indéterminées</strong> :
+$$«\ +\infty-\infty\ » \qquad «\ 0\times\infty\ » \qquad «\ \frac{\infty}{\infty}\ » \qquad «\ \frac{0}{0}\ »$$
+</div>
+
+<div class="box methode"><span class="label">Méthode — lever une forme indéterminée</span>
+<ul>
+<li><strong>Polynômes et quotients</strong> : factoriser par le terme de plus haut degré. Ex. : \(\dfrac{2n^2+1}{n^2+3}=\dfrac{n^2(2+1/n^2)}{n^2(1+3/n^2)}\to 2\).</li>
+<li><strong>Racines carrées</strong> : multiplier par la quantité conjuguée.</li>
+<li><strong>Exponentielles / géométriques</strong> : factoriser par le terme dominant, ex. \(3^n-2^n=3^n\big(1-(2/3)^n\big)\to+\infty\).</li>
+</ul>
+</div>
+
+<div class="box resolu"><span class="label">Exemple résolu pas à pas — lever une forme indéterminée</span>
+<p>Cherchons \(\lim\dfrac{3n^2+2}{n^2+1}\). Numérateur et dénominateur tendent vers \(+\infty\) : forme indéterminée « \(\infty/\infty\) ».</p>
+<p><strong>Étape 1 — factoriser par le terme dominant, en haut et en bas :</strong>
+$$\frac{3n^2+2}{n^2+1}=\frac{n^2\left(3+\frac{2}{n^2}\right)}{n^2\left(1+\frac{1}{n^2}\right)}=\frac{3+\frac{2}{n^2}}{1+\frac{1}{n^2}}$$</p>
+<p><strong>Étape 2 — conclure par opérations :</strong> \(\dfrac{2}{n^2}\to0\) et \(\dfrac{1}{n^2}\to0\), donc le quotient tend vers \(\dfrac{3+0}{1+0}=3\). <em>(La factorisation a transformé une FI en un calcul de routine : c'est toujours l'objectif.)</em></p>
+</div>
+
+<h2>3. Théorèmes de convergence</h2>
+
+<div class="box theo"><span class="label">Comparaison et gendarmes</span>
+<ul>
+<li><strong>Comparaison</strong> : si \(u_n\geq v_n\) à partir d'un certain rang et \(\lim v_n=+\infty\), alors \(\lim u_n=+\infty\) (et symétriquement vers \(-\infty\)).</li>
+<li><strong>Gendarmes</strong> : si \(v_n\leq u_n\leq w_n\) à partir d'un certain rang et si \((v_n)\) et \((w_n)\) convergent vers le <strong>même</strong> réel \(\ell\), alors \((u_n)\) converge vers \(\ell\).</li>
+</ul>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 370 200" width="345" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(25,10)">
+  <line x1="0" y1="170" x2="330" y2="170" stroke="#333" stroke-width="1.2"/>
+  <line x1="0" y1="92.7" x2="330" y2="92.7" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <polyline fill="none" stroke="#1a5fb4" stroke-width="1.6" points="0,15.5 13.7,33.9 27.4,45.3 41.1,53 54.9,58.5 68.6,62.7 82.3,65.9 96,68.6 109.7,70.7 123.4,72.5 137.1,74.1 150.9,75.4 164.6,76.5 178.3,77.5 192,78.4 205.7,79.2 219.4,79.9 233.1,80.5 246.9,81.1 260.6,81.6 274.3,82.1 288,82.6 301.7,83 315.4,83.3"/>
+  <polyline fill="none" stroke="#1a5fb4" stroke-width="1.6" points="0,170 13.7,151.5 27.4,140.2 41.1,132.5 54.9,127 68.6,122.8 82.3,119.5 96,116.9 109.7,114.7 123.4,112.9 137.1,111.4 150.9,110.1 164.6,108.9 178.3,107.9 192,107 205.7,106.2 219.4,105.5 233.1,104.9 246.9,104.3 260.6,103.8 274.3,103.3 288,102.9 301.7,102.5 315.4,102.1"/>
+  <polyline fill="none" stroke="#b3261e" stroke-width="2" points="0,51.2 4.6,42.1 9.1,46.1 13.7,60.1 18.3,79.5 22.9,99.3 27.4,115 32,123.6 36.6,124.1 41.1,117.1 45.7,105.2 50.3,91.4 54.9,79.3 59.4,71.4 64,69.2 68.6,72.8 73.1,80.9 77.7,91.1 82.3,101 86.9,108.3 91.4,111.3 96,109.6 100.6,104.1 105.1,96.1 109.7,87.8 114.3,81.2 118.9,77.7 123.4,78 128,81.9 132.6,88.1 137.1,95.2 141.7,101.3 146.3,105.1 150.9,105.6 155.4,103.1 160,98.1 164.6,92.1 169.1,86.5 173.7,82.6 178.3,81.3 182.9,82.9 187.4,86.8 192,92 196.6,97.1 201.1,101 205.7,102.8 210.3,102 214.9,99 219.4,94.6 224,89.9 228.6,86 233.1,83.9 237.7,84 242.3,86.2 246.9,90 251.4,94.3 256,98.1 260.6,100.4 265.1,100.9 269.7,99.3 274.3,96.1 278.9,92.3 283.4,88.6 288,86.1 292.6,85.2 297.1,86.2 301.7,88.8 306.3,92.2 310.9,95.7 315.4,98.4 320,99.6"/>
+  <text x="-16" y="97" font-size="10">&#8467;</text>
+  <text x="40" y="30" font-size="10" fill="#1a5fb4" font-style="italic">w&#8345;</text>
+  <text x="40" y="152" font-size="10" fill="#1a5fb4" font-style="italic">v&#8345;</text>
+  <text x="90" y="130" font-size="10" fill="#b3261e" font-style="italic">u&#8345;</text>
+</g>
+</svg>
+<div class="cap">Le théorème des gendarmes : la suite rouge (u&#8345;), coincée entre deux « gendarmes » qui convergent vers la même limite &#8467;, est forcée de converger vers &#8467; aussi.</div>
+</div>
+
+<div class="box theo"><span class="label">Convergence monotone (théorème clé du bac)</span>
+<ul>
+<li>Toute suite <strong>croissante et majorée</strong> converge. Toute suite <strong>décroissante et minorée</strong> converge.</li>
+<li>Toute suite croissante non majorée tend vers \(+\infty\).</li>
+</ul>
+<em>Attention : une suite croissante majorée par 6 converge, mais pas nécessairement vers 6 — le théorème donne l'existence de la limite, pas sa valeur.</em>
+</div>
+
+<div class="fig">
+<svg viewBox="0 0 370 215" width="345" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(30,12)">
+  <line x1="0" y1="180" x2="320" y2="180" stroke="#333" stroke-width="1.2"/>
+  <line x1="0" y1="0" x2="0" y2="180" stroke="#333" stroke-width="1.2"/>
+  <line x1="0" y1="16.4" x2="320" y2="16.4" stroke="#b3261e" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <polyline fill="none" stroke="#ccd9ee" stroke-width="1.2" points="0,180 37.6,98.2 75.3,57.3 112.9,36.8 150.6,26.6 188.2,21.5 225.9,18.9 263.5,17.6 301.2,17"/>
+  <circle cx="0" cy="180" r="3.4" fill="#1a5fb4"/><circle cx="37.6" cy="98.2" r="3.4" fill="#1a5fb4"/><circle cx="75.3" cy="57.3" r="3.4" fill="#1a5fb4"/><circle cx="112.9" cy="36.8" r="3.4" fill="#1a5fb4"/><circle cx="150.6" cy="26.6" r="3.4" fill="#1a5fb4"/><circle cx="188.2" cy="21.5" r="3.4" fill="#1a5fb4"/><circle cx="225.9" cy="18.9" r="3.4" fill="#1a5fb4"/><circle cx="263.5" cy="17.6" r="3.4" fill="#1a5fb4"/><circle cx="301.2" cy="17" r="3.4" fill="#1a5fb4"/>
+  <text x="-20" y="21" font-size="10" fill="#b3261e">6</text>
+  <text x="-20" y="184" font-size="10">0</text>
+  <text x="2" y="196" font-size="9">u&#8320;</text>
+  <text x="34" y="196" font-size="9">u&#8321;</text>
+  <text x="72" y="196" font-size="9">u&#8322;</text>
+  <text x="110" y="196" font-size="9">u&#8323;</text>
+  <text x="296" y="196" font-size="9">u&#8328;</text>
+  <text x="180" y="45" font-size="10" font-style="italic" fill="#555">croissante, majorée par 6 &#8658; converge</text>
+</g>
+</svg>
+<div class="cap">La suite de l'exercice 6 (u&#8345;&#8330;&#8321; = u&#8345;/2 + 3, u&#8320; = 0) : chaque terme se rapproche de 6 sans jamais le dépasser. C'est exactement la situation du théorème de convergence monotone.</div>
+</div>
+
+<div class="box methode"><span class="label">Méthode — le grand classique : \(u_{n+1}=a\,u_n+b\)</span>
+Étude type de \(u_{n+1}=a u_n + b\) (avec \(0 \lt a \lt 1\)) :
+<ol>
+<li>Résoudre l'équation du <strong>point fixe</strong> \(\ell = a\ell+b\).</li>
+<li>Par récurrence : montrer que la suite est majorée (ou minorée) par \(\ell\).</li>
+<li>Étudier le signe de \(u_{n+1}-u_n\) pour montrer la monotonie (souvent par récurrence aussi, ou directement).</li>
+<li>Conclure à la convergence (théorème de convergence monotone).</li>
+<li>Poser \(v_n=u_n-\ell\) : montrer que \((v_n)\) est géométrique de raison \(a\), en déduire l'expression de \(u_n\) puis \(\lim u_n = \ell\) car \(a^n \to 0\).</li>
+</ol>
+</div>
+
+<h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
+<p style="font-style:italic;font-size:9.5pt;margin-top:0">Les exercices 6 et 8 sont de vrais formats bac : y consacrer une séance entière chacun.</p>
+
+<div class="exo"><div class="exo-head">Exercice 1 — Première récurrence <span class="stars">★</span> <span class="duree">(20 min)</span></div>
+La suite \((u_n)\) est définie par \(u_0=0\) et \(u_{n+1}=2u_n+1\).
+<ol>
+<li>Calculer \(u_1, u_2, u_3\). Conjecturer une expression de \(u_n\) en fonction de \(n\).</li>
+<li>Démontrer cette conjecture par récurrence.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 2 — Calculs de limites <span class="stars">★</span> <span class="duree">(20 min)</span></div>
+Déterminer les limites suivantes :
+<ol style="columns:2">
+<li>\(\lim\, (3n^2-5n+1)\)</li>
+<li>\(\lim\, \dfrac{5}{n^2+1}\)</li>
+<li>\(\lim\left(2-\dfrac3n\right)\left(4+\dfrac{1}{\sqrt n}\right)\)</li>
+<li>\(\lim\, \dfrac{-2n^3+n}{4}\)</li>
+<li>\(\lim\, 3\times 0{,}7^n - 5\)</li>
+<li>\(\lim\, \dfrac{2}{1-1{,}2^n}\)</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 3 — Formes indéterminées <span class="stars">★★</span> <span class="duree">(25 min)</span></div>
+Déterminer les limites suivantes après avoir identifié la forme indéterminée :
+<ol>
+<li>\(\lim\, (n^2-5n)\)</li>
+<li>\(\lim\, \dfrac{2n^2+n-1}{3n^2+5}\)</li>
+<li>\(\lim\, \dfrac{n+2}{n^2+1}\)</li>
+<li>\(\lim\, (\sqrt{n+1}-\sqrt n)\)</li>
+<li>\(\lim\, (2^n - n^2)\) <em>(indication : on admettra, résultat à connaître, que \(\dfrac{n^2}{2^n}\to 0\))</em></li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 4 — Récurrence et inégalité <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+<ol>
+<li>Démontrer par récurrence que pour tout entier \(n\geq 0\) : \(4^n \geq 1+3n\).</li>
+<li>En déduire la limite de \((4^n)\) par comparaison (sans utiliser le résultat de cours sur \(q^n\)).</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 5 — Théorème des gendarmes <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+<ol>
+<li>Déterminer \(\lim\, \dfrac{(-1)^n}{n}\) et \(\lim\, \dfrac{n+\cos n}{n}\).</li>
+<li>Soit \(u_n=\dfrac{n+(-1)^n}{n^2+1}\). Encadrer \(u_n\) et en déduire sa limite.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 6 — Le classique du bac <span class="stars">★★★</span> <span class="duree">(45 min — une séance)</span></div>
+La suite \((u_n)\) est définie par \(u_0=0\) et \(u_{n+1}=\dfrac12 u_n+3\).
+<ol>
+<li>Calculer \(u_1\) et \(u_2\).</li>
+<li>Démontrer par récurrence que pour tout \(n\) : \(0\leq u_n \leq 6\).</li>
+<li>Montrer que \(u_{n+1}-u_n = \dfrac{6-u_n}{2}\) et en déduire que \((u_n)\) est croissante.</li>
+<li>Justifier que \((u_n)\) converge.</li>
+<li>On pose \(v_n=u_n-6\). Montrer que \((v_n)\) est géométrique de raison \(\dfrac12\) ; exprimer \(v_n\) puis \(u_n\) en fonction de \(n\).</li>
+<li>Déterminer \(\lim u_n\). Le résultat est-il cohérent avec les questions 2 à 4 ?</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 7 — Algorithmique : seuil <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+On reprend la suite de l'exercice 6. On considère la fonction Python :
+<pre style="background:#f5f5f5;border:1px solid #ddd;border-radius:3px;padding:6px 10px;font-size:9pt">def seuil(e):
+    u = 0
+    n = 0
+    while 6 - u > e:
+        u = 0.5 * u + 3
+        n = n + 1
+    return n</pre>
+<ol>
+<li>Que représente la valeur renvoyée par <code>seuil(0.01)</code> ?</li>
+<li>Pourquoi est-on certain que la boucle <code>while</code> se termine ?</li>
+<li>À la main ou à la calculatrice, déterminer <code>seuil(0.5)</code>.</li>
+</ol>
+</div>
+
+<div class="exo"><div class="exo-head">Exercice 8 — Approfondissement : suite définie par \(u_{n+1}=\sqrt{u_n+2}\) <span class="stars">★★★</span> <span class="duree">(40 min)</span></div>
+La suite \((u_n)\) est définie par \(u_0=0\) et \(u_{n+1}=\sqrt{u_n+2}\).
+<ol>
+<li>Démontrer par récurrence que pour tout \(n\) : \(0\leq u_n\leq 2\).</li>
+<li>Démontrer par récurrence que \((u_n)\) est croissante <em>(indication : si \(u_n \le u_{n+1}\), comparer \(\sqrt{u_n+2}\) et \(\sqrt{u_{n+1}+2}\) en utilisant la croissance de la fonction racine carrée)</em>.</li>
+<li>En déduire que \((u_n)\) converge vers une limite \(\ell\).</li>
+<li>On admet que \(\ell\) vérifie \(\ell=\sqrt{\ell+2}\). Déterminer \(\ell\).</li>
+</ol>
+</div>
+
+<div class="corriges-start">
+<div class="corriges-banner">Corrigés détaillés — Module M3</div>
+<p class="corriges-warn">Comparer surtout la <strong>rédaction</strong> des récurrences : c'est elle qui est notée au bac.</p>
+
+<div class="cor"><div class="cor-head">Corrigé 1</div>
+<ol>
+<li>\(u_1=1\), \(u_2=3\), \(u_3=7\) : on reconnaît \(2^n-1\). Conjecture : \(u_n=2^n-1\).</li>
+<li>Pour \(n\geq0\), soit \(P(n)\) : « \(u_n=2^n-1\) ».<br>
+<em>Initialisation</em> : \(u_0=0=2^0-1\). \(P(0)\) est vraie.<br>
+<em>Hérédité</em> : soit \(n\geq0\) tel que \(P(n)\) est vraie. Alors \(u_{n+1}=2u_n+1=2(2^n-1)+1=2^{n+1}-2+1=2^{n+1}-1\) : \(P(n+1)\) est vraie.<br>
+<em>Conclusion</em> : par récurrence, \(u_n=2^n-1\) pour tout \(n\geq0\). ∎</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2</div>
+<ol>
+<li>\(3n^2-5n+1 = n^2(3-5/n+1/n^2)\to +\infty\) (produit \(+\infty\times3\)).</li>
+<li>Quotient \(\dfrac{5}{+\infty}\) : limite \(0\).</li>
+<li>Produit : \((2-0)(4+0)=8\).</li>
+<li>\(-2n^3+n = n^3(-2 + 1/n^2) \to-\infty\), divisé par 4 : \(-\infty\).</li>
+<li>\(0{,}7\in\,]0;1[\) donc \(0{,}7^n\to0\) : limite \(-5\).</li>
+<li>\(1{,}2>1\) donc \(1{,}2^n\to+\infty\), donc \(1-1{,}2^n\to-\infty\) et le quotient tend vers \(0\) (par valeurs négatives).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3</div>
+<ol>
+<li>FI « \(\infty-\infty\) » : \(n^2-5n=n^2(1-5/n)\to+\infty\).</li>
+<li>FI « \(\infty/\infty\) » : \(\dfrac{n^2(2+1/n-1/n^2)}{n^2(3+5/n^2)}\to\dfrac23\).</li>
+<li>FI « \(\infty/\infty\) » : \(\dfrac{n(1+2/n)}{n^2(1+1/n^2)}=\dfrac1n\times\dfrac{1+2/n}{1+1/n^2}\to 0\).</li>
+<li>FI « \(\infty-\infty\) » : \(\sqrt{n+1}-\sqrt n=\dfrac{(n+1)-n}{\sqrt{n+1}+\sqrt n}=\dfrac{1}{\sqrt{n+1}+\sqrt n}\to0\).</li>
+<li>FI « \(\infty-\infty\) » : \(2^n-n^2=2^n\left(1-\dfrac{n^2}{2^n}\right)\). Comme \(\dfrac{n^2}{2^n}\to0\), la parenthèse tend vers 1 et \(2^n\to+\infty\) : limite \(+\infty\). <span class="rappel-inline">(Moralité : l'exponentielle l'emporte sur les puissances de \(n\).)</span></li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4</div>
+<ol>
+<li>Soit \(P(n)\) : « \(4^n\geq1+3n\) ». <em>Initialisation</em> : \(4^0=1\geq1+0\). ✓ <em>Hérédité</em> : supposons \(4^n\geq1+3n\) pour un \(n\geq0\). Alors \(4^{n+1}=4\times4^n\geq4(1+3n)=4+12n\geq 4+3n=1+3(n+1)\) (car \(12n \ge 3n\)). Donc \(P(n+1)\) est vraie. <em>Conclusion</em> : vrai pour tout \(n\). ∎</li>
+<li>\(\lim(1+3n)=+\infty\) et \(4^n\geq1+3n\) : par le <strong>théorème de comparaison</strong>, \(\lim 4^n=+\infty\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5</div>
+<ol>
+<li>\(-\dfrac1n\leq\dfrac{(-1)^n}{n}\leq\dfrac1n\) et les deux bornes tendent vers 0 : gendarmes, limite \(0\).<br>
+\(\dfrac{n+\cos n}{n}=1+\dfrac{\cos n}{n}\) et \(-\dfrac1n\leq\dfrac{\cos n}{n}\leq\dfrac1n\) : limite \(1\).</li>
+<li>\(n-1\le n+(-1)^n\le n+1\), donc \(\dfrac{n-1}{n^2+1}\leq u_n\leq\dfrac{n+1}{n^2+1}\). Les deux bornes tendent vers 0 (degré 1 sur degré 2), donc \(\lim u_n=0\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 6</div>
+<ol>
+<li>\(u_1=3\), \(u_2=4{,}5\).</li>
+<li>\(P(n)\) : « \(0\leq u_n\leq6\) ». <em>Init.</em> : \(0\leq u_0=0\leq6\). ✓ <em>Hérédité</em> : si \(0\leq u_n\leq6\), alors \(0\leq \dfrac12u_n\leq3\) puis \(3\leq\dfrac12u_n+3\leq6\), donc \(0\leq u_{n+1}\leq6\). ✓ <em>Conclusion</em> : vrai pour tout \(n\). ∎</li>
+<li>\(u_{n+1}-u_n=\dfrac12u_n+3-u_n=3-\dfrac12u_n=\dfrac{6-u_n}{2}\). D'après la question 2, \(u_n\leq6\), donc \(u_{n+1}-u_n\geq0\) : la suite est <strong>croissante</strong>.</li>
+<li>\((u_n)\) est croissante et majorée par 6 : d'après le <strong>théorème de convergence monotone</strong>, elle converge.</li>
+<li>\(v_{n+1}=u_{n+1}-6=\dfrac12u_n+3-6=\dfrac12u_n-3=\dfrac12(u_n-6)=\dfrac12v_n\) : géométrique de raison \(\dfrac12\), \(v_0=-6\). D'où \(v_n=-6\left(\dfrac12\right)^n\) et \(u_n=6-6\left(\dfrac12\right)^n=6-\dfrac{6}{2^n}\).</li>
+<li>\(\left(\dfrac12\right)^n\to0\) donc \(\lim u_n=6\). Cohérent : la suite est croissante, majorée par 6, et converge précisément vers son majorant « optimal », le point fixe de \(x\mapsto\frac{x}{2}+3\).</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 7</div>
+<ol>
+<li>Le plus petit rang \(n\) à partir duquel \(u_n\) est à moins de 0,01 de sa limite 6 (c'est-à-dire \(6-u_n\leq0{,}01\)).</li>
+<li>Car \(6-u_n=\dfrac{6}{2^n}\to0\) : à partir d'un certain rang, \(6-u_n\) devient inférieur à tout seuil \(e>0\), donc la condition du <code>while</code> finit par être fausse.</li>
+<li>On cherche le premier \(n\) tel que \(\dfrac{6}{2^n}\leq0{,}5\), soit \(2^n\geq12\) : \(n=4\) (\(2^4=16\)). <code>seuil(0.5)</code> renvoie 4.</li>
+</ol>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 8</div>
+<ol>
+<li>\(P(n)\) : « \(0\leq u_n\leq2\) ». <em>Init.</em> : \(u_0=0\). ✓ <em>Hérédité</em> : si \(0\leq u_n\leq2\), alors \(2\leq u_n+2\leq4\), et par croissance de la racine carrée \(\sqrt2\leq u_{n+1}\leq2\), donc a fortiori \(0\leq u_{n+1}\leq2\). ✓ ∎</li>
+<li>\(Q(n)\) : « \(u_n\leq u_{n+1}\) ». <em>Init.</em> : \(u_0=0\leq u_1=\sqrt2\). ✓ <em>Hérédité</em> : si \(u_n\leq u_{n+1}\), alors \(u_n+2\leq u_{n+1}+2\), et par croissance de la racine carrée \(\sqrt{u_n+2}\leq\sqrt{u_{n+1}+2}\), c'est-à-dire \(u_{n+1}\leq u_{n+2}\). ✓ Donc \((u_n)\) est croissante. ∎</li>
+<li>Croissante (q. 2) et majorée par 2 (q. 1) : elle converge vers un réel \(\ell\) (théorème de convergence monotone).</li>
+<li>\(\ell=\sqrt{\ell+2}\) impose \(\ell\geq0\) et, en élevant au carré, \(\ell^2=\ell+2\), soit \(\ell^2-\ell-2=0\), racines \(-1\) et \(2\). Comme \(\ell\geq0\) : \(\boxed{\ell=2}\).</li>
+</ol>
+</div>
+</div>
+
+<div id="quiz-mount"></div>
+<p class="footer-note">Parcours d'été — Module M3 · Suites : récurrence et limites · Premier chapitre du programme de terminale.</p>
+
+
+</main>
+</div>
+<script src="quizzes.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
