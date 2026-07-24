@@ -60,6 +60,10 @@
 
 <h2>1. Le raisonnement par récurrence</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Imagine un escalier infini. Si tu sais (1) <strong>poser le pied sur la première marche</strong> et (2) <strong>passer d'une marche quelconque à la suivante</strong>, alors tu peux monter aussi haut que tu veux. La récurrence, c'est exactement cela : l'<em>initialisation</em> (première marche) et l'<em>hérédité</em> (du rang \(n\) au rang \(n+1\)) suffisent à garantir que la propriété est vraie à <strong>tous</strong> les rangs.
+</div>
+
 <div class="box theo"><span class="label">Principe de récurrence</span>
 Soit \(P(n)\) une propriété dépendant d'un entier \(n\). Si :
 <ol>
@@ -97,6 +101,10 @@ Donc \(P(n+1)\) est vraie. — <em>on part de la relation de récurrence et on y
 </div>
 
 <h2>2. Limite d'une suite</h2>
+
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Dire que \(u_n\) tend vers \(\ell\), c'est dire que les termes finissent par « se tasser » aussi près qu'on veut de \(\ell\) : passé un certain rang, ils sont tous <strong>collés</strong> à \(\ell\). Tendre vers \(+\infty\), c'est finir par <strong>dépasser n'importe quelle barre</strong>, si haute soit-elle, et rester au-dessus. On ne regarde jamais les premiers termes, seulement le comportement « tout au bout ».
+</div>
 
 <div class="box def"><span class="label">Définitions</span>
 <ul>
@@ -151,6 +159,10 @@ $$\frac{3n^2+2}{n^2+1}=\frac{n^2\left(3+\frac{2}{n^2}\right)}{n^2\left(1+\frac{1
 
 <h2>3. Théorèmes de convergence</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Souvent, on veut prouver qu'une suite <em>possède</em> une limite sans savoir la calculer directement. Deux images pour cela : les <strong>gendarmes</strong> — une suite coincée entre deux autres qui se rejoignent est <em>obligée</em> de les suivre ; la <strong>convergence monotone</strong> — une suite qui monte toujours mais bute contre un plafond (majorée) ne peut que se stabiliser juste en dessous.
+</div>
+
 <div class="box theo"><span class="label">Comparaison et gendarmes</span>
 <ul>
 <li><strong>Comparaison</strong> : si \(u_n\geq v_n\) à partir d'un certain rang et \(\lim v_n=+\infty\), alors \(\lim u_n=+\infty\) (et symétriquement vers \(-\infty\)).</li>
@@ -173,6 +185,14 @@ $$\frac{3n^2+2}{n^2+1}=\frac{n^2\left(3+\frac{2}{n^2}\right)}{n^2\left(1+\frac{1
 </g>
 </svg>
 <div class="cap">Le théorème des gendarmes : la suite rouge (u&#8345;), coincée entre deux « gendarmes » qui convergent vers la même limite &#8467;, est forcée de converger vers &#8467; aussi.</div>
+</div>
+
+<div class="box resolu"><span class="label">Exemple résolu pas à pas — le théorème des gendarmes en action</span>
+<p>Cherchons \(\lim\dfrac{\cos n}{n}\). Impossible de calculer \(\cos n\) directement (il oscille sans arrêt entre \(-1\) et \(1\)) — mais on peut l'<strong>encadrer</strong>.</p>
+<p><strong>Étape 1 — encadrer le terme qui oscille :</strong> pour tout \(n\), \(-1\le\cos n\le 1\).</p>
+<p><strong>Étape 2 — diviser par \(n>0\)</strong> (diviser par un positif conserve le sens des inégalités) : \(-\dfrac1n\le\dfrac{\cos n}{n}\le\dfrac1n\).</p>
+<p><strong>Étape 3 — vérifier que les deux « gendarmes » ont la même limite :</strong> \(-\dfrac1n\to0\) et \(\dfrac1n\to0\).</p>
+<p><strong>Étape 4 — conclure :</strong> la suite \(\dfrac{\cos n}{n}\) est coincée entre deux suites qui tendent vers \(0\) ; par le théorème des gendarmes, \(\dfrac{\cos n}{n}\to0\). <em>(La bonne réflexe : dès qu'un \(\cos\), un \(\sin\) ou un \((-1)^n\) apparaît, on cherche à encadrer.)</em></p>
 </div>
 
 <div class="box theo"><span class="label">Convergence monotone (théorème clé du bac)</span>
@@ -213,6 +233,16 @@ $$\frac{3n^2+2}{n^2+1}=\frac{n^2\left(3+\frac{2}{n^2}\right)}{n^2\left(1+\frac{1
 <li>Conclure à la convergence (théorème de convergence monotone).</li>
 <li>Poser \(v_n=u_n-\ell\) : montrer que \((v_n)\) est géométrique de raison \(a\), en déduire l'expression de \(u_n\) puis \(\lim u_n = \ell\) car \(a^n \to 0\).</li>
 </ol>
+</div>
+
+<div class="synthese"><span class="label">L'essentiel à retenir</span>
+<ul>
+<li><strong>Récurrence</strong> : toujours 3 temps — initialisation, hérédité (on suppose \(P(n)\) pour <em>un</em> rang \(n\) fixé, on montre \(P(n+1)\)), conclusion.</li>
+<li><strong>Suite géométrique \(q^n\)</strong> : tend vers \(0\) si \(-1\lt q\lt1\), vers \(+\infty\) si \(q>1\). C'est la brique de presque toutes les limites de suites.</li>
+<li><strong>Formes indéterminées</strong> (\(\infty-\infty\), \(\frac{\infty}{\infty}\), \(0\times\infty\), \(\frac00\)) : on les lève en <em>factorisant par le terme dominant</em> ou par la <em>quantité conjuguée</em>.</li>
+<li><strong>Prouver une convergence sans calculer la limite</strong> : théorème des <em>gendarmes</em> (suite encadrée) ou <em>convergence monotone</em> (croissante et majorée / décroissante et minorée).</li>
+<li><strong>Le grand classique \(u_{n+1}=au_n+b\)</strong> : point fixe \(\ell\) → encadrement → monotonie → convergence → suite auxiliaire \(v_n=u_n-\ell\) géométrique → expression de \(u_n\) et limite.</li>
+</ul>
 </div>
 
 <h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
@@ -303,83 +333,88 @@ La suite \((u_n)\) est définie par \(u_0=0\) et \(u_{n+1}=\sqrt{u_n+2}\).
 
 <div class="corriges-start">
 <div class="corriges-banner">Corrigés détaillés — Module M3</div>
-<p class="corriges-warn">Comparer surtout la <strong>rédaction</strong> des récurrences : c'est elle qui est notée au bac.</p>
+<p class="corriges-warn">Au bac, c'est la <strong>rédaction</strong> des récurrences et la justification des limites qui rapportent les points. Comparer sa copie à la démarche, pas seulement au résultat.</p>
 
-<div class="cor"><div class="cor-head">Corrigé 1</div>
+<div class="cor"><div class="cor-head">Corrigé 1 — première récurrence</div>
+<p><em>Méthode :</em> on calcule quelques termes, on conjecture une formule, puis on la démontre par récurrence (initialisation + hérédité + conclusion).</p>
 <ol>
-<li>\(u_1=1\), \(u_2=3\), \(u_3=7\) : on reconnaît \(2^n-1\). Conjecture : \(u_n=2^n-1\).</li>
-<li>Pour \(n\geq0\), soit \(P(n)\) : « \(u_n=2^n-1\) ».<br>
-<em>Initialisation</em> : \(u_0=0=2^0-1\). \(P(0)\) est vraie.<br>
-<em>Hérédité</em> : soit \(n\geq0\) tel que \(P(n)\) est vraie. Alors \(u_{n+1}=2u_n+1=2(2^n-1)+1=2^{n+1}-2+1=2^{n+1}-1\) : \(P(n+1)\) est vraie.<br>
-<em>Conclusion</em> : par récurrence, \(u_n=2^n-1\) pour tout \(n\geq0\). ∎</li>
+<li>\(u_1=2\times0+1=1\) ; \(u_2=2\times1+1=3\) ; \(u_3=2\times3+1=7\). On remarque \(1=2^1-1,\ 3=2^2-1,\ 7=2^3-1\) : conjecture \(u_n=2^n-1\).</li>
+<li>Pour \(n\ge0\), soit \(P(n)\) : « \(u_n=2^n-1\) ».<br>
+<em>Initialisation :</em> \(u_0=0\) et \(2^0-1=1-1=0\) : \(P(0)\) est vraie.<br>
+<em>Hérédité :</em> soit \(n\ge0\) tel que \(P(n)\) est vraie, c'est-à-dire \(u_n=2^n-1\). Alors \(u_{n+1}=2u_n+1=2(2^n-1)+1=2^{n+1}-2+1=2^{n+1}-1\) : \(P(n+1)\) est vraie.<br>
+<em>Conclusion :</em> par récurrence, \(u_n=2^n-1\) pour tout \(n\ge0\). ∎ <span class="rappel-inline">On part de l'hypothèse et on fait apparaître \(2^{n+1}-1\) à la fin — on ne suppose jamais le résultat au rang \(n+1\).</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 2</div>
+<div class="cor"><div class="cor-head">Corrigé 2 — calculs de limites (sans indétermination)</div>
+<p><em>Méthode :</em> pour un polynôme ou un quotient de polynômes, on factorise par le terme de plus haut degré ; pour une suite géométrique \(q^n\), on regarde si \(q\in\,]0;1[\) (limite 0) ou \(q>1\) (limite \(+\infty\)).</p>
 <ol>
-<li>\(3n^2-5n+1 = n^2(3-5/n+1/n^2)\to +\infty\) (produit \(+\infty\times3\)).</li>
-<li>Quotient \(\dfrac{5}{+\infty}\) : limite \(0\).</li>
-<li>Produit : \((2-0)(4+0)=8\).</li>
-<li>\(-2n^3+n = n^3(-2 + 1/n^2) \to-\infty\), divisé par 4 : \(-\infty\).</li>
-<li>\(0{,}7\in\,]0;1[\) donc \(0{,}7^n\to0\) : limite \(-5\).</li>
-<li>\(1{,}2>1\) donc \(1{,}2^n\to+\infty\), donc \(1-1{,}2^n\to-\infty\) et le quotient tend vers \(0\) (par valeurs négatives).</li>
+<li>\(3n^2-5n+1=n^2\!\left(3-\dfrac5n+\dfrac1{n^2}\right)\). La parenthèse tend vers \(3\) et \(n^2\to+\infty\) : limite \(+\infty\).</li>
+<li>Le dénominateur \(n^2+1\to+\infty\) et le numérateur est constant : \(\dfrac{5}{+\infty}\to0\).</li>
+<li>Produit de deux limites <em>finies</em> : \(\left(2-\dfrac3n\right)\to2\) et \(\left(4+\dfrac1{\sqrt n}\right)\to4\), donc le produit tend vers \(2\times4=8\).</li>
+<li>\(-2n^3+n=n^3\!\left(-2+\dfrac1{n^2}\right)\to-\infty\) ; divisé par la constante \(4\), la limite reste \(-\infty\).</li>
+<li>\(0{,}7\in\,]0;1[\) donc \(0{,}7^n\to0\), d'où \(3\times0{,}7^n\to0\) et le tout \(\to0-5=-5\).</li>
+<li>\(1{,}2>1\) donc \(1{,}2^n\to+\infty\), d'où \(1-1{,}2^n\to-\infty\). Le quotient \(\dfrac{2}{-\infty}\to0\) (par valeurs négatives).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 3</div>
+<div class="cor"><div class="cor-head">Corrigé 3 — lever une forme indéterminée</div>
+<p><em>Méthode :</em> on <strong>nomme d'abord la forme indéterminée</strong> (FI), puis on choisit la technique : factoriser par le terme dominant (polynômes/quotients), multiplier par la quantité conjuguée (racines), factoriser par le terme le plus « fort » (mélange exponentielle/puissances).</p>
 <ol>
-<li>FI « \(\infty-\infty\) » : \(n^2-5n=n^2(1-5/n)\to+\infty\).</li>
-<li>FI « \(\infty/\infty\) » : \(\dfrac{n^2(2+1/n-1/n^2)}{n^2(3+5/n^2)}\to\dfrac23\).</li>
-<li>FI « \(\infty/\infty\) » : \(\dfrac{n(1+2/n)}{n^2(1+1/n^2)}=\dfrac1n\times\dfrac{1+2/n}{1+1/n^2}\to 0\).</li>
-<li>FI « \(\infty-\infty\) » : \(\sqrt{n+1}-\sqrt n=\dfrac{(n+1)-n}{\sqrt{n+1}+\sqrt n}=\dfrac{1}{\sqrt{n+1}+\sqrt n}\to0\).</li>
-<li>FI « \(\infty-\infty\) » : \(2^n-n^2=2^n\left(1-\dfrac{n^2}{2^n}\right)\). Comme \(\dfrac{n^2}{2^n}\to0\), la parenthèse tend vers 1 et \(2^n\to+\infty\) : limite \(+\infty\). <span class="rappel-inline">(Moralité : l'exponentielle l'emporte sur les puissances de \(n\).)</span></li>
+<li>FI « \(\infty-\infty\) ». On factorise : \(n^2-5n=n^2\!\left(1-\dfrac5n\right)\to+\infty\times1=+\infty\).</li>
+<li>FI « \(\dfrac{\infty}{\infty}\) ». On factorise haut et bas par \(n^2\) : \(\dfrac{n^2(2+\frac1n-\frac1{n^2})}{n^2(3+\frac5{n^2})}=\dfrac{2+\frac1n-\frac1{n^2}}{3+\frac5{n^2}}\to\dfrac23\).</li>
+<li>FI « \(\dfrac{\infty}{\infty}\) ». \(\dfrac{n+2}{n^2+1}=\dfrac{n(1+\frac2n)}{n^2(1+\frac1{n^2})}=\dfrac1n\times\dfrac{1+\frac2n}{1+\frac1{n^2}}\to0\times1=0\). (Degré 1 en haut, degré 2 en bas : le bas l'emporte.)</li>
+<li>FI « \(\infty-\infty\) ». On multiplie par la <strong>quantité conjuguée</strong> \(\sqrt{n+1}+\sqrt n\) : \(\sqrt{n+1}-\sqrt n=\dfrac{(n+1)-n}{\sqrt{n+1}+\sqrt n}=\dfrac{1}{\sqrt{n+1}+\sqrt n}\to0\) (dénominateur \(\to+\infty\)).</li>
+<li>FI « \(\infty-\infty\) ». On factorise par le terme dominant \(2^n\) : \(2^n-n^2=2^n\!\left(1-\dfrac{n^2}{2^n}\right)\). Comme \(\dfrac{n^2}{2^n}\to0\) (admis), la parenthèse tend vers \(1\) et \(2^n\to+\infty\) : limite \(+\infty\). <span class="rappel-inline">L'exponentielle \(2^n\) l'emporte sur la puissance \(n^2\).</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 4</div>
+<div class="cor"><div class="cor-head">Corrigé 4 — récurrence et inégalité</div>
 <ol>
-<li>Soit \(P(n)\) : « \(4^n\geq1+3n\) ». <em>Initialisation</em> : \(4^0=1\geq1+0\). ✓ <em>Hérédité</em> : supposons \(4^n\geq1+3n\) pour un \(n\geq0\). Alors \(4^{n+1}=4\times4^n\geq4(1+3n)=4+12n\geq 4+3n=1+3(n+1)\) (car \(12n \ge 3n\)). Donc \(P(n+1)\) est vraie. <em>Conclusion</em> : vrai pour tout \(n\). ∎</li>
-<li>\(\lim(1+3n)=+\infty\) et \(4^n\geq1+3n\) : par le <strong>théorème de comparaison</strong>, \(\lim 4^n=+\infty\).</li>
+<li>Soit \(P(n)\) : « \(4^n\ge1+3n\) ». <em>Initialisation :</em> \(4^0=1\) et \(1+3\times0=1\) : \(1\ge1\) ✓. <em>Hérédité :</em> supposons \(4^n\ge1+3n\). En multipliant par \(4>0\) (le sens de l'inégalité est conservé) : \(4^{n+1}\ge4(1+3n)=4+12n\). Or \(4+12n\ge4+3n=1+3(n+1)\) puisque \(12n\ge3n\). Donc \(4^{n+1}\ge1+3(n+1)\) : \(P(n+1)\) vraie. <em>Conclusion :</em> vrai pour tout \(n\ge0\). ∎ <span class="rappel-inline">⚠ On multiplie une inégalité par \(4\) : licite car \(4>0\). Multiplier par un négatif inverserait le sens.</span></li>
+<li>On a \(4^n\ge1+3n\) et \(\lim(1+3n)=+\infty\). Par le <strong>théorème de comparaison</strong> (minorée par une suite qui tend vers \(+\infty\)), \(\lim4^n=+\infty\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 5</div>
+<div class="cor"><div class="cor-head">Corrigé 5 — théorème des gendarmes</div>
+<p><em>Méthode :</em> quand une suite contient un terme « oscillant » borné (\((-1)^n\), \(\cos n\)…), on l'<strong>encadre</strong> entre deux suites de même limite.</p>
 <ol>
-<li>\(-\dfrac1n\leq\dfrac{(-1)^n}{n}\leq\dfrac1n\) et les deux bornes tendent vers 0 : gendarmes, limite \(0\).<br>
-\(\dfrac{n+\cos n}{n}=1+\dfrac{\cos n}{n}\) et \(-\dfrac1n\leq\dfrac{\cos n}{n}\leq\dfrac1n\) : limite \(1\).</li>
-<li>\(n-1\le n+(-1)^n\le n+1\), donc \(\dfrac{n-1}{n^2+1}\leq u_n\leq\dfrac{n+1}{n^2+1}\). Les deux bornes tendent vers 0 (degré 1 sur degré 2), donc \(\lim u_n=0\).</li>
+<li>Comme \(-1\le(-1)^n\le1\), on a \(-\dfrac1n\le\dfrac{(-1)^n}{n}\le\dfrac1n\). Les deux bornes tendent vers \(0\), donc par les gendarmes \(\dfrac{(-1)^n}{n}\to0\).<br>
+Ensuite \(\dfrac{n+\cos n}{n}=1+\dfrac{\cos n}{n}\), et \(-\dfrac1n\le\dfrac{\cos n}{n}\le\dfrac1n\to0\), donc la limite est \(1+0=1\).</li>
+<li>Comme \(-1\le(-1)^n\le1\), on a \(n-1\le n+(-1)^n\le n+1\), d'où (en divisant par \(n^2+1>0\)) : \(\dfrac{n-1}{n^2+1}\le u_n\le\dfrac{n+1}{n^2+1}\). Les deux bornes sont des quotients « degré 1 / degré 2 » qui tendent vers \(0\) ; par les gendarmes, \(\lim u_n=0\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 6</div>
+<div class="cor"><div class="cor-head">Corrigé 6 — le classique du bac</div>
+<p><em>Méthode :</em> l'enchaînement type est <strong>encadrement (récurrence) → monotonie → convergence (théorème monotone) → expression explicite via la suite auxiliaire → limite</strong>.</p>
 <ol>
-<li>\(u_1=3\), \(u_2=4{,}5\).</li>
-<li>\(P(n)\) : « \(0\leq u_n\leq6\) ». <em>Init.</em> : \(0\leq u_0=0\leq6\). ✓ <em>Hérédité</em> : si \(0\leq u_n\leq6\), alors \(0\leq \dfrac12u_n\leq3\) puis \(3\leq\dfrac12u_n+3\leq6\), donc \(0\leq u_{n+1}\leq6\). ✓ <em>Conclusion</em> : vrai pour tout \(n\). ∎</li>
-<li>\(u_{n+1}-u_n=\dfrac12u_n+3-u_n=3-\dfrac12u_n=\dfrac{6-u_n}{2}\). D'après la question 2, \(u_n\leq6\), donc \(u_{n+1}-u_n\geq0\) : la suite est <strong>croissante</strong>.</li>
-<li>\((u_n)\) est croissante et majorée par 6 : d'après le <strong>théorème de convergence monotone</strong>, elle converge.</li>
-<li>\(v_{n+1}=u_{n+1}-6=\dfrac12u_n+3-6=\dfrac12u_n-3=\dfrac12(u_n-6)=\dfrac12v_n\) : géométrique de raison \(\dfrac12\), \(v_0=-6\). D'où \(v_n=-6\left(\dfrac12\right)^n\) et \(u_n=6-6\left(\dfrac12\right)^n=6-\dfrac{6}{2^n}\).</li>
-<li>\(\left(\dfrac12\right)^n\to0\) donc \(\lim u_n=6\). Cohérent : la suite est croissante, majorée par 6, et converge précisément vers son majorant « optimal », le point fixe de \(x\mapsto\frac{x}{2}+3\).</li>
+<li>\(u_1=\frac12\times0+3=3\) ; \(u_2=\frac12\times3+3=4{,}5\).</li>
+<li>\(P(n)\) : « \(0\le u_n\le6\) ». <em>Init. :</em> \(u_0=0\), donc \(0\le0\le6\) ✓. <em>Hérédité :</em> si \(0\le u_n\le6\), alors en multipliant par \(\frac12\) : \(0\le\frac12u_n\le3\), puis en ajoutant \(3\) : \(3\le\frac12u_n+3\le6\), soit \(3\le u_{n+1}\le6\), donc <em>a fortiori</em> \(0\le u_{n+1}\le6\). ✓ <em>Conclusion :</em> vrai pour tout \(n\). ∎</li>
+<li>\(u_{n+1}-u_n=\frac12u_n+3-u_n=3-\frac12u_n=\dfrac{6-u_n}{2}\). Or la question 2 donne \(u_n\le6\), donc \(6-u_n\ge0\) et \(u_{n+1}-u_n\ge0\) : \((u_n)\) est <strong>croissante</strong>.</li>
+<li>\((u_n)\) est croissante et majorée par \(6\) : d'après le <strong>théorème de convergence monotone</strong>, elle converge (vers un réel \(\le6\)).</li>
+<li>\(v_{n+1}=u_{n+1}-6=\frac12u_n+3-6=\frac12u_n-3=\frac12(u_n-6)=\frac12v_n\) : \((v_n)\) est géométrique de raison \(\frac12\), avec \(v_0=u_0-6=-6\). Donc \(v_n=-6\left(\frac12\right)^n\), puis \(u_n=v_n+6=6-6\left(\frac12\right)^n=6-\dfrac{6}{2^n}\).</li>
+<li>\(\left(\frac12\right)^n\to0\), donc \(\lim u_n=6\). C'est cohérent : la suite était croissante et majorée par 6, et elle atteint « à l'infini » exactement 6, qui est le point fixe de \(x\mapsto\frac x2+3\) (solution de \(\ell=\frac\ell2+3\)).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 7</div>
+<div class="cor"><div class="cor-head">Corrigé 7 — algorithmique : seuil</div>
 <ol>
-<li>Le plus petit rang \(n\) à partir duquel \(u_n\) est à moins de 0,01 de sa limite 6 (c'est-à-dire \(6-u_n\leq0{,}01\)).</li>
-<li>Car \(6-u_n=\dfrac{6}{2^n}\to0\) : à partir d'un certain rang, \(6-u_n\) devient inférieur à tout seuil \(e>0\), donc la condition du <code>while</code> finit par être fausse.</li>
-<li>On cherche le premier \(n\) tel que \(\dfrac{6}{2^n}\leq0{,}5\), soit \(2^n\geq12\) : \(n=4\) (\(2^4=16\)). <code>seuil(0.5)</code> renvoie 4.</li>
+<li>La boucle s'arrête dès que \(6-u\le e\). La fonction renvoie donc le plus petit rang \(n\) à partir duquel \(u_n\) est à une distance \(\le0{,}01\) de sa limite \(6\).</li>
+<li>On a montré \(u_n=6-\dfrac{6}{2^n}\), donc \(6-u_n=\dfrac{6}{2^n}\), qui tend vers \(0\). Ainsi, pour tout seuil \(e>0\), \(6-u_n\) finit par devenir \(\le e\) : la condition du <code>while</code> devient fausse et la boucle <strong>se termine</strong>.</li>
+<li>On cherche le premier \(n\) tel que \(\dfrac{6}{2^n}\le0{,}5\), soit \(2^n\ge12\). Comme \(2^3=8\lt12\) et \(2^4=16\ge12\), c'est \(n=4\). Donc <code>seuil(0.5)</code> renvoie \(4\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 8</div>
+<div class="cor"><div class="cor-head">Corrigé 8 — suite \(u_{n+1}=\sqrt{u_n+2}\)</div>
+<p><em>Méthode :</em> pour une suite \(u_{n+1}=f(u_n)\) avec \(f\) croissante, on démontre l'encadrement et la monotonie par récurrence, on conclut à la convergence, puis on résout l'équation du point fixe \(\ell=f(\ell)\).</p>
 <ol>
-<li>\(P(n)\) : « \(0\leq u_n\leq2\) ». <em>Init.</em> : \(u_0=0\). ✓ <em>Hérédité</em> : si \(0\leq u_n\leq2\), alors \(2\leq u_n+2\leq4\), et par croissance de la racine carrée \(\sqrt2\leq u_{n+1}\leq2\), donc a fortiori \(0\leq u_{n+1}\leq2\). ✓ ∎</li>
-<li>\(Q(n)\) : « \(u_n\leq u_{n+1}\) ». <em>Init.</em> : \(u_0=0\leq u_1=\sqrt2\). ✓ <em>Hérédité</em> : si \(u_n\leq u_{n+1}\), alors \(u_n+2\leq u_{n+1}+2\), et par croissance de la racine carrée \(\sqrt{u_n+2}\leq\sqrt{u_{n+1}+2}\), c'est-à-dire \(u_{n+1}\leq u_{n+2}\). ✓ Donc \((u_n)\) est croissante. ∎</li>
-<li>Croissante (q. 2) et majorée par 2 (q. 1) : elle converge vers un réel \(\ell\) (théorème de convergence monotone).</li>
-<li>\(\ell=\sqrt{\ell+2}\) impose \(\ell\geq0\) et, en élevant au carré, \(\ell^2=\ell+2\), soit \(\ell^2-\ell-2=0\), racines \(-1\) et \(2\). Comme \(\ell\geq0\) : \(\boxed{\ell=2}\).</li>
+<li>\(P(n)\) : « \(0\le u_n\le2\) ». <em>Init. :</em> \(u_0=0\), \(0\le0\le2\) ✓. <em>Hérédité :</em> si \(0\le u_n\le2\), alors \(2\le u_n+2\le4\) ; la fonction racine étant croissante, \(\sqrt2\le\sqrt{u_n+2}\le\sqrt4\), soit \(\sqrt2\le u_{n+1}\le2\), donc <em>a fortiori</em> \(0\le u_{n+1}\le2\). ✓ ∎</li>
+<li>\(Q(n)\) : « \(u_n\le u_{n+1}\) ». <em>Init. :</em> \(u_0=0\le u_1=\sqrt{0+2}=\sqrt2\) ✓. <em>Hérédité :</em> si \(u_n\le u_{n+1}\), alors \(u_n+2\le u_{n+1}+2\) ; par croissance de la racine, \(\sqrt{u_n+2}\le\sqrt{u_{n+1}+2}\), c'est-à-dire \(u_{n+1}\le u_{n+2}\). ✓ Donc \((u_n)\) est <strong>croissante</strong>. ∎</li>
+<li>\((u_n)\) est croissante (q. 2) et majorée par \(2\) (q. 1) : par le théorème de convergence monotone, elle <strong>converge</strong> vers un réel \(\ell\) (avec \(\ell\le2\)).</li>
+<li>La limite vérifie \(\ell=\sqrt{\ell+2}\). Cette égalité impose \(\ell\ge0\) ; en élevant au carré : \(\ell^2=\ell+2\), soit \(\ell^2-\ell-2=0\). Les racines sont \(-1\) et \(2\). Comme \(\ell\ge0\), on retient \(\boxed{\ell=2}\).</li>
 </ol>
 </div>
 </div>
-
 <div id="quiz-mount"></div>
 <p class="footer-note">Parcours d'été — Module M3 · Suites : récurrence et limites · Premier chapitre du programme de terminale.</p>
 

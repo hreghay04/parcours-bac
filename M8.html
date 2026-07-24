@@ -71,6 +71,10 @@ Ce module applique cette grille à toutes les fonctions de référence.
 
 <h2>1. Les fonctions de référence algébriques</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Ces fonctions de base (carré, cube, inverse, racine…) sont les <strong>briques élémentaires</strong> : connaître par cœur l'allure de leur courbe et leur dérivée permet de comprendre d'un coup d'œil n'importe quelle fonction plus compliquée bâtie à partir d'elles.
+</div>
+
 <h3>1.1 La fonction affine \(f(x)=ax+b\)</h3>
 <div class="box def"><span class="label">L'essentiel</span>
 Définie sur \(\mathbb{R}\). Sa courbe est une <strong>droite</strong> de coefficient directeur \(a\) et d'ordonnée à l'origine \(b\). Dérivée <strong>constante</strong> : \(f'(x)=a\). Croissante si \(a>0\), décroissante si \(a\lt 0\), constante si \(a=0\). Ni convexe ni concave stricte (droite : \(f''=0\)).
@@ -265,6 +269,10 @@ Définie sur \(\mathbb{R}\). Sa courbe est une <strong>droite</strong> de coeffi
 </div>
 
 <h2>2. La fonction exponentielle \(f(x)=e^x\)</h2>
+
+<div class="box intuition"><span class="label">💡 Intuition</span>
+L'exponentielle est la <strong>championne de la croissance</strong> : toujours positive, toujours croissante, elle finit par dépasser n'importe quelle puissance de \(x\). À retenir : elle passe par \((0\,;1)\) et l'axe des abscisses est son asymptote à gauche.
+</div>
 <div class="fig">
 <svg viewBox="0 0 254 238" width="254" xmlns="http://www.w3.org/2000/svg">
 <g transform="translate(26,16)">
@@ -309,6 +317,10 @@ Définie sur \(\mathbb{R}\). Sa courbe est une <strong>droite</strong> de coeffi
 </div>
 
 <h2>3. La fonction logarithme népérien \(f(x)=\ln x\)</h2>
+
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Le logarithme est l'exact <strong>inverse</strong> de l'exponentielle : il « défait » ce qu'elle fait (\(\ln(e^x)=x\)). Là où l'exponentielle change les sommes en produits, le logarithme change les <strong>produits en sommes</strong> — d'où son utilité pour « faire descendre » les exposants.
+</div>
 <p>C'est le grand chapitre nouveau de terminale. Le logarithme népérien est la <strong>fonction réciproque</strong> de l'exponentielle : il « défait » ce que fait l'exponentielle.</p>
 <div class="box def"><span class="label">Définition</span>
 La fonction <strong>logarithme népérien</strong>, notée \(\ln\), est définie sur \(]0;+\infty[\) comme la fonction réciproque de l'exponentielle :
@@ -392,6 +404,10 @@ Les courbes de \(\exp\) et de \(\ln\) sont <strong>symétriques par rapport à l
 </div>
 
 <h2>4. Les fonctions sinus et cosinus</h2>
+
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Sinus et cosinus décrivent tout ce qui est <strong>périodique</strong> (qui se répète) : ils oscillent sans fin entre \(-1\) et \(1\), avec une période de \(2\pi\). Le cosinus n'est que le sinus décalé d'un quart de tour.
+</div>
 <div class="fig">
 <svg viewBox="0 0 374 188" width="330" xmlns="http://www.w3.org/2000/svg">
 <g transform="translate(26,16)">
@@ -453,6 +469,16 @@ Les courbes de \(\exp\) et de \(\ln\) sont <strong>symétriques par rapport à l
 <tr><th>Composée</th><td>\(e^{u}\)</td><td>\(\ln u\)</td><td>\(\sqrt u\)</td><td>\(u^n\)</td><td>\(\sin u\)</td><td>\(\cos u\)</td></tr>
 <tr><th>Dérivée</th><td>\(u'e^{u}\)</td><td>\(\dfrac{u'}{u}\)</td><td>\(\dfrac{u'}{2\sqrt u}\)</td><td>\(nu'u^{n-1}\)</td><td>\(u'\cos u\)</td><td>\(-u'\sin u\)</td></tr>
 </table>
+
+<div class="synthese"><span class="label">L'essentiel à retenir</span>
+<ul>
+<li><strong>Ordre de croissance</strong> en \(+\infty\) : \(\ln x \ll \sqrt x \ll x^n \ll e^x\).</li>
+<li>\(\exp\) et \(\ln\) sont <strong>réciproques</strong> → courbes symétriques par rapport à \(y=x\) ; \(e^{\ln x}=x\) et \(\ln(e^x)=x\).</li>
+<li><strong>Domaines</strong> : \(e^x\) sur \(\mathbb{R}\) (et \(\gt0\)) ; \(\ln\) sur \(]0;+\infty[\).</li>
+<li><strong>Dérivées clés</strong> : \((e^x)'=e^x\), \((\ln x)'=\frac1x\), \((\sqrt x)'=\frac{1}{2\sqrt x}\), \(\sin'=\cos\), \(\cos'=-\sin\).</li>
+<li><strong>sin / cos</strong> : périodiques de période \(2\pi\), à valeurs dans \([-1;1]\), avec \(\cos^2x+\sin^2x=1\).</li>
+</ul>
+</div>
 
 <h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
 <p style="font-style:italic;font-size:9.5pt;margin-top:0">Le logarithme (exercices 4 à 7) est la nouveauté de terminale : y consacrer le plus de temps.</p>
@@ -530,74 +556,98 @@ Soit \(f(x)=\sin x+\cos x\) sur \([0;2\pi]\).
 
 <div class="corriges-start">
 <div class="corriges-banner">Corrigés détaillés — Module M8</div>
-<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé.</p>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé. L'objectif n'est pas seulement de vérifier le résultat, mais de comprendre <em>chaque étape</em> et la méthode qui la justifie.</p>
 
-<div class="cor"><div class="cor-head">Corrigé 1</div>
+<div class="cor"><div class="cor-head">Corrigé 1 — la grille d'analyse appliquée</div>
+<p><em>Méthode :</em> pour chaque fonction on répond dans l'ordre aux questions <strong>domaine → parité → dérivée → variations</strong>. La parité se teste toujours en calculant \(f(-x)\) et en le comparant à \(f(x)\) (paire) ou à \(-f(x)\) (impaire).</p>
 <ol>
-<li>\(x^2\) : sur \(\mathbb{R}\), paire, décroissante puis croissante (min en 0), \(f'(x)=2x\).</li>
-<li>\(\dfrac1x\) : sur \(\mathbb{R}^*\), impaire, décroissante sur chaque intervalle, \(g'(x)=-\dfrac{1}{x^2}\).</li>
-<li>\(\sqrt x\) : sur \([0;+\infty[\), ni paire ni impaire, croissante, \(h'(x)=\dfrac{1}{2\sqrt x}\) (sur \(]0;+\infty[\)).</li>
-<li>\(x^3\) : sur \(\mathbb{R}\), impaire, strictement croissante, \(k'(x)=3x^2\).</li>
+<li><strong>\(f(x)=x^2\).</strong> Domaine : \(\mathbb{R}\) (un polynôme est défini partout, aucune valeur interdite). Parité : \(f(-x)=(-x)^2=x^2=f(x)\), donc \(f\) est <strong>paire</strong> — sa courbe est symétrique par rapport à l'axe des ordonnées. Dérivée : \(f'(x)=2x\). Le signe de \(f'\) est celui de \(x\) : \(f'\lt 0\) sur \(]-\infty;0[\) et \(f'\gt 0\) sur \(]0;+\infty[\), donc \(f\) est décroissante puis croissante, avec un minimum \(f(0)=0\).</li>
+<li><strong>\(g(x)=\dfrac1x\).</strong> Domaine : \(\mathbb{R}^*\) car \(0\) est interdit (division par zéro). Parité : \(g(-x)=\dfrac{1}{-x}=-\dfrac1x=-g(x)\), donc \(g\) est <strong>impaire</strong> (symétrie par rapport à l'origine). Dérivée : \(g'(x)=-\dfrac{1}{x^2}\), qui est <strong>toujours strictement négative</strong>. Donc \(g\) est strictement décroissante sur \(]-\infty;0[\) <em>et</em> sur \(]0;+\infty[\). <span class="rappel-inline">⚠ Ce sont deux intervalles séparés : on n'écrit jamais « décroissante sur \(\mathbb{R}^*\) », car entre les deux branches la fonction « saute » de \(-\infty\) à \(+\infty\).</span></li>
+<li><strong>\(h(x)=\sqrt x\).</strong> Domaine : \([0;+\infty[\) (on ne prend pas la racine d'un nombre négatif). Parité : aucune, car le domaine n'est pas symétrique par rapport à 0. Dérivée : \(h'(x)=\dfrac{1}{2\sqrt x}\) sur \(]0;+\infty[\), strictement positive, donc \(h\) est strictement croissante. <span class="rappel-inline">En \(0\), le dénominateur \(2\sqrt x\) tend vers 0 : \(h\) n'est <strong>pas dérivable en 0</strong>, la courbe y admet une tangente verticale.</span></li>
+<li><strong>\(k(x)=x^3\).</strong> Domaine : \(\mathbb{R}\). Parité : \(k(-x)=(-x)^3=-x^3=-k(x)\), donc <strong>impaire</strong>. Dérivée : \(k'(x)=3x^2\ge 0\), qui s'annule en \(0\) <em>sans changer de signe</em> : \(k\) est donc <strong>strictement croissante sur \(\mathbb{R}\)</strong> et n'a pas d'extremum. En \(0\), \(k''(x)=6x\) change de signe : c'est un <strong>point d'inflexion</strong>.</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 2</div>
+<div class="cor"><div class="cor-head">Corrigé 2 — dériver une composée</div>
+<p><em>Méthode :</em> on repère la « forme » (\(e^u\), \(\ln u\), \(\sqrt u\), \(u^n\), \(\sin u\), \(\cos u\)), on identifie \(u\) et on calcule \(u'\), puis on applique la formule de dérivation de la composée <strong>sans jamais oublier le facteur \(u'\)</strong>.</p>
 <ol>
-<li>\(f'(x)=\dfrac{2x}{2\sqrt{x^2+1}}=\dfrac{x}{\sqrt{x^2+1}}\).</li>
-<li>\(g'(x)=\dfrac{3}{3x+2}\) (forme \(\dfrac{u'}{u}\)), sur \(\left]-\dfrac23;+\infty\right[\).</li>
-<li>\(h'(x)=-\sin x\;e^{\cos x}\) (forme \(u'e^u\) avec \(u=\cos x\)).</li>
-<li>\(k'(x)=2\cos(2x)\).</li>
-<li>\(m'(x)=-\dfrac{2x}{(x^2+1)^2}\).</li>
-<li>\(n'(x)=\dfrac{2x}{x^2+1}\).</li>
+<li>\(f(x)=\sqrt{x^2+1}\) : forme \(\sqrt u\) avec \(u=x^2+1\), \(u'=2x\). Or \((\sqrt u)'=\dfrac{u'}{2\sqrt u}\), donc \(f'(x)=\dfrac{2x}{2\sqrt{x^2+1}}=\dfrac{x}{\sqrt{x^2+1}}\). (Domaine \(\mathbb{R}\) car \(x^2+1\gt 0\) toujours.)</li>
+<li>\(g(x)=\ln(3x+2)\) : forme \(\ln u\) avec \(u=3x+2\), \(u'=3\). Comme \((\ln u)'=\dfrac{u'}{u}\), on obtient \(g'(x)=\dfrac{3}{3x+2}\), sur \(\left]-\dfrac23;+\infty\right[\) (où \(3x+2\gt 0\)).</li>
+<li>\(h(x)=e^{\cos x}\) : forme \(e^u\) avec \(u=\cos x\), \(u'=-\sin x\). Comme \((e^u)'=u'e^u\) : \(h'(x)=-\sin x\;e^{\cos x}\).</li>
+<li>\(k(x)=\sin(2x)\) : forme \(\sin u\) avec \(u=2x\), \(u'=2\). Comme \((\sin u)'=u'\cos u\) : \(k'(x)=2\cos(2x)\).</li>
+<li>\(m(x)=\dfrac{1}{x^2+1}\) : forme \(\dfrac1v\) avec \(v=x^2+1\), \(v'=2x\). Comme \(\left(\dfrac1v\right)'=-\dfrac{v'}{v^2}\) : \(m'(x)=-\dfrac{2x}{(x^2+1)^2}\).</li>
+<li>\(n(x)=\ln(x^2+1)\) : forme \(\ln u\) avec \(u=x^2+1\), \(u'=2x\), donc \(n'(x)=\dfrac{2x}{x^2+1}\) (défini sur \(\mathbb{R}\)).</li>
+</ol>
+<p><span class="rappel-inline">L'erreur la plus fréquente est d'oublier \(u'\) : par exemple écrire \((\ln(3x+2))'=\dfrac{1}{3x+2}\) au lieu de \(\dfrac{3}{3x+2}\).</span></p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 3 — reconnaître les courbes</div>
+<p>Chaque fonction a une « signature » visuelle qui permet de l'identifier sans calculatrice :</p>
+<ul>
+<li>\(x^2\) : <strong>parabole</strong> symétrique (paire), sommet en O, part vers \(+\infty\) des deux côtés.</li>
+<li>\(x^3\) : courbe <strong>impaire</strong> passant par O, croissante, qui plonge vers \(-\infty\) à gauche et monte vers \(+\infty\) à droite.</li>
+<li>\(\dfrac1x\) : <strong>deux branches d'hyperbole</strong> ne se croisant jamais les axes (asymptotes), tendant vers 0 en \(\pm\infty\).</li>
+<li>\(\sqrt x\) : demi-courbe partant de O, définie seulement pour \(x\ge 0\), qui monte de plus en plus lentement.</li>
+<li>\(e^x\) : <strong>toujours au-dessus de l'axe</strong> (\(e^x\gt 0\)), passe par \((0;1)\), explose en \(+\infty\), colle à l'axe en \(-\infty\).</li>
+<li>\(\ln x\) : définie pour \(x\gt 0\) seulement, passe par \((1;0)\), monte très lentement vers \(+\infty\), plonge vers \(-\infty\) près de \(0\).</li>
+</ul>
+<p><strong>Comportement en \(+\infty\) — l'ordre à retenir :</strong> \(\ln x \ll \sqrt x \ll x^2 \ll x^3 \ll e^x\). Autrement dit, en l'infini le logarithme est le plus « lent » et l'exponentielle le plus « rapide ». <span class="rappel-inline">Cet ordre justifie les croissances comparées (ex. \(\dfrac{e^x}{x^n}\to+\infty\) et \(\dfrac{\ln x}{x}\to 0\)) et revient constamment dans les études de limites.</span></p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 4 — propriétés algébriques du logarithme</div>
+<p><em>Méthode :</em> on n'utilise que trois règles — \(\ln(ab)=\ln a+\ln b\), \(\ln\frac ab=\ln a-\ln b\), \(\ln(a^n)=n\ln a\) — plus les valeurs \(\ln 1=0\) et \(\ln e=1\).</p>
+<ol>
+<li>\(\ln 6-\ln 2=\ln\dfrac62=\ln 3\) (règle du quotient).<br>
+\(\ln 8-3\ln 2\) : on transforme \(3\ln 2=\ln(2^3)=\ln 8\), d'où \(\ln 8-\ln 8=0\).<br>
+\(2\ln 3+\ln 5=\ln(3^2)+\ln 5=\ln 9+\ln 5=\ln(9\times5)=\ln 45\).<br>
+\(\ln(e^3)=3\) car \(\ln(e^x)=x\).</li>
+<li>\(\ln 4=\ln(2^2)=2\ln 2\) ; \(\ln 16=\ln(2^4)=4\ln 2\) ; \(\ln\dfrac12=\ln 1-\ln 2=-\ln 2\) ; \(\ln\sqrt2=\ln(2^{1/2})=\dfrac12\ln 2\).</li>
+<li>\(\ln x+\ln 3=\ln(3x)\) (produit).<br>
+\(2\ln x-\ln(x+1)=\ln(x^2)-\ln(x+1)=\ln\!\dfrac{x^2}{x+1}\) (puissance puis quotient).</li>
+</ol>
+<p><span class="rappel-inline">Ces règles « transforment les produits et les puissances en sommes » : c'est exactement ce qui permet, à l'exercice 7, de faire descendre un exposant pour le calculer.</span></p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5 — équations et inéquations avec \(\ln\)</div>
+<p><em>Méthode :</em> (1) poser les <strong>conditions d'existence</strong> (tout ce qui est sous un \(\ln\) doit être \(\gt 0\)) ; (2) se ramener à \(\ln A=\ln B\) ou appliquer la réciproque \(\exp\) ; (3) vérifier que les solutions respectent les conditions.</p>
+<ol>
+<li>\(\ln x=3\). On applique l'exponentielle aux deux membres : \(x=e^3\approx 20{,}09\) (bien \(\gt 0\), accepté).</li>
+<li>\(\ln(2x-1)=0\). Condition : \(2x-1\gt 0\), soit \(x\gt\dfrac12\). Comme \(0=\ln 1\), l'équation devient \(\ln(2x-1)=\ln 1\iff 2x-1=1\iff x=1\). Or \(1\gt\dfrac12\) : solution acceptée.</li>
+<li>\(\ln(x+2)=\ln(3x-4)\). Conditions : \(x+2\gt0\) <strong>et</strong> \(3x-4\gt0\), donc \(x\gt\dfrac43\). L'équation \(\ln A=\ln B\iff A=B\) donne \(x+2=3x-4\iff 2x=6\iff x=3\). Comme \(3\gt\dfrac43\), la solution est acceptée.</li>
+<li>\(\ln x\le 1\). Condition : \(x\gt0\). Comme \(1=\ln e\) et que \(\ln\) est <strong>croissante</strong>, \(\ln x\le\ln e\iff x\le e\). En croisant avec \(x\gt0\) : \(S=\,]0\,;e]\).</li>
+<li>\(e^x=5\). On applique \(\ln\) : \(x=\ln 5\approx1{,}609\).</li>
+</ol>
+<p><span class="rappel-inline">⚠ Oublier les conditions d'existence est la faute classique : une « solution » qui rend négatif un terme sous le \(\ln\) doit être rejetée.</span></p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 6 — étude de \(f(x)=x-\ln x\)</div>
+<ol>
+<li>\(f'(x)=1-\dfrac1x\). Pour étudier son signe, on met au même dénominateur : \(f'(x)=\dfrac{x}{x}-\dfrac1x=\dfrac{x-1}{x}\).</li>
+<li>Sur \(]0;+\infty[\), le dénominateur \(x\) est strictement positif, donc \(f'(x)\) est <strong>du signe de \(x-1\)</strong> : \(f'\lt0\) sur \(]0;1[\) (fonction décroissante) et \(f'\gt0\) sur \(]1;+\infty[\) (croissante). On dresse le tableau : \(f\) décroît de \(+\infty\) (limite en \(0^+\)) jusqu'à \(f(1)\), puis croît vers \(+\infty\).</li>
+<li>\(f\) admet donc un <strong>minimum global en \(x=1\)</strong> : \(f(1)=1-\ln 1=1-0=1\). Comme ce minimum vaut \(1\), on a \(f(x)\ge 1\gt 0\) pour tout \(x\gt 0\), c'est-à-dire \(x-\ln x\gt 0\), soit \(\boxed{\ln x\lt x\ \text{ pour tout } x\gt 0}\).<br>
+<strong>Interprétation :</strong> la courbe du logarithme reste <em>toujours strictement en dessous</em> de la droite \(y=x\). C'est une inégalité de référence, symétrique de l'inégalité \(e^x\ge 1+x\) vue pour l'exponentielle (les deux disent que chaque fonction reste d'un côté d'une droite simple).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 3</div>
-<p>Repères : \(x^2\) parabole (domaine \(\mathbb{R}\), \(\to+\infty\)) ; \(x^3\) impaire traversant O (\(\to+\infty\), et \(\to-\infty\) en \(-\infty\)) ; \(\dfrac1x\) deux branches d'hyperbole (\(\to 0\)) ; \(\sqrt x\) demi-courbe pour \(x\ge0\) (\(\to+\infty\) lentement) ; \(e^x\) toujours positive, explose en \(+\infty\), \(\to 0\) en \(-\infty\) ; \(\ln x\) définie pour \(x>0\), \(\to+\infty\) très lentement, \(\to-\infty\) en \(0^+\). Astuce : en \(+\infty\), l'ordre de croissance est \(\ln x \ll \sqrt x \ll x^2 \ll x^3 \ll e^x\).</p>
-</div>
-
-<div class="cor"><div class="cor-head">Corrigé 4</div>
+<div class="cor"><div class="cor-head">Corrigé 7 — résoudre avec un exposant (intérêts composés)</div>
 <ol>
-<li>\(\ln 6-\ln 2=\ln 3\) ; \(\ln 8-3\ln 2=\ln 8-\ln 8=0\) ; \(2\ln 3+\ln 5=\ln 9+\ln 5=\ln 45\) ; \(\ln(e^3)=3\).</li>
-<li>\(\ln 4=2\ln 2\) ; \(\ln 16=4\ln 2\) ; \(\ln\dfrac12=-\ln 2\) ; \(\ln\sqrt2=\dfrac12\ln 2\).</li>
-<li>\(\ln x+\ln 3=\ln(3x)\) ; \(2\ln x-\ln(x+1)=\ln\!\dfrac{x^2}{x+1}\).</li>
+<li>On veut \(1000\times 1{,}03^{\,n}\gt 1500\), soit \(1{,}03^{\,n}\gt 1{,}5\). Pour « faire descendre » l'exposant \(n\), on applique le logarithme aux deux membres (licite car \(\ln\) est croissante et les deux membres sont positifs) :
+$$\ln\!\left(1{,}03^{\,n}\right)\gt\ln 1{,}5 \iff n\,\ln 1{,}03\gt\ln 1{,}5.$$
+Comme \(\ln 1{,}03\gt 0\), on peut diviser <strong>sans changer le sens</strong> de l'inégalité : \(n\gt\dfrac{\ln 1{,}5}{\ln 1{,}03}\).</li>
+<li>Numériquement : \(\dfrac{\ln 1{,}5}{\ln 1{,}03}\approx\dfrac{0{,}405}{0{,}0296}\approx 13{,}7\). Le plus petit entier qui convient est donc \(\boxed{n=14}\) : c'est au bout de <strong>14 ans</strong> que le capital dépasse pour la première fois 1 500 €. <span class="rappel-inline">⚠ Si on avait dû diviser par un nombre négatif (\(\ln\) d'un nombre entre 0 et 1), il aurait fallu inverser le sens de l'inégalité — ici \(\ln 1{,}03\gt0\), donc pas de changement.</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 5</div>
+<div class="cor"><div class="cor-head">Corrigé 8 — \(f(x)=\sin x+\cos x\) sur \([0\,;2\pi]\)</div>
 <ol>
-<li>\(\ln x=3\iff x=e^3\) (\(\approx 20{,}09\)).</li>
-<li>\(\ln(2x-1)=0=\ln 1\iff 2x-1=1\iff x=1\) (condition \(2x-1>0\) vérifiée).</li>
-<li>Conditions : \(x+2>0\) et \(3x-4>0\), soit \(x>\dfrac43\). \(\ln(x+2)=\ln(3x-4)\iff x+2=3x-4\iff x=3\) (accepté car \(3>\tfrac43\)).</li>
-<li>\(\ln x\le 1=\ln e\iff x\le e\), avec \(x>0\) : \(S=\,]0;e]\).</li>
-<li>\(e^x=5\iff x=\ln 5\approx 1{,}609\).</li>
+<li>En utilisant \(\sin'=\cos\) et \(\cos'=-\sin\) : \(f'(x)=\cos x-\sin x\).</li>
+<li>\(f'(x)=0\iff \cos x=\sin x\). Là où \(\cos x\neq0\), on divise par \(\cos x\) : \(\tan x=1\), dont les solutions sur \([0;2\pi]\) sont \(x=\dfrac{\pi}{4}\) et \(x=\dfrac{5\pi}{4}\). <span class="rappel-inline">(Les points où \(\cos x=0\), soit \(x=\frac{\pi}{2}\) et \(\frac{3\pi}{2}\), ne sont pas solutions : là \(\sin x=\pm1\neq0\).)</span></li>
+<li>Signe de \(f'(x)=\cos x-\sin x\) : positif quand \(\cos x\gt\sin x\). Sur \(\left[0;\dfrac{\pi}{4}\right[\), \(f'\gt0\) (croissante) ; sur \(\left]\dfrac{\pi}{4};\dfrac{5\pi}{4}\right[\), \(f'\lt0\) (décroissante) ; sur \(\left]\dfrac{5\pi}{4};2\pi\right]\), \(f'\gt0\) (croissante).<br>
+Donc <strong>maximum en \(x=\dfrac{\pi}{4}\)</strong> : \(f\!\left(\dfrac{\pi}{4}\right)=\dfrac{\sqrt2}{2}+\dfrac{\sqrt2}{2}=\sqrt2\), et <strong>minimum en \(x=\dfrac{5\pi}{4}\)</strong> : \(f\!\left(\dfrac{5\pi}{4}\right)=-\dfrac{\sqrt2}{2}-\dfrac{\sqrt2}{2}=-\sqrt2\). (Aux bornes : \(f(0)=f(2\pi)=1\).)</li>
 </ol>
-</div>
-
-<div class="cor"><div class="cor-head">Corrigé 6</div>
-<ol>
-<li>\(f'(x)=1-\dfrac1x=\dfrac{x-1}{x}\).</li>
-<li>Sur \(]0;+\infty[\), \(x>0\) donc \(f'\) est du signe de \(x-1\) : \(f'\lt 0\) sur \(]0;1[\), \(f'>0\) sur \(]1;+\infty[\). \(f\) décroît puis croît.</li>
-<li>Minimum en \(x=1\) : \(f(1)=1-\ln 1=1\). Donc pour tout \(x>0\), \(f(x)\ge 1>0\), c'est-à-dire \(x-\ln x>0\), soit \(\boxed{\ln x\lt x}\) pour tout \(x>0\) : le logarithme reste toujours sous la première bissectrice.</li>
-</ol>
-</div>
-
-<div class="cor"><div class="cor-head">Corrigé 7</div>
-<ol>
-<li>\(1000\times 1{,}03^n>1500\iff 1{,}03^n>1{,}5\iff n\ln 1{,}03>\ln 1{,}5\iff n>\dfrac{\ln 1{,}5}{\ln 1{,}03}\) (car \(\ln 1{,}03>0\)).</li>
-<li>\(\dfrac{0{,}405}{0{,}0296}\approx 13{,}7\) : le plus petit entier est \(n=14\). Au bout de 14 ans, le capital dépasse 1 500 €.</li>
-</ol>
-</div>
-
-<div class="cor"><div class="cor-head">Corrigé 8</div>
-<ol>
-<li>\(f'(x)=\cos x-\sin x\).</li>
-<li>\(f'(x)=0\iff \cos x=\sin x\iff \tan x=1\) (là où \(\cos x\neq0\)) \(\iff x=\dfrac{\pi}{4}\) ou \(x=\dfrac{5\pi}{4}\) sur \([0;2\pi]\).</li>
-<li>\(f'\) est positive sur \(\left[0;\dfrac{\pi}{4}\right[\), négative sur \(\left]\dfrac{\pi}{4};\dfrac{5\pi}{4}\right[\), positive ensuite. Maximum en \(\dfrac{\pi}{4}\) : \(f\!\left(\dfrac{\pi}{4}\right)=\dfrac{\sqrt2}{2}+\dfrac{\sqrt2}{2}=\sqrt2\). Minimum en \(\dfrac{5\pi}{4}\) : \(f\!\left(\dfrac{5\pi}{4}\right)=-\dfrac{\sqrt2}{2}-\dfrac{\sqrt2}{2}=-\sqrt2\).</li>
-</ol>
+<p><span class="rappel-inline">Remarque élégante : on peut écrire \(f(x)=\sqrt2\,\sin\!\left(x+\dfrac{\pi}{4}\right)\). On lit alors directement que l'amplitude est \(\sqrt2\), d'où les extremums \(\pm\sqrt2\).</span></p>
 </div>
 </div>
-
 <div id="quiz-mount"></div>
 <p class="footer-note">Parcours d'été — Module M8 · Les fonctions de référence · Panorama transversal (dont le logarithme népérien, chapitre de terminale).</p>
 

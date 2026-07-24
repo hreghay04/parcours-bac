@@ -59,6 +59,10 @@
 
 <h2>1. Le second degré</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Un trinôme du second degré, c'est une <strong>parabole</strong>. Tout le chapitre revient à lire cette courbe : le discriminant \(\Delta\) dit simplement <em>combien de fois</em> la parabole croise l'axe des abscisses (deux fois si \(\Delta\gt0\), une si \(\Delta=0\), jamais si \(\Delta\lt0\)), et le signe de \(a\) dit si elle « sourit » (\(\cup\)) ou fait la moue (\(\cap\)).
+</div>
+
 <div class="box def"><span class="label">Définition</span>
 Un <strong>trinôme du second degré</strong> est une expression de la forme \(ax^2+bx+c\) avec \(a\neq 0\). Son <strong>discriminant</strong> est \(\Delta = b^2-4ac\).
 </div>
@@ -99,6 +103,10 @@ Avant de calculer \(\Delta\), tester \(x=1\) et \(x=-1\) : si \(a+b+c=0\), alors
 </div>
 
 <h2>2. La dérivation</h2>
+
+<div class="box intuition"><span class="label">💡 Intuition</span>
+La dérivée \(f'(x)\) mesure la <strong>pente</strong> de la courbe en chaque point : là où \(f'\gt0\) la courbe monte, là où \(f'\lt0\) elle descend, et là où \(f'=0\) elle fait un « plat » (sommet ou creux). Étudier une fonction, c'est donc avant tout étudier le <em>signe de sa dérivée</em>.
+</div>
 
 <div class="box def"><span class="label">Définition</span>
 \(f\) est <strong>dérivable en \(a\)</strong> si le taux d'accroissement \(\dfrac{f(a+h)-f(a)}{h}\) admet une limite finie quand \(h\to 0\). Cette limite est le <strong>nombre dérivé</strong> \(f'(a)\) : c'est le coefficient directeur de la tangente à la courbe au point d'abscisse \(a\).
@@ -150,6 +158,10 @@ Sur un intervalle \(I\) : si \(f'\geq 0\) sur \(I\) alors \(f\) est croissante s
 
 <h2>3. La fonction exponentielle</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+L'exponentielle est la fonction qui augmente <strong>proportionnellement à elle-même</strong> (elle est sa propre dérivée) : plus elle est grande, plus elle croît vite — d'où sa croissance « explosive ». Elle transforme les additions en multiplications (\(e^{a+b}=e^a\,e^b\)) et reste toujours strictement positive.
+</div>
+
 <div class="box def"><span class="label">Définition</span>
 La fonction <strong>exponentielle</strong> est l'unique fonction \(f\) dérivable sur \(\mathbb{R}\) telle que \(f' = f\) et \(f(0)=1\). On note \(f(x)=e^x\), avec \(e \approx 2{,}718\).
 </div>
@@ -184,6 +196,16 @@ $$e^{a+b}=e^a e^b \qquad e^{-a}=\frac{1}{e^a} \qquad e^{a-b}=\frac{e^a}{e^b} \qq
 <ul>
 <li>Se ramener à la forme \(e^{A}=e^{B}\) (ou \(e^A \le e^B\)) puis identifier les exposants : \(A = B\) (ou \(A\le B\)). Se rappeler que \(1 = e^0\).</li>
 <li>Si l'équation contient \(e^{2x}\) et \(e^x\) : poser \(X = e^x\) (donc \(e^{2x}=X^2\)), résoudre le trinôme en \(X\), puis ne garder que les solutions \(X>0\).</li>
+</ul>
+</div>
+
+<div class="synthese"><span class="label">L'essentiel à retenir</span>
+<ul>
+<li><strong>Second degré</strong> : \(\Delta=b^2-4ac\) donne le nombre de racines ; le trinôme est « du signe de \(a\) à l'extérieur des racines ». Réflexe : si \(a+b+c=0\), alors \(1\) est racine évidente.</li>
+<li><strong>Dériver</strong> : \((uv)'=u'v+uv'\), \(\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}\), \((e^u)'=u'e^u\). Toujours <em>factoriser</em> \(f'\) pour en lire le signe.</li>
+<li><strong>Étude de fonction</strong> : dérivée → signe de \(f'\) → tableau de variations → extremums (valeurs comprises).</li>
+<li><strong>Tangente</strong> au point d'abscisse \(a\) : \(y=f'(a)(x-a)+f(a)\).</li>
+<li><strong>Exponentielle</strong> : \(e^x\gt0\) toujours, strictement croissante ; \(e^A=e^B\iff A=B\) et \(e^A\lt e^B\iff A\lt B\).</li>
 </ul>
 </div>
 
@@ -268,82 +290,87 @@ On veut démontrer que pour tout réel \(x\) : \(e^x \geq 1+x\).
 
 <div class="corriges-start">
 <div class="corriges-banner">Corrigés détaillés — Module M1</div>
-<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé. Comparer sa rédaction, pas seulement ses résultats.</p>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé. L'objectif est de comprendre <em>chaque étape</em> et la méthode, pas seulement de vérifier le résultat final.</p>
 
-<div class="cor"><div class="cor-head">Corrigé 1</div>
+<div class="cor"><div class="cor-head">Corrigé 1 — automatismes de dérivation</div>
+<p><em>Méthode :</em> on identifie d'abord la forme (somme, produit \(uv\), quotient \(\frac uv\), composée \(e^{u}\)…), puis on applique la formule correspondante. On <strong>factorise toujours</strong> le résultat : c'est ce qui permettra ensuite d'en étudier le signe.</p>
 <ol>
-<li>\(f'(x)=12x^3-10x+7\)</li>
-<li>\(g'(x)=-\dfrac{5}{x^2}-\dfrac{1}{\sqrt{x}}\) sur \(]0\,;+\infty[\) <span class="rappel-inline">(car \((2\sqrt x)' = 2\times\frac{1}{2\sqrt x}=\frac{1}{\sqrt x}\))</span></li>
-<li>Produit : \(h'(x)=2(x^2-3)+(2x+1)(2x)=6x^2+2x-6\)</li>
-<li>Quotient : \(k'(x)=\dfrac{3(x+2)-(3x-1)}{(x+2)^2}=\dfrac{7}{(x+2)^2}\) sur \(\mathbb{R}\setminus\{-2\}\)</li>
-<li>Produit : \(m'(x)=2xe^x+x^2e^x=x(x+2)e^x\) <span class="rappel-inline">(toujours factoriser !)</span></li>
-<li>\(n'(x)=-3e^{-3x+2}\)</li>
-<li>\(p'(x)=\dfrac{e^x\cdot x - e^x}{x^2}=\dfrac{(x-1)e^x}{x^2}\) sur \(\mathbb{R}^*\)</li>
-<li>Forme \(\dfrac1v\) : \(q'(x)=-\dfrac{2x}{(x^2+1)^2}\)</li>
+<li>Somme de puissances (on dérive terme à terme, \((x^n)'=nx^{n-1}\)) : \(f'(x)=12x^3-10x+7\).</li>
+<li>\(g'(x)=-\dfrac{5}{x^2}-\dfrac{1}{\sqrt{x}}\) sur \(]0\,;+\infty[\). <span class="rappel-inline">Détail : \(\left(\frac5x\right)'=-\frac{5}{x^2}\), et \((2\sqrt x)'=2\times\frac{1}{2\sqrt x}=\frac{1}{\sqrt x}\).</span></li>
+<li>Produit \(uv\), \((uv)'=u'v+uv'\) avec \(u=2x+1,\ v=x^2-3\) : \(h'(x)=2(x^2-3)+(2x+1)(2x)=6x^2+2x-6\).</li>
+<li>Quotient \(\frac uv\), \(\left(\frac uv\right)'=\frac{u'v-uv'}{v^2}\) : \(k'(x)=\dfrac{3(x+2)-(3x-1)\times 1}{(x+2)^2}=\dfrac{3x+6-3x+1}{(x+2)^2}=\dfrac{7}{(x+2)^2}\) sur \(\mathbb{R}\setminus\{-2\}\).</li>
+<li>Produit avec \(u=x^2,\ v=e^x\) : \(m'(x)=2xe^x+x^2e^x=x(x+2)e^x\). <span class="rappel-inline">On factorise par \(x e^x\) : le signe se lira d'un coup d'œil.</span></li>
+<li>Composée \(e^{u}\), \((e^u)'=u'e^u\) avec \(u=-3x+2\) : \(n'(x)=-3e^{-3x+2}\).</li>
+<li>Quotient avec \(u=e^x,\ v=x\) : \(p'(x)=\dfrac{e^x\cdot x-e^x\cdot 1}{x^2}=\dfrac{(x-1)e^x}{x^2}\) sur \(\mathbb{R}^*\).</li>
+<li>Forme \(\dfrac1v\), \(\left(\frac1v\right)'=-\frac{v'}{v^2}\) avec \(v=x^2+1\) : \(q'(x)=-\dfrac{2x}{(x^2+1)^2}\).</li>
+</ol>
+<p><span class="rappel-inline">⚠ Rappel : \((uv)'\neq u'v'\). La dérivée d'un produit n'est jamais le produit des dérivées.</span></p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 2 — second degré</div>
+<p><em>Méthode :</em> avant de calculer \(\Delta\), on teste les <strong>racines évidentes</strong> : si \(a+b+c=0\) alors \(1\) est racine (l'autre vaut \(\frac ca\)) ; si \(a-b+c=0\) alors \(-1\) est racine. Pour le signe, on retient : « du signe de \(a\) à l'extérieur des racines, du signe de \(-a\) entre elles ».</p>
+<ol>
+<li>\(x^2-x-6\) : \(\Delta=(-1)^2-4(1)(-6)=1+24=25>0\), deux racines \(x=\dfrac{1\pm\sqrt{25}}{2}=\dfrac{1\pm5}{2}\), soit \(\boxed{-2\ \text{et}\ 3}\).<br>
+\(2x^2+3x-5\) : ici \(a+b+c=2+3-5=0\), donc \(1\) est racine évidente ; l'autre racine est \(\dfrac ca=\dfrac{-5}{2}\). (On évite ainsi le calcul de \(\Delta\).)</li>
+<li>\(T(x)=-x^2+4x-3\) : \(a+b+c=-1+4-3=0\) donc racines \(1\) et \(\dfrac ca=\dfrac{-3}{-1}=3\). Comme \(a=-1\lt0\), le trinôme est du signe de \(a\) (négatif) à l'extérieur : \(T(x)\lt0\) sur \(]-\infty;1[\cup]3;+\infty[\), \(T(x)\gt0\) sur \(]1;3[\), et \(T=0\) en \(1\) et \(3\).</li>
+<li>\(x^2-x-6\) a \(a=1\gt0\) : il est négatif <em>entre</em> ses racines. Donc \(x^2-x-6\le0\) sur \(S=[-2\,;3]\) (bornes incluses car l'inéquation est large).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 2</div>
+<div class="cor"><div class="cor-head">Corrigé 3 — tangente</div>
+<p><em>Méthode :</em> l'équation de la tangente au point d'abscisse \(a\) est \(y=f'(a)(x-a)+f(a)\) ; il faut donc calculer <strong>deux nombres</strong> : \(f(a)\) et \(f'(a)\). Une tangente est horizontale \(\iff\) sa pente est nulle \(\iff f'(a)=0\).</p>
 <ol>
-<li>\(x^2-x-6\) : \(\Delta=1+24=25\), racines \(x=\dfrac{1\pm 5}{2}\), soit \(\boxed{-2 \text{ et } 3}\).<br>
-\(2x^2+3x-5\) : \(a+b+c=2+3-5=0\) donc \(1\) est racine évidente, l'autre vaut \(\dfrac{c}{a}=-\dfrac{5}{2}\).</li>
-<li>\(T(x)=-x^2+4x-3\) : \(a+b+c=0\) donc racines \(1\) et \(\dfrac{-3}{-1}=3\). Comme \(a=-1<0\) : \(T(x)<0\) sur \(]-\infty;1[\,\cup\,]3;+\infty[\), \(T(x)>0\) sur \(]1;3[\), nul en 1 et 3.</li>
-<li>Le trinôme \(x^2-x-6\) (avec \(a=1>0\)) est négatif ou nul entre ses racines : \(S=[-2\,;3]\).</li>
+<li>\(f'(x)=3x^2-3\). En \(a=2\) : \(f'(2)=3(4)-3=9\) (pente) et \(f(2)=2^3-3(2)+1=8-6+1=3\) (ordonnée du point). D'où \(y=9(x-2)+3=9x-18+3\), soit \(\boxed{y=9x-15}\).</li>
+<li>Tangente horizontale \(\iff f'(x)=0 \iff 3x^2-3=0 \iff x^2=1 \iff x=\pm1\). En ces points : \(f(1)=1-3+1=-1\) et \(f(-1)=-1+3+1=3\). Les tangentes sont horizontales aux points \((1\,;-1)\) et \((-1\,;3)\) (ce sont les extremums locaux de \(f\)).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 3</div>
+<div class="cor"><div class="cor-head">Corrigé 4 — étude d'une fonction avec exponentielle</div>
 <ol>
-<li>\(f'(x)=3x^2-3\), donc \(f'(2)=9\) et \(f(2)=8-6+1=3\). Équation : \(y=f'(2)(x-2)+f(2)=9(x-2)+3\), soit \(\boxed{y=9x-15}\).</li>
-<li>Tangente horizontale \(\iff f'(x)=0 \iff 3x^2-3 = 0\iff x^2=1 \iff x=\pm 1\). Points : \((1\,;f(1))=(1\,;-1)\) et \((-1\,;f(-1))=(-1\,;3)\).</li>
+<li>\(f=uv\) avec \(u=2x-3\) (donc \(u'=2\)) et \(v=e^x\) (donc \(v'=e^x\)) : \(f'(x)=u'v+uv'=2e^x+(2x-3)e^x\). On <strong>factorise par \(e^x\)</strong> : \(f'(x)=\big(2+(2x-3)\big)e^x=(2x-1)e^x\). ✓</li>
+<li>Pour tout réel \(x\), \(e^x>0\) : le facteur exponentiel est toujours positif, donc \(f'(x)\) est <strong>du signe de \(2x-1\)</strong>. Or \(2x-1\lt0\iff x\lt\frac12\). Donc \(f'\lt0\) sur \(\left]-\infty;\frac12\right[\) (\(f\) décroissante) et \(f'\gt0\) sur \(\left]\frac12;+\infty\right[\) (\(f\) croissante).</li>
+<li>\(f\) décroît puis croît : elle admet un <strong>minimum global en \(x=\frac12\)</strong>. Sa valeur : \(f\!\left(\frac12\right)=(2\times\frac12-3)e^{1/2}=(1-3)e^{1/2}=\boxed{-2\sqrt e}\approx-3{,}30\).</li>
+</ol>
+<p><span class="rappel-inline">Le réflexe clé de tout le chapitre : dans un signe de dérivée, le facteur \(e^{(\dots)}>0\) « disparaît » — seul compte le signe du reste.</span></p>
+</div>
+
+<div class="cor"><div class="cor-head">Corrigé 5 — équations et inéquations avec exp</div>
+<p><em>Méthode :</em> comme \(\exp\) est strictement croissante, \(e^A=e^B\iff A=B\) et \(e^A\lt e^B\iff A\lt B\). On pense à écrire \(1=e^0\). Pour une équation « en \(e^{2x}\) et \(e^x\) », on pose \(X=e^x>0\) et on ne garde que les solutions positives.</p>
+<ol>
+<li>\(e^{x^2}=e^{3x-2}\iff x^2=3x-2\iff x^2-3x+2=0\). Racine évidente \(1\) (\(a+b+c=0\)), autre racine \(\frac ca=2\). \(S=\{1\,;2\}\).</li>
+<li>\(e^{2x+1}\ge1=e^0\iff 2x+1\ge0\iff x\ge-\dfrac12\). \(S=\left[-\frac12;+\infty\right[\).</li>
+<li>On pose \(X=e^x\ (>0)\) ; comme \(e^{2x}=(e^x)^2=X^2\), l'équation devient \(X^2-3X+2=0\), de racines \(X=1\) et \(X=2\) (les deux sont \(>0\), donc acceptables). On revient à \(x\) : \(e^x=1=e^0\Rightarrow x=0\) ; \(e^x=2\Rightarrow x=\alpha\) (le réel admis, noté \(\ln2\) en terminale). \(S=\{0\,;\alpha\}\).</li>
+<li>\(e^x+4>0\) pour tout \(x\), donc le produit \((e^x-1)(e^x+4)\) est <strong>du signe de \(e^x-1\)</strong>. Or \(e^x-1\lt0\iff e^x\lt e^0\iff x\lt0\). \(S=\,]-\infty\,;0[\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 4</div>
+<div class="cor"><div class="cor-head">Corrigé 6 — fonction rationnelle</div>
 <ol>
-<li>Produit \(u v\) avec \(u=2x-3\), \(v=e^x\) : \(f'(x)=2e^x+(2x-3)e^x=(2+2x-3)e^x=(2x-1)e^x\). ✓</li>
-<li>Comme \(e^x>0\) pour tout \(x\), \(f'(x)\) est du signe de \(2x-1\) : négatif sur \(\left]-\infty;\frac12\right[\), positif sur \(\left]\frac12;+\infty\right[\). Donc \(f\) est décroissante puis croissante.</li>
-<li>\(f\) admet donc un minimum (global) en \(x=\dfrac12\) : \(f\!\left(\dfrac12\right)=(1-3)e^{1/2}=\boxed{-2\sqrt{e}}\approx -3{,}30\).</li>
+<li>Quotient \(\frac uv\) avec \(u=x^2+3\ (u'=2x)\) et \(v=x-1\ (v'=1)\) : \(f'(x)=\dfrac{2x(x-1)-(x^2+3)\times1}{(x-1)^2}=\dfrac{2x^2-2x-x^2-3}{(x-1)^2}=\dfrac{x^2-2x-3}{(x-1)^2}\). Le numérateur \(x^2-2x-3\) a \(a-b+c=1+2-3=0\), donc \(-1\) est racine et l'autre vaut \(-\frac ca=3\) : il se factorise en \((x+1)(x-3)\). D'où \(f'(x)=\dfrac{(x-3)(x+1)}{(x-1)^2}\). ✓</li>
+<li>Le dénominateur \((x-1)^2\) est \(>0\) partout où \(f\) est définie : \(f'\) est donc <strong>du signe de \((x-3)(x+1)\)</strong> (positif à l'extérieur de \([-1;3]\), négatif entre). En tenant compte de la valeur interdite \(1\) : \(f\) est croissante sur \(]-\infty;-1]\), décroissante sur \([-1;1[\) puis sur \(]1;3]\), croissante sur \([3;+\infty[\).</li>
+<li>En \(-1\), \(f'\) passe de \(+\) à \(-\) : <strong>maximum local</strong> \(f(-1)=\dfrac{(-1)^2+3}{-1-1}=\dfrac{4}{-2}=-2\). En \(3\), \(f'\) passe de \(-\) à \(+\) : <strong>minimum local</strong> \(f(3)=\dfrac{9+3}{2}=6\). <span class="rappel-inline">Curiosité : ici le maximum local (\(-2\)) est inférieur au minimum local (\(6\)) — possible car la valeur interdite \(1\) sépare les deux branches.</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 5</div>
+<div class="cor"><div class="cor-head">Corrigé 7 — problème d'optimisation</div>
 <ol>
-<li>\(e^{x^2}=e^{3x-2}\iff x^2=3x-2 \iff x^2-3x+2=0\). Racine évidente \(1\), autre racine \(2\). \(S=\{1\,;2\}\).</li>
-<li>\(e^{2x+1}\geq 1 = e^0 \iff 2x+1\geq 0 \iff x \geq -\dfrac12\). \(S=\left[-\frac12;+\infty\right[\).</li>
-<li>Avec \(X=e^x>0\) : \(X^2-3X+2=0\), racines \(X=1\) et \(X=2\) (toutes deux \(>0\)). Alors \(e^x=1=e^0\) donne \(x=0\), et \(e^x=2\) donne \(x=\alpha\) (le réel admis, qu'on appellera \(\ln 2\) en terminale). \(S=\{0\,;\alpha\}\).</li>
-<li>\(e^x+4>0\) toujours, donc le produit est du signe de \(e^x-1\), qui est \(\lt 0\iff e^x \lt e^0 \iff x \lt 0\). \(S=\,]-\infty\,;0[\).</li>
+<li><em>Mise en équation :</em> après découpe des coins de côté \(x\), la base est un carré de côté \((20-2x)\) et la hauteur vaut \(x\). Le volume d'une boîte est (aire de base) × hauteur : \(V(x)=x(20-2x)^2\). Contraintes : il faut \(x>0\) (on découpe vraiment) et \(20-2x>0\) (il reste une base), donc l'intervalle d'étude est \(x\in\,]0\,;10[\).</li>
+<li>Produit \(uv\) avec \(u=x\ (u'=1)\) et \(v=(20-2x)^2\). Pour \(v'\) on dérive une composée \(w^2\) : \(v'=2(20-2x)\times(-2)=-4(20-2x)\). Alors
+\(V'(x)=1\cdot(20-2x)^2+x\cdot(-4)(20-2x)=(20-2x)\big[(20-2x)-4x\big]=(20-2x)(20-6x)\). ✓</li>
+<li>Sur \(]0;10[\), le facteur \(20-2x>0\) : \(V'\) est <strong>du signe de \(20-6x\)</strong>, positif si \(x\lt\frac{10}{3}\), négatif si \(x\gt\frac{10}{3}\). Le volume est donc maximal en \(x=\dfrac{10}{3}\) cm. Valeur : \(V\!\left(\dfrac{10}{3}\right)=\dfrac{10}{3}\left(20-\dfrac{20}{3}\right)^2=\dfrac{10}{3}\times\left(\dfrac{40}{3}\right)^2=\dfrac{10}{3}\times\dfrac{1600}{9}=\dfrac{16\,000}{27}\approx593\ \text{cm}^3\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 6</div>
+<div class="cor"><div class="cor-head">Corrigé 8 — une inégalité classique</div>
+<p><em>Idée :</em> pour comparer deux expressions, on étudie le signe de leur différence. On pose donc \(g(x)=e^x-x-1\) et on montre que \(g\ge0\).</p>
 <ol>
-<li>\(f'(x)=\dfrac{2x(x-1)-(x^2+3)}{(x-1)^2}=\dfrac{x^2-2x-3}{(x-1)^2}\). Le trinôme \(x^2-2x-3\) a pour racines \(-1\) et \(3\) (car \(a-b+c=1+2-3=0\)), d'où la factorisation \((x-3)(x+1)\). ✓</li>
-<li>Le dénominateur \((x-1)^2>0\) sur le domaine ; \(f'\) est du signe de \((x-3)(x+1)\) : positif sur \(]-\infty;-1]\), négatif sur \([-1;1[\,\cup\,]1;3]\), positif sur \([3;+\infty[\). \(f\) est donc croissante, décroissante (de part et d'autre de la valeur interdite 1), puis croissante.</li>
-<li>Maximum local en \(-1\) : \(f(-1)=\dfrac{4}{-2}=-2\). Minimum local en \(3\) : \(f(3)=\dfrac{12}{2}=6\). <span class="rappel-inline">(Remarquer qu'un « maximum local » peut être inférieur à un « minimum local » quand la fonction a une valeur interdite entre les deux.)</span></li>
-</ol>
-</div>
-
-<div class="cor"><div class="cor-head">Corrigé 7</div>
-<ol>
-<li>La base de la boîte est un carré de côté \(20-2x\) et la hauteur est \(x\), d'où \(V(x)=x(20-2x)^2\). Il faut \(x>0\) et \(20-2x>0\), donc \(x\in\,]0\,;10[\).</li>
-<li>Produit avec \(u=x\), \(v=(20-2x)^2\). On sait que \(v'=2\times(-2)(20-2x)=-4(20-2x)\). Donc
-\(V'(x)=(20-2x)^2-4x(20-2x)=(20-2x)\big[(20-2x)-4x\big]=(20-2x)(20-6x)\). ✓</li>
-<li>Sur \(]0;10[\), \(20-2x>0\) ; \(V'\) est donc du signe de \(20-6x\) : positif si \(x<\dfrac{10}{3}\), négatif après. Maximum en \(x=\dfrac{10}{3}\) cm :
-\(V\!\left(\dfrac{10}{3}\right)=\dfrac{10}{3}\left(20-\dfrac{20}{3}\right)^2=\dfrac{10}{3}\times\dfrac{1600}{9}=\dfrac{16\,000}{27}\approx 593\ \text{cm}^3\).</li>
-</ol>
-</div>
-
-<div class="cor"><div class="cor-head">Corrigé 8</div>
-<ol>
-<li>\(g'(x)=e^x-1\). Or \(e^x-1>0 \iff e^x>e^0\iff x>0\). Donc \(g'<0\) sur \(]-\infty;0[\) et \(g'>0\) sur \(]0;+\infty[\).</li>
-<li>\(g\) est décroissante puis croissante : elle admet un minimum global en \(0\), et \(g(0)=e^0-0-1=0\).</li>
-<li>Pour tout \(x\), \(g(x)\geq g(0) = 0\), c'est-à-dire \(e^x\geq 1+x\). ∎<br>
-Graphiquement : la droite \(y=1+x\) est la tangente à la courbe de l'exponentielle en 0 (car \(\exp'(0)=e^0=1\) et \(\exp(0)=1\)) ; l'inégalité signifie que <strong>la courbe de l'exponentielle est toujours au-dessus de sa tangente en 0</strong>. En terminale, on dira que c'est une conséquence de la <em>convexité</em> de l'exponentielle (module M5).</li>
+<li>\(g'(x)=e^x-1\). Signe : \(e^x-1>0\iff e^x>e^0\iff x>0\). Donc \(g'\lt0\) sur \(]-\infty;0[\) et \(g'\gt0\) sur \(]0;+\infty[\).</li>
+<li>\(g\) décroît puis croît : elle admet un <strong>minimum global en \(0\)</strong>, et \(g(0)=e^0-0-1=1-1=0\).</li>
+<li>Le minimum de \(g\) vaut \(0\), donc \(g(x)\ge0\) pour tout \(x\), c'est-à-dire \(e^x-x-1\ge0\), soit \(\boxed{e^x\ge1+x}\). ∎<br>
+<em>Interprétation graphique :</em> la droite \(y=1+x\) est exactement la tangente à la courbe de l'exponentielle au point d'abscisse \(0\) (car \(\exp'(0)=e^0=1\) est la pente et \(\exp(0)=1\) le point). L'inégalité signifie donc que <strong>la courbe de \(\exp\) est toujours au-dessus de sa tangente en 0</strong> — ce sera vu comme une conséquence de la <em>convexité</em> de l'exponentielle (module M5).</li>
 </ol>
 </div>
 </div>
-
 <div id="quiz-mount"></div>
 <p class="footer-note">Parcours d'été — Module M1 · Révisions d'analyse de première · Conforme au programme de spécialité mathématiques.</p>
 

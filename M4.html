@@ -59,6 +59,10 @@
 
 <h2>1. Limites d'une fonction</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Une limite décrit le comportement de la courbe « aux extrémités » : que devient \(f(x)\) quand \(x\) file vers l'infini, ou s'approche d'une valeur interdite ? Une limite <strong>finie</strong> annonce une <em>asymptote horizontale</em> (la courbe s'aplatit sur une droite) ; une limite <strong>infinie en un point</strong>, une <em>asymptote verticale</em> (la courbe file le long d'une droite).
+</div>
+
 <div class="box def"><span class="label">Les situations à connaître</span>
 <ul>
 <li><strong>En \(\pm\infty\)</strong> : \(\lim_{x\to+\infty}f(x)\) peut être un réel \(\ell\) (la courbe s'aplatit sur la droite \(y=\ell\) : <strong>asymptote horizontale</strong>), ou \(\pm\infty\), ou ne pas exister.</li>
@@ -130,6 +134,10 @@ $$\lim_{x\to+\infty}\frac{e^x}{x^n}=+\infty \qquad \lim_{x\to-\infty}x^n e^x=0 \
 
 <h2>2. Continuité</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Une fonction est continue si on peut tracer sa courbe « <strong>sans lever le crayon</strong> ». Cette idée simple a une conséquence puissante (le TVI) : si une fonction continue passe d'une valeur négative à une valeur positive, elle a <em>forcément</em> traversé zéro quelque part — ce qui garantit l'existence d'une solution à une équation.
+</div>
+
 <div class="box def"><span class="label">Définition</span>
 \(f\) est <strong>continue en \(a\)</strong> si \(\lim_{x\to a}f(x)=f(a)\) ; continue sur un intervalle si elle l'est en chaque point (« courbe tracée sans lever le crayon »). Les fonctions polynômes, rationnelles, racine carrée, exponentielle, sinus et cosinus sont continues sur leur ensemble de définition, ainsi que leurs sommes, produits, quotients et composées. <strong>Toute fonction dérivable est continue</strong> (la réciproque est fausse).
 </div>
@@ -181,6 +189,16 @@ Si \(f\) est <strong>continue et strictement monotone</strong> sur \([a;b]\), al
 <li>Oublier de mentionner la <strong>continuité</strong> (ou la stricte monotonie pour l'unicité) : la conclusion tombe sans ces hypothèses.</li>
 <li>Une limite en \(+\infty\) qui vaut \(+\infty\) ne donne <strong>pas</strong> d'asymptote.</li>
 <li>Pour une valeur interdite, penser à étudier les limites <strong>à gauche et à droite</strong> (signes souvent opposés).</li>
+</ul>
+</div>
+
+<div class="synthese"><span class="label">L'essentiel à retenir</span>
+<ul>
+<li><strong>Formes indéterminées</strong> (\(\infty-\infty\), \(\frac{\infty}{\infty}\), \(0\times\infty\), \(\frac00\)) : factoriser par le terme dominant, ou multiplier par la quantité conjuguée.</li>
+<li><strong>Asymptotes</strong> : horizontale \(y=\ell\) si \(\lim_{\pm\infty}f=\ell\) ; verticale \(x=a\) si \(\lim_a f=\pm\infty\).</li>
+<li><strong>Croissances comparées</strong> : \(\frac{e^x}{x^n}\to+\infty\) — l'exponentielle l'emporte sur toute puissance.</li>
+<li><strong>Composition</strong> : poser \(X=u(x)\) et enchaîner les deux limites.</li>
+<li><strong>TVI (corollaire)</strong> : \(f\) <em>continue</em> et <em>strictement monotone</em> \(\Rightarrow f(x)=k\) a une unique solution. Mots-clés à écrire : continue, strictement monotone, compris entre.</li>
 </ul>
 </div>
 
@@ -259,83 +277,90 @@ Soit \(f\) définie sur \(\mathbb{R}\) par \(f(x)=(x+2)e^{-x}\), de courbe \(\ma
 
 <div class="corriges-start">
 <div class="corriges-banner">Corrigés détaillés — Module M4</div>
-<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé.</p>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé. On nomme systématiquement la forme indéterminée avant de choisir la technique.</p>
 
-<div class="cor"><div class="cor-head">Corrigé 1</div>
+<div class="cor"><div class="cor-head">Corrigé 1 — limites sans indétermination</div>
+<p><em>Méthode :</em> ici aucune FI — on combine directement les limites usuelles. On surveille surtout les limites <strong>à gauche/à droite</strong> d'une valeur interdite (le signe du dénominateur change).</p>
 <ol>
-<li>\(+\infty+0=+\infty\).</li>
-<li>\(e^x\to0\) en \(-\infty\), donc limite \(5\).</li>
-<li>À droite : \(x-3\to0^+\) donc \(+\infty\). À gauche : \(x-3\to0^-\) donc \(-\infty\).</li>
-<li>Dénominateur \(\to+\infty\), donc limite \(0\).</li>
-<li>\(\dfrac{1}{x^2}-\dfrac5x = \dfrac{1}{x^2}(1-5x)\). Quand \(x\to0^+\) : \(\dfrac{1}{x^2}\to+\infty\) et \(1-5x\to1\), donc limite \(+\infty\).</li>
-<li>\(e^{-x}\to0\) : limite \(7\).</li>
+<li>\(x^3\to+\infty\) et \(\dfrac2x\to0\), donc la somme \(\to+\infty+0=+\infty\).</li>
+<li>En \(-\infty\), \(e^x\to0\), donc \(5-2e^x\to5-0=5\).</li>
+<li>Le numérateur est constant \(=2>0\). À droite de 3 (\(x>3\)) : \(x-3\to0^+\), donc \(\dfrac{2}{0^+}\to+\infty\). À gauche (\(x\lt3\)) : \(x-3\to0^-\), donc \(\dfrac{2}{0^-}\to-\infty\). <span class="rappel-inline">La distinction gauche/droite est indispensable : les deux limites sont opposées.</span></li>
+<li>\(\sqrt x+1\to+\infty\), donc \(\dfrac{-3}{+\infty}\to0\).</li>
+<li>On factorise par \(\dfrac1{x^2}\) : \(\dfrac1{x^2}-\dfrac5x=\dfrac1{x^2}(1-5x)\). Quand \(x\to0^+\), \(\dfrac1{x^2}\to+\infty\) et \((1-5x)\to1>0\), donc le produit \(\to+\infty\).</li>
+<li>En \(+\infty\), \(e^{-x}\to0\), donc \(e^{-x}+7\to7\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 2</div>
+<div class="cor"><div class="cor-head">Corrigé 2 — formes indéterminées</div>
 <ol>
-<li>Terme de plus haut degré : \(2x^3\to-\infty\) quand \(x\to-\infty\).</li>
-<li>\(\dfrac{3x^2(1-\frac{1}{3x}+\frac{2}{3x^2})}{2x^2(1+\frac{5}{2x^2})}\to\dfrac32\) ; le second : \(\dfrac{x}{x^2}\times\dfrac{1-1/x}{1+4/x^2}\to0\).</li>
-<li>FI \(\frac00\) : \(\dfrac{(x-2)(x+2)}{x-2}=x+2\to4\).</li>
-<li>Conjuguée : \(\dfrac{(x+3)-x}{\sqrt{x+3}+\sqrt x}=\dfrac{3}{\sqrt{x+3}+\sqrt x}\to0\).</li>
+<li>FI « \(\infty-\infty\) ». Terme dominant : \(2x^3-5x^2+x=x^3\!\left(2-\dfrac5x+\dfrac1{x^2}\right)\). En \(-\infty\), \(x^3\to-\infty\) et la parenthèse \(\to2>0\) : limite \(-\infty\).</li>
+<li>FI « \(\dfrac\infty\infty\) ». Premier : \(\dfrac{3x^2-x+2}{2x^2+5}=\dfrac{x^2(3-\frac1x+\frac2{x^2})}{x^2(2+\frac5{x^2})}\to\dfrac32\). Second : \(\dfrac{x-1}{x^2+4}=\dfrac1x\times\dfrac{1-\frac1x}{1+\frac4{x^2}}\to0\times1=0\) (degré 1 sur degré 2).</li>
+<li>FI « \(\dfrac00\) » (en \(x=2\), haut et bas s'annulent). On factorise le numérateur : \(x^2-4=(x-2)(x+2)\), d'où \(\dfrac{(x-2)(x+2)}{x-2}=x+2\to2+2=4\).</li>
+<li>FI « \(\infty-\infty\) ». Quantité conjuguée : \(\sqrt{x+3}-\sqrt x=\dfrac{(x+3)-x}{\sqrt{x+3}+\sqrt x}=\dfrac{3}{\sqrt{x+3}+\sqrt x}\). Le dénominateur \(\to+\infty\), donc la limite est \(0\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 3</div>
+<div class="cor"><div class="cor-head">Corrigé 3 — asymptotes</div>
+<p><em>Méthode :</em> limite finie en \(\pm\infty\) → asymptote <strong>horizontale</strong> ; limite infinie en une valeur interdite → asymptote <strong>verticale</strong>. On soigne les signes à gauche/droite.</p>
 <ol>
-<li>\(f(x)=\dfrac{x(2-1/x)}{x(1+2/x)}\to2\) en \(\pm\infty\) : la droite \(y=2\) est <strong>asymptote horizontale</strong> à \(\mathcal C\) en \(+\infty\) et en \(-\infty\).</li>
-<li>En \(-2\), le numérateur tend vers \(-5\neq 0\). À droite (\(x>-2\)) : \(x+2\to0^+\), donc \(f(x)\to\dfrac{-5}{0^+}=-\infty\). À gauche : \(f(x)\to+\infty\). La droite \(x=-2\) est <strong>asymptote verticale</strong>.</li>
-<li>\(f'(x)=\dfrac{2(x+2)-(2x-1)}{(x+2)^2}=\dfrac{5}{(x+2)^2}>0\) : \(f\) est strictement croissante sur \(]-\infty;-2[\) et sur \(]-2;+\infty[\) (deux intervalles distincts : ne pas dire « croissante sur \(\mathbb R\setminus\{-2\}\) »). Tableau : de \(2\) (limite en \(-\infty\)) vers \(+\infty\) sur le premier intervalle ; de \(-\infty\) vers \(2\) sur le second.</li>
+<li>\(f(x)=\dfrac{2x-1}{x+2}=\dfrac{x(2-\frac1x)}{x(1+\frac2x)}\to\dfrac21=2\) en \(+\infty\) et en \(-\infty\). Donc la droite \(y=2\) est <strong>asymptote horizontale</strong> des deux côtés.</li>
+<li>En \(-2\), le numérateur tend vers \(2(-2)-1=-5\neq0\). À droite (\(x>-2\)) : \(x+2\to0^+\), donc \(f(x)\to\dfrac{-5}{0^+}=-\infty\). À gauche : \(x+2\to0^-\), donc \(f(x)\to\dfrac{-5}{0^-}=+\infty\). La droite \(x=-2\) est <strong>asymptote verticale</strong>.</li>
+<li>Quotient : \(f'(x)=\dfrac{2(x+2)-(2x-1)\times1}{(x+2)^2}=\dfrac{2x+4-2x+1}{(x+2)^2}=\dfrac{5}{(x+2)^2}>0\). Donc \(f\) est <strong>strictement croissante sur \(]-\infty;-2[\) et sur \(]-2;+\infty[\)</strong> (deux intervalles distincts). Tableau : sur le premier, \(f\) monte de \(2\) (en \(-\infty\)) vers \(+\infty\) (en \(-2^-\)) ; sur le second, de \(-\infty\) (en \(-2^+\)) vers \(2\) (en \(+\infty\)).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 4</div>
+<div class="cor"><div class="cor-head">Corrigé 4 — croissances comparées</div>
+<p><em>Méthode :</em> dès qu'apparaît un rapport « exponentielle / puissance », on invoque « l'exponentielle l'emporte » ; on ramène chaque expression à cette forme de référence.</p>
 <ol>
-<li>Croissances comparées : \(+\infty\).</li>
-<li>\(x^3e^{-x}=\dfrac{x^3}{e^x}\to0\).</li>
-<li>\(e^x-x^5=e^x\left(1-\dfrac{x^5}{e^x}\right)\to+\infty\times1=+\infty\).</li>
-<li>\((x^2+x)e^x=x^2e^x+xe^x\to0+0=0\) (croissances comparées en \(-\infty\)).</li>
+<li>\(\dfrac{e^x}{x^2}\to+\infty\) (croissance comparée directe : \(\lim\frac{e^x}{x^n}=+\infty\)).</li>
+<li>\(x^3e^{-x}=\dfrac{x^3}{e^x}\to0\) (même résultat retourné : la puissance sur l'exponentielle tend vers 0).</li>
+<li>\(e^x-x^5=e^x\!\left(1-\dfrac{x^5}{e^x}\right)\). Comme \(\dfrac{x^5}{e^x}\to0\), la parenthèse \(\to1\) et \(e^x\to+\infty\) : limite \(+\infty\).</li>
+<li>En \(-\infty\) : \((x^2+x)e^x=x^2e^x+xe^x\). Or \(\lim_{x\to-\infty}x^ne^x=0\), donc chaque terme \(\to0\) : limite \(0\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 5</div>
+<div class="cor"><div class="cor-head">Corrigé 5 — limites par composition</div>
+<p><em>Méthode :</em> on pose \(X=u(x)\), on calcule \(\lim u(x)\), puis on enchaîne avec la limite de la fonction externe en cette valeur.</p>
 <ol>
-<li>Poser \(X=-x^2\to-\infty\), et \(e^X\to0\) : limite \(0\).</li>
-<li>\(\dfrac{4x+1}{x+1}\to4\) puis \(\sqrt X\to2\) : limite \(2\).</li>
-<li>\(\dfrac1x\to0^-\), \(e^X\to e^0=1\) : limite \(1\).</li>
-<li>\(\dfrac1x\to+\infty\), donc \(e^{1/x}\to+\infty\).</li>
+<li>\(X=-x^2\to-\infty\) quand \(x\to+\infty\) ; et \(e^X\to0\) quand \(X\to-\infty\). Donc \(e^{-x^2}\to0\).</li>
+<li>\(\dfrac{4x+1}{x+1}\to4\) (quotient de degrés égaux), puis \(\sqrt X\to\sqrt4=2\). Limite : \(2\).</li>
+<li>\(\dfrac1x\to0^-\) quand \(x\to-\infty\), et \(e^X\to e^0=1\). Limite : \(1\).</li>
+<li>\(\dfrac1x\to+\infty\) quand \(x\to0^+\), et \(e^X\to+\infty\). Limite : \(+\infty\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 6</div>
+<div class="cor"><div class="cor-head">Corrigé 6 — TVI et dichotomie</div>
 <ol>
-<li>\(f'(x)=3x^2+1>0\) : \(f\) strictement croissante sur \(\mathbb R\) ; limites \(-\infty\) en \(-\infty\) et \(+\infty\) en \(+\infty\) (terme dominant \(x^3\)).</li>
-<li>\(f\) est continue (polynôme) et strictement croissante sur \(\mathbb R\), avec \(\lim_{-\infty}f=-\infty<0\) et \(\lim_{+\infty}f=+\infty>0\) : d'après le corollaire du TVI, \(f(x)=0\) admet une unique solution \(\alpha\). De plus \(f(0)=-1<0\) et \(f(1)=1>0\), donc \(\alpha\in[0;1]\).</li>
-<li>\(f(0{,}6)=-0{,}184<0\) et \(f(0{,}7)=0{,}043>0\) : donc \(0{,}6<\alpha<0{,}7\).</li>
-<li><pre style="background:#f5f5f5;border:1px solid #ddd;border-radius:3px;padding:6px 10px;font-size:9pt">def f(x):
+<li>\(f'(x)=3x^2+1\). Comme \(3x^2\ge0\), on a \(f'(x)\ge1>0\) : \(f\) est <strong>strictement croissante sur \(\mathbb R\)</strong>. Terme dominant \(x^3\) : \(\lim_{-\infty}f=-\infty\) et \(\lim_{+\infty}f=+\infty\).</li>
+<li>\(f\) est continue (polynôme) et strictement croissante, avec des limites \(-\infty\) et \(+\infty\) : d'après le <strong>corollaire du TVI</strong>, l'équation \(f(x)=0\) admet une <strong>unique</strong> solution \(\alpha\). Pour la localiser : \(f(0)=-1\lt0\) et \(f(1)=1\gt0\) ; \(0\) est donc compris entre \(f(0)\) et \(f(1)\), d'où \(\alpha\in[0;1]\).</li>
+<li>Balayage : \(f(0{,}6)=0{,}216+0{,}6-1=-0{,}184\lt0\) et \(f(0{,}7)=0{,}343+0{,}7-1=0{,}043\gt0\). Donc \(0{,}6\lt\alpha\lt0{,}7\) (amplitude \(0{,}1\)).</li>
+<li>Principe de la dichotomie : on coupe l'intervalle en deux et on garde la moitié qui contient la solution (celle où \(f\) change de signe), jusqu'à ce que la largeur passe sous \(e\).
+<pre style="background:#f5f5f5;border:1px solid #ddd;border-radius:3px;padding:6px 10px;font-size:9pt">def f(x):
     return x**3 + x - 1
 
 def dichotomie(a, b, e):
     while b - a > e:
         m = (a + b) / 2
-        if f(m) &lt; 0:
+        if f(m) &lt; 0:   # la solution est dans [m ; b]
             a = m
-        else:
+        else:           # la solution est dans [a ; m]
             b = m
     return a, b</pre></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 7</div>
+<div class="cor"><div class="cor-head">Corrigé 7 — synthèse type bac</div>
 <ol>
-<li>Quand \(x\to-\infty\) : \(x+2\to-\infty\) et \(e^{-x}\to+\infty\), donc \(f(x)\to-\infty\) (produit).</li>
-<li>\(f(x)=xe^{-x}+2e^{-x}\). Par croissances comparées \(xe^{-x}\to0\), et \(e^{-x}\to0\) : donc \(\lim_{+\infty}f=0\). La droite \(y=0\) (axe des abscisses) est asymptote horizontale à \(\mathcal C\) en \(+\infty\).</li>
-<li>Produit : \(f'(x)=1\times e^{-x}+(x+2)\times(-e^{-x})=e^{-x}\big(1-(x+2)\big)=-(x+1)e^{-x}\). Comme \(e^{-x}>0\), \(f'\) est du signe de \(-(x+1)\) : \(f\) croît sur \(]-\infty;-1]\), décroît ensuite. Maximum : \(f(-1)=(1)e^{1}=e\approx2{,}72\). Tableau : de \(-\infty\) à \(e\), puis de \(e\) vers \(0\).</li>
-<li>\(f(0)=2\) : \(x=0\) est solution évidente. Sur \(]-\infty;-1]\), \(f\) est continue, strictement croissante de \(-\infty\) à \(e\approx 2{,}72 > 2\) : le corollaire du TVI donne une unique solution \(\beta\) dans cet intervalle. Sur \([-1;+\infty[\), \(f\) est continue strictement décroissante de \(e\) vers \(0\) : unique solution, qui est \(0\). D'où exactement deux solutions : \(0\) et \(\beta\). Balayage : \(f(-1{,}6)=0{,}4\times e^{1{,}6}\approx1{,}98<2\) et \(f(-1{,}5)=0{,}5\times e^{1{,}5}\approx2{,}24>2\), donc \(-1{,}6<\beta<-1{,}5\).</li>
+<li>En \(-\infty\) : \(x+2\to-\infty\) et \(e^{-x}\to+\infty\), donc le produit \(f(x)=(x+2)e^{-x}\to-\infty\).</li>
+<li>On développe : \(f(x)=xe^{-x}+2e^{-x}\). Par croissances comparées, \(xe^{-x}=\dfrac{x}{e^x}\to0\) en \(+\infty\), et \(e^{-x}\to0\) ; donc \(\lim_{+\infty}f=0\). Interprétation : la droite \(y=0\) (axe des abscisses) est <strong>asymptote horizontale</strong> à \(\mathcal C\) en \(+\infty\).</li>
+<li>Produit \(uv\) avec \(u=x+2\ (u'=1)\) et \(v=e^{-x}\ (v'=-e^{-x})\) : \(f'(x)=1\cdot e^{-x}+(x+2)(-e^{-x})=e^{-x}\big(1-(x+2)\big)=-(x+1)e^{-x}\). Comme \(e^{-x}>0\), \(f'\) est du signe de \(-(x+1)\) : \(f'\gt0\) sur \(]-\infty;-1[\) (croissante), \(f'\lt0\) sur \(]-1;+\infty[\) (décroissante). Maximum en \(-1\) : \(f(-1)=(1)e^{1}=e\approx2{,}72\). Tableau : de \(-\infty\) jusqu'à \(e\), puis de \(e\) vers \(0\).</li>
+<li>D'abord \(f(0)=(2)e^{0}=2\) : \(x=0\) est une <strong>solution évidente</strong>. Ensuite on compte les solutions de \(f(x)=2\) sur chaque intervalle de monotonie :
+<br>• Sur \(]-\infty;-1]\), \(f\) est continue et strictement croissante de \(-\infty\) jusqu'à \(e\approx2{,}72\ (>2)\) : le corollaire du TVI donne <strong>une unique</strong> solution \(\beta\).
+<br>• Sur \([-1;+\infty[\), \(f\) est continue et strictement décroissante de \(e\) vers \(0\) : une unique solution, qui est justement \(0\).
+<br>Il y a donc <strong>exactement deux</strong> solutions : \(0\) et \(\beta\). Balayage pour \(\beta\) : \(f(-1{,}6)=0{,}4\,e^{1{,}6}\approx1{,}98\lt2\) et \(f(-1{,}5)=0{,}5\,e^{1{,}5}\approx2{,}24\gt2\), donc \(-1{,}6\lt\beta\lt-1{,}5\).</li>
 </ol>
 </div>
 </div>
-
 <div id="quiz-mount"></div>
 <p class="footer-note">Parcours d'été — Module M4 · Limites de fonctions et continuité.</p>
 

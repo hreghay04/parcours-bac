@@ -59,6 +59,10 @@
 
 <h2>1. Dérivées de fonctions composées</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Une fonction composée, c'est une fonction « dans » une autre (ex. \(e^{u(x)}\) : on met \(u(x)\) dans l'exponentielle). La règle est mécanique : on dérive la fonction <strong>du dehors</strong>, puis on <strong>multiplie par la dérivée du dedans</strong> \(u'\). Ce facteur \(u'\) est l'oubli le plus fréquent.
+</div>
+
 <div class="box theo"><span class="label">Théorème général</span>
 Si \(u\) est dérivable sur \(I\) et \(g\) dérivable sur un intervalle contenant \(u(I)\), alors \(g\circ u : x\mapsto g(u(x))\) est dérivable sur \(I\) et :
 $$(g\circ u)' = u' \times (g'\circ u)$$
@@ -79,6 +83,10 @@ $$(g\circ u)' = u' \times (g'\circ u)$$
 </div>
 
 <h2>2. Convexité</h2>
+
+<div class="box intuition"><span class="label">💡 Intuition</span>
+La convexité décrit la <strong>courbure</strong>. Convexe (\(\cup\)) = la courbe se creuse vers le haut, <em>au-dessus</em> de ses tangentes ; concave (\(\cap\)) = elle bombe, <em>en dessous</em>. On la lit sur le signe de la dérivée <strong>seconde</strong> \(f''\) — à ne pas confondre avec les variations (signe de \(f'\)). Un <em>point d'inflexion</em> est l'endroit où la courbe change de courbure.
+</div>
 
 <div class="box def"><span class="label">Définition (géométrique)</span>
 Soit \(f\) une fonction définie sur un intervalle \(I\), de courbe \(\mathcal C\).
@@ -160,6 +168,16 @@ Un <strong>point d'inflexion</strong> est un point où la courbe <strong>travers
 </ul>
 </div>
 
+<div class="synthese"><span class="label">L'essentiel à retenir</span>
+<ul>
+<li><strong>Composée</strong> : \((e^u)'=u'e^u\), \((\ln u)'=\frac{u'}{u}\), \((\sqrt u)'=\frac{u'}{2\sqrt u}\), \((u^n)'=nu'u^{n-1}\), \((\sin u)'=u'\cos u\).</li>
+<li><strong>Convexe</strong> \(\iff f''\ge0 \iff f'\) croissante \(\iff\) courbe au-dessus de ses tangentes (concave : l'inverse).</li>
+<li><strong>Point d'inflexion</strong> : \(f''\) s'annule <em>en changeant de signe</em> (donner ses deux coordonnées).</li>
+<li>Ne pas confondre <strong>variation</strong> (\(f'\)) et <strong>convexité</strong> (\(f''\)) : \(e^{-x}\) est décroissante ET convexe.</li>
+<li>La convexité sert à <strong>démontrer des inégalités</strong> (position de la courbe par rapport à une tangente).</li>
+</ul>
+</div>
+
 <h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
 
 <div class="exo"><div class="exo-head">Exercice 1 — Automatismes : dérivées composées <span class="stars">★</span> <span class="duree">(20 min)</span></div>
@@ -222,41 +240,43 @@ Soit \(f(x)=(x+2)e^{-x}\) (déjà rencontrée au module M4, dont on connaît var
 
 <div class="corriges-start">
 <div class="corriges-banner">Corrigés détaillés — Module M5</div>
-<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé.</p>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé. On distingue soigneusement <em>variations</em> (signe de \(f'\)) et <em>convexité</em> (signe de \(f''\)).</p>
 
-<div class="cor"><div class="cor-head">Corrigé 1</div>
+<div class="cor"><div class="cor-head">Corrigé 1 — dérivées composées</div>
+<p><em>Méthode :</em> on repère la forme (\(e^u,\ \sqrt u,\ u^n,\ \sin u,\ \cos u,\ \frac1v\)), on identifie \(u\) et \(u'\), et on applique la formule sans oublier \(u'\).</p>
 <ol>
-<li>\(f'(x)=-4x\,e^{-2x^2+1}\)</li>
-<li>\(g'(x)=\dfrac{3}{2\sqrt{3x+5}}\) sur \(\left]-\frac53;+\infty\right[\)</li>
-<li>\(h'(x)=4(2x-1)(x^2-x+1)^3\)</li>
-<li>\(k'(x)=-3\sin(3x)+2x\cos(x^2)\)</li>
-<li>\(m'(x)=-\dfrac{2x+1}{(x^2+x+1)^2}\)</li>
-<li>\(n'(x)=\dfrac{1}{2\sqrt x}\,e^{\sqrt x}\) sur \(]0;+\infty[\)</li>
-<li>Produit + composée : \(p'(x)=e^{-x^2}+x(-2x)e^{-x^2}=(1-2x^2)e^{-x^2}\)</li>
-<li>\(q'(x)=\dfrac{e^x}{2\sqrt{e^x+1}}\)</li>
+<li>Forme \(e^u\), \(u=-2x^2+1\), \(u'=-4x\) : \(f'(x)=-4x\,e^{-2x^2+1}\).</li>
+<li>Forme \(\sqrt u\), \(u=3x+5\), \(u'=3\) : \(g'(x)=\dfrac{3}{2\sqrt{3x+5}}\) sur \(\left]-\frac53;+\infty\right[\) (là où \(3x+5>0\)).</li>
+<li>Forme \(u^n\), \(u=x^2-x+1\), \(u'=2x-1\), \(n=4\) : \(h'(x)=4\,(2x-1)(x^2-x+1)^3\).</li>
+<li>Somme de deux composées : \((\cos(3x))'=-3\sin(3x)\) et \((\sin(x^2))'=2x\cos(x^2)\), donc \(k'(x)=-3\sin(3x)+2x\cos(x^2)\).</li>
+<li>Forme \(\frac1v\), \(v=x^2+x+1\), \(v'=2x+1\) : \(m'(x)=-\dfrac{2x+1}{(x^2+x+1)^2}\).</li>
+<li>Forme \(e^u\), \(u=\sqrt x\), \(u'=\dfrac{1}{2\sqrt x}\) : \(n'(x)=\dfrac{1}{2\sqrt x}\,e^{\sqrt x}\) sur \(]0;+\infty[\).</li>
+<li>Produit \(x\times e^{-x^2}\) (avec composée pour \(e^{-x^2}\)) : \(p'(x)=1\cdot e^{-x^2}+x\cdot(-2x)e^{-x^2}=(1-2x^2)e^{-x^2}\).</li>
+<li>Forme \(\sqrt u\), \(u=e^x+1\), \(u'=e^x\) : \(q'(x)=\dfrac{e^x}{2\sqrt{e^x+1}}\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 2</div>
+<div class="cor"><div class="cor-head">Corrigé 2 — dérivée seconde et convexité d'un polynôme</div>
 <ol>
-<li>\(f'(x)=3x^2-6x+2\), \(f''(x)=6x-6\).</li>
-<li>\(f''(x)\leq0\iff x\leq1\) : \(f\) est concave sur \(]-\infty;1]\), convexe sur \([1;+\infty[\). \(f''\) s'annule en changeant de signe en \(1\) : point d'inflexion \((1;f(1))=(1;1)\).</li>
+<li>\(f'(x)=3x^2-6x+2\) (on dérive \(x^3-3x^2+2x+1\) terme à terme). Puis \(f''(x)=6x-6\) (dérivée de \(f'\)).</li>
+<li>\(f''(x)\le0\iff 6x-6\le0\iff x\le1\). Donc \(f\) est <strong>concave</strong> sur \(]-\infty;1]\) et <strong>convexe</strong> sur \([1;+\infty[\). Comme \(f''\) s'annule <em>en changeant de signe</em> en \(x=1\), la courbe admet un <strong>point d'inflexion</strong> en \(1\). Son ordonnée : \(f(1)=1-3+2+1=1\), d'où le point \((1\,;1)\). <span class="rappel-inline">On donne toujours les <strong>deux</strong> coordonnées du point d'inflexion.</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 3</div>
+<div class="cor"><div class="cor-head">Corrigé 3 — lecture graphique croisée</div>
+<p><em>Clé :</em> la convexité se lit sur les <em>variations de \(f'\)</em> (et non son signe) ; les variations de \(f\) se lisent sur le <em>signe de \(f'\)</em>. Il ne faut pas confondre ces deux lectures.</p>
 <ol>
-<li>\(f\) est convexe là où \(f'\) est croissante, donc sur \([-2;1]\) ; concave sur \([1;4]\).</li>
-<li>Oui : la convexité change en \(x=1\), point d'inflexion d'abscisse 1.</li>
-<li>\(f'>0\) sur \([-2;3[\) et \(f'<0\) sur \(]3;4]\) : \(f\) croît puis décroît, maximum en \(x=3\). <span class="rappel-inline">(Bien distinguer : l'inflexion se lit sur les variations de \(f'\), le maximum sur son signe.)</span></li>
+<li>\(f\) est convexe là où \(f'\) est <strong>croissante</strong> : sur \([-2;1]\). Elle est concave là où \(f'\) décroît : sur \([1;4]\).</li>
+<li>La convexité change en \(x=1\) (\(f'\) passe de croissante à décroissante) : la courbe admet un <strong>point d'inflexion d'abscisse 1</strong>.</li>
+<li>Le maximum de \(f\) se lit sur le <em>signe</em> de \(f'\) : \(f'>0\) avant 3 (croissance) et \(f'<0\) après (décroissance), donc \(f\) atteint son <strong>maximum en \(x=3\)</strong>. <span class="rappel-inline">Piège classique : l'inflexion (en 1) et le maximum (en 3) sont à des abscisses différentes — l'un vient de la variation de \(f'\), l'autre de son signe.</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 4</div>
+<div class="cor"><div class="cor-head">Corrigé 4 — la gaussienne</div>
 <ol>
-<li>\(f'(x)=-x\,e^{-x^2/2}\), du signe de \(-x\) : \(f\) croît sur \(]-\infty;0]\), décroît ensuite ; maximum \(f(0)=1\). En \(\pm\infty\), \(-x^2/2\to-\infty\) donc \(f\to0\) (asymptote \(y=0\) des deux côtés). C'est la « courbe en cloche ».</li>
-<li>Produit : \(f''(x)=-e^{-x^2/2}+(-x)(-x)e^{-x^2/2}=(x^2-1)e^{-x^2/2}\). ✓</li>
-<li>\(f''\) est du signe de \(x^2-1=(x-1)(x+1)\) : positif à l'extérieur de \([-1;1]\), négatif à l'intérieur. \(f\) est convexe sur \(]-\infty;-1]\), concave sur \([-1;1]\), convexe sur \([1;+\infty[\). Deux points d'inflexion : \(\left(\pm1;e^{-1/2}\right)=\left(\pm1;\frac{1}{\sqrt e}\right)\). <span class="rappel-inline">(Cette courbe est au cœur du chapitre de probabilités sur la loi normale — et \(\pm1\) correspond à « moyenne ± écart-type ».)</span>
+<li>Forme \(e^u\) avec \(u=-\dfrac{x^2}{2}\), \(u'=-x\) : \(f'(x)=-x\,e^{-x^2/2}\). Comme \(e^{-x^2/2}>0\), \(f'\) est du signe de \(-x\) : \(f\) croît sur \(]-\infty;0]\), décroît sur \([0;+\infty[\) ; maximum \(f(0)=e^0=1\). En \(\pm\infty\), \(-\frac{x^2}{2}\to-\infty\) donc \(f\to0\) : asymptote \(y=0\) des deux côtés. On obtient la fameuse <strong>courbe en cloche</strong>.</li>
+<li>On dérive le produit \(f'(x)=(-x)\,e^{-x^2/2}\) : \(f''(x)=(-1)e^{-x^2/2}+(-x)\times(-x)e^{-x^2/2}=(-1+x^2)e^{-x^2/2}=(x^2-1)e^{-x^2/2}\). ✓</li>
+<li>Le facteur \(e^{-x^2/2}>0\), donc \(f''\) est du signe de \(x^2-1=(x-1)(x+1)\) : positif à l'extérieur de \([-1;1]\), négatif entre. Donc \(f\) est <strong>convexe</strong> sur \(]-\infty;-1]\), <strong>concave</strong> sur \([-1;1]\), <strong>convexe</strong> sur \([1;+\infty[\). Deux points d'inflexion, en \(x=\pm1\), d'ordonnée \(e^{-1/2}=\dfrac{1}{\sqrt e}\) : \(\left(-1\,;\tfrac{1}{\sqrt e}\right)\) et \(\left(1\,;\tfrac{1}{\sqrt e}\right)\). <span class="rappel-inline">Cette courbe est celle de la loi normale (probabilités) : les inflexions en \(\pm1\) correspondent à « moyenne ± écart-type ».</span>
 <div class="fig">
 <svg viewBox="0 0 360 200" width="330" xmlns="http://www.w3.org/2000/svg">
 <g transform="translate(20,8)">
@@ -279,24 +299,24 @@ Soit \(f(x)=(x+2)e^{-x}\) (déjà rencontrée au module M4, dont on connaît var
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 5</div>
+<div class="cor"><div class="cor-head">Corrigé 5 — étude complète avec convexité</div>
 <ol>
-<li>Du M4 : \(f'(x)=-(x+1)e^{-x}\). Alors \(f''(x)=-e^{-x}+(x+1)e^{-x}=\big(-1+x+1\big)e^{-x}=x\,e^{-x}\). ✓</li>
-<li>\(f''\) est du signe de \(x\) : \(f\) concave sur \(]-\infty;0]\), convexe sur \([0;+\infty[\). Point d'inflexion \(I(0;f(0))=(0;2)\).</li>
-<li>\(f'(0)=-1\) et \(f(0)=2\) : \(T : y=-x+2\).</li>
-<li>Sur \(]-\infty;0]\), \(f\) est concave donc sa courbe est <strong>en dessous de ses tangentes</strong>, en particulier de \(T\) : pour tout \(x\leq0\), \(f(x)\leq2-x\). <span class="rappel-inline">(En \(x=0\) il y a égalité : le point d'inflexion est sur la tangente.)</span></li>
+<li>On part de \(f'(x)=-(x+1)e^{-x}\) (établi au module M4). On dérive ce produit : \(f''(x)=-(1)e^{-x}+\big(-(x+1)\big)\times(-e^{-x})=-e^{-x}+(x+1)e^{-x}=\big(-1+x+1\big)e^{-x}=x\,e^{-x}\). ✓</li>
+<li>Comme \(e^{-x}>0\), \(f''\) est <strong>du signe de \(x\)</strong> : \(f\) est concave sur \(]-\infty;0]\), convexe sur \([0;+\infty[\). La convexité change en \(0\) : point d'inflexion \(I(0\,;f(0))\) avec \(f(0)=(0+2)e^0=2\), soit \(I(0\,;2)\).</li>
+<li>Tangente en \(0\) : \(y=f'(0)(x-0)+f(0)\). Or \(f'(0)=-(0+1)e^0=-1\) et \(f(0)=2\), d'où \(T:\ y=-x+2\).</li>
+<li>Sur \(]-\infty;0]\), \(f\) est <strong>concave</strong>, donc sa courbe est <strong>en dessous de chacune de ses tangentes</strong>, en particulier de \(T\). Donc pour tout \(x\le0\) : \(f(x)\le2-x\). <span class="rappel-inline">En \(x=0\), il y a égalité (le point d'inflexion \(I\) appartient à \(T\)).</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 6</div>
+<div class="cor"><div class="cor-head">Corrigé 6 — inégalités par convexité</div>
+<p><em>Idée générale :</em> si une fonction est <strong>convexe</strong>, sa courbe est au-dessus de ses tangentes → inégalité « \(f(x)\ge\) tangente » ; si elle est <strong>concave</strong>, en dessous → « \(f(x)\le\) tangente ». Il suffit de calculer la tangente au bon point.</p>
 <ol>
-<li>\(\exp''=\exp>0\) : exp est convexe sur \(\mathbb R\). Sa courbe est donc au-dessus de toutes ses tangentes, notamment celle en 0, qui a pour équation \(y=1+x\) (coefficient \(e^0=1\), point \((0;1)\)). D'où \(e^x\geq1+x\) pour tout \(x\). ∎</li>
-<li>\(f(x)=\sqrt x\) : \(f'(x)=\dfrac{1}{2\sqrt x}=\dfrac12x^{-1/2}\) et \(f''(x)=-\dfrac{1}{4}x^{-3/2}=-\dfrac{1}{4x\sqrt x}<0\) sur \(]0;+\infty[\) : concave. La courbe est en dessous de sa tangente en 1 : \(y=f'(1)(x-1)+f(1)=\dfrac12(x-1)+1=\dfrac{x+1}{2}\). D'où \(\sqrt x\leq\dfrac{x+1}{2}\). ∎</li>
-<li>\((\sqrt x-1)^2\geq0\) donne \(x-2\sqrt x+1\geq0\), soit \(2\sqrt x\leq x+1\), soit \(\sqrt x\leq\dfrac{x+1}{2}\). Même résultat : la convexité offre une <strong>méthode géométrique générale</strong> pour produire ce type d'inégalité.</li>
+<li>\(\exp''=\exp>0\), donc \(\exp\) est convexe sur \(\mathbb R\) : sa courbe est au-dessus de toutes ses tangentes. La tangente en \(0\) a pour équation \(y=1+x\) (pente \(\exp'(0)=1\), point \((0;1)\)). D'où, pour tout \(x\) : \(e^x\ge1+x\). ∎ <span class="rappel-inline">On retrouve ainsi l'inégalité de M1 sans étude de fonction.</span></li>
+<li>Pour \(f(x)=\sqrt x=x^{1/2}\) : \(f'(x)=\dfrac12x^{-1/2}=\dfrac{1}{2\sqrt x}\), puis \(f''(x)=-\dfrac14x^{-3/2}=-\dfrac{1}{4x\sqrt x}<0\) sur \(]0;+\infty[\) : \(\sqrt{\ }\) est <strong>concave</strong>. Sa courbe est donc en dessous de sa tangente en 1 : \(y=f'(1)(x-1)+f(1)=\dfrac12(x-1)+1=\dfrac{x+1}{2}\). D'où \(\sqrt x\le\dfrac{x+1}{2}\) pour tout \(x>0\). ∎</li>
+<li>Preuve algébrique directe : \((\sqrt x-1)^2\ge0\) (un carré). En développant : \(x-2\sqrt x+1\ge0\), soit \(x+1\ge2\sqrt x\), c'est-à-dire \(\sqrt x\le\dfrac{x+1}{2}\). Même résultat. <span class="rappel-inline">La convexité fournit une méthode <em>géométrique générale</em> pour obtenir ce type d'inégalité, là où le calcul algébrique demande une astuce (ici, reconnaître un carré).</span></li>
 </ol>
 </div>
 </div>
-
 <div id="quiz-mount"></div>
 <p class="footer-note">Parcours d'été — Module M5 · Compléments de dérivation et convexité.</p>
 

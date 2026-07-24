@@ -285,3 +285,24 @@ th { background: var(--accent-light); font-family: 'Helvetica Neue', Arial, sans
 .card .wk { font-size:9pt; color:#888; }
 .card.ses { --card-accent:#26695c; }
 .home-foot { margin-top:34px; padding-top:14px; border-top:1px solid #ddd; font-size:9.5pt; color:#777; font-style:italic; }
+
+/* Accroche "intuition" (avant le formalisme) */
+.intuition { border-left-color: #c2255c; background: #fdf0f5; }
+.intuition .label { color: #a61e4d; }
+
+/* Synthèse de fin de module "À retenir" */
+.synthese {
+  border: 1.5px solid var(--accent);
+  background: var(--accent-light);
+  border-radius: 6px;
+  padding: 11px 15px;
+  margin: 18px 0;
+  break-inside: avoid;
+}
+.synthese .label {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700; font-size: 10pt; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--accent); display: block; margin-bottom: 5px;
+}
+.synthese ul { margin: 5px 0; padding-left: 20px; }
+.synthese li { margin: 4px 0; }

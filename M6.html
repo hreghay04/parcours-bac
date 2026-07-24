@@ -59,6 +59,10 @@
 
 <h2>1. Les deux principes de base</h2>
 
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Compter, c'est combiner deux réflexes : quand une situation se construit par <strong>étapes successives</strong> (un choix, puis un autre…), on <strong>multiplie</strong> ; quand elle se découpe en <strong>cas séparés</strong> (soit…, soit…), on <strong>additionne</strong>.
+</div>
+
 <div class="box theo"><span class="label">Principes</span>
 <ul>
 <li><strong>Principe additif</strong> : si \(A\) et \(B\) sont des ensembles <strong>disjoints</strong>, alors \(\#(A\cup B)=\#A+\#B\). (On additionne quand on découpe en cas incompatibles.)</li>
@@ -67,6 +71,10 @@
 </div>
 
 <h2>2. Les quatre situations types</h2>
+
+<div class="box intuition"><span class="label">💡 Intuition</span>
+Avant tout calcul, deux questions tranchent tout : <strong>l'ordre compte-t-il ?</strong> et <strong>peut-on répéter un élément ?</strong> Un « mot » ou un podium → l'ordre compte ; une « main » ou un comité → non. Ces deux réponses mènent directement à la bonne formule.
+</div>
 
 <div class="box theo"><span class="label">Tableau récapitulatif (à connaître parfaitement)</span>
 Soit un ensemble \(E\) à \(n\) éléments.
@@ -155,6 +163,15 @@ Puis repérer si le problème se découpe en <strong>étapes</strong> (multiplie
 </ul>
 </div>
 
+<div class="synthese"><span class="label">L'essentiel à retenir</span>
+<ul>
+<li><strong>Multiplier</strong> (étapes successives) vs <strong>additionner</strong> (cas disjoints).</li>
+<li>Ordre + répétition → \(n^k\) ; ordre sans répétition → arrangement \(\frac{n!}{(n-k)!}\) ; <strong>sans ordre</strong> → combinaison \(\binom nk\).</li>
+<li>\(\binom nk=\frac{n!}{k!(n-k)!}\) ; symétrie \(\binom nk=\binom{n}{n-k}\) ; relation de Pascal ; \(\sum_k\binom nk=2^n\).</li>
+<li>« <strong>Au moins un</strong> » → passer par le complémentaire : \(1-\) (aucun).</li>
+</ul>
+</div>
+
 <h2 class="corriges-start" style="border:none;color:var(--ink);font-size:15pt;margin-bottom:2px">Exercices</h2>
 
 <div class="exo"><div class="exo-head">Exercice 1 — Calculs de base <span class="stars">★</span> <span class="duree">(15 min)</span></div>
@@ -219,66 +236,79 @@ Un sac contient 6 boules rouges et 4 boules bleues, indiscernables au toucher. O
 
 <div class="corriges-start">
 <div class="corriges-banner">Corrigés détaillés — Module M6</div>
-<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé.</p>
+<p class="corriges-warn">À ne consulter qu'après avoir cherché et rédigé. Réflexe permanent : <strong>l'ordre compte-t-il ? les répétitions sont-elles permises ?</strong></p>
 
-<div class="cor"><div class="cor-head">Corrigé 1</div>
+<div class="cor"><div class="cor-head">Corrigé 1 — calculs de base</div>
+<p><em>Rappels :</em> \(n!=n(n-1)\cdots1\), \(\dbinom nk=\dfrac{n!}{k!(n-k)!}\), et la symétrie \(\dbinom nk=\dbinom{n}{n-k}\) permet souvent de simplifier.</p>
 <ol>
-<li>\(5!=120\) ; \(\dfrac{8!}{6!}=8\times7=56\) ; \(\dbinom52=\dfrac{5\times4}{2}=10\) ; \(\dbinom{10}3=\dfrac{10\times9\times8}{6}=120\) ; \(\dbinom{100}{98}=\dbinom{100}{2}=\dfrac{100\times99}{2}=4\,950\) (symétrie !).</li>
-<li>\(\dfrac{n!}{(n-2)!}=n(n-1)\) ; \(\dbinom n2=\dfrac{n!}{2!(n-2)!}=\dfrac{n(n-1)}{2}\). ✓</li>
+<li>\(5!=5\times4\times3\times2\times1=120\). \(\dfrac{8!}{6!}=8\times7=56\) (les facteurs jusqu'à \(6!\) se simplifient). \(\dbinom52=\dfrac{5\times4}{2!}=\dfrac{20}{2}=10\). \(\dbinom{10}3=\dfrac{10\times9\times8}{3!}=\dfrac{720}{6}=120\). \(\dbinom{100}{98}\stackrel{\text{sym.}}{=}\dbinom{100}{2}=\dfrac{100\times99}{2}=4\,950\) <span class="rappel-inline">(la symétrie évite de calculer \(\binom{100}{98}\) « à la main »)</span>.</li>
+<li>\(\dfrac{n!}{(n-2)!}=n\times(n-1)\) (on ne garde que les deux plus grands facteurs). Et \(\dbinom n2=\dfrac{n!}{2!(n-2)!}=\dfrac{n(n-1)}{2}\). ✓</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 2</div>
+<div class="cor"><div class="cor-head">Corrigé 2 — codes et mots de passe</div>
 <ol>
-<li>\(10^4=10\,000\) (4-uplets) ; tous différents : \(10\times9\times8\times7=5\,040\).</li>
-<li>\(36^8\approx2{,}82\times10^{12}\). Au moins un chiffre = complémentaire de « aucun chiffre » : \(36^8-26^8\approx2{,}61\times10^{12}\).</li>
-<li>MATHS : 5 lettres distinctes, \(5!=120\) anagrammes. ANNEE : \(\dfrac{5!}{2!\,2!}=30\) (on divise par les permutations internes des deux N et des deux E).</li>
+<li>Un code à 4 chiffres : ordre compte, répétitions permises → \(k\)-uplets : \(10^4=10\,000\). Tous différents : ordre compte, sans répétition → \(10\times9\times8\times7=5\,040\).</li>
+<li>36 caractères possibles (26 lettres + 10 chiffres), 8 positions, avec répétition : \(36^8\approx2{,}82\times10^{12}\). « Au moins un chiffre » = total − « aucun chiffre » (que des lettres) : \(36^8-26^8\approx2{,}61\times10^{12}\). <span class="rappel-inline">Le complémentaire évite de distinguer les cas « exactement 1, 2, … chiffres ».</span></li>
+<li>MATHS a 5 lettres <em>toutes distinctes</em> : \(5!=120\) anagrammes. ANNEE a 5 lettres dont deux N et deux E : on divise par les permutations internes des lettres répétées, \(\dfrac{5!}{2!\times2!}=\dfrac{120}{4}=30\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 3</div>
+<div class="cor"><div class="cor-head">Corrigé 3 — podiums et tirages</div>
 <ol>
-<li>Ordre, sans répétition : \(12\times11\times10=1\,320\).</li>
-<li>Sans ordre : \(\dbinom{12}3=220\).</li>
-<li>Chaque groupe de 3 qualifiés peut s'ordonner de \(3!=6\) façons en un podium : \(1\,320=220\times6\). D'où la formule générale \(\binom nk=\dfrac{n!/(n-k)!}{k!}\).</li>
+<li>Un podium (1<sup>er</sup>, 2<sup>e</sup>, 3<sup>e</sup>) : l'<strong>ordre compte</strong>, sans répétition → \(12\times11\times10=1\,320\).</li>
+<li>Désigner 3 qualifiés : l'<strong>ordre ne compte pas</strong> → combinaison \(\dbinom{12}3=\dfrac{12\times11\times10}{6}=220\).</li>
+<li>Chaque groupe de 3 qualifiés peut être ordonné de \(3!=6\) façons différentes pour former un podium : on a donc \(1\,320=220\times3!\). C'est exactement la raison du \(k!\) au dénominateur de \(\dbinom nk=\dfrac{n!/(n-k)!}{k!}\) : on « efface » l'ordre en divisant par le nombre d'ordres possibles.</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 4</div>
+<div class="cor"><div class="cor-head">Corrigé 4 — comités avec contraintes</div>
+<p><em>Un comité est un groupe sans ordre → on travaille avec des combinaisons.</em></p>
 <ol>
-<li>\(\dbinom{30}5=142\,506\).</li>
-<li>Étapes indépendantes : \(\dbinom{18}3\times\dbinom{12}2=816\times66=53\,856\).</li>
-<li>Complémentaire (aucune fille = 5 garçons) : \(\dbinom{30}5-\dbinom{12}5=142\,506-792=141\,714\).</li>
-<li>Complémentaire (ni Aïcha ni Karim : on choisit 5 élèves parmi les 28 autres) : \(\dbinom{30}5-\dbinom{28}5=142\,506-98\,280=44\,226\).</li>
+<li>5 élèves parmi 30 : \(\dbinom{30}5=142\,506\).</li>
+<li>On choisit indépendamment 3 filles parmi 18 <em>et</em> 2 garçons parmi 12, puis on multiplie (principe multiplicatif) : \(\dbinom{18}3\times\dbinom{12}2=816\times66=53\,856\).</li>
+<li>« Au moins une fille » = total − « aucune fille ». « Aucune fille » = les 5 membres sont des garçons, soit \(\dbinom{12}5=792\). Donc \(142\,506-792=141\,714\).</li>
+<li>« Aïcha ou Karim (au moins l'un) » = total − « ni l'un ni l'autre ». Sans Aïcha ni Karim, on choisit 5 élèves parmi les \(28\) restants : \(\dbinom{28}5=98\,280\). Donc \(142\,506-98\,280=44\,226\). <span class="rappel-inline">Encore le complémentaire : « au moins un parmi… » se compte presque toujours ainsi.</span></li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 5</div>
+<div class="cor"><div class="cor-head">Corrigé 5 — mains de cartes</div>
+<p><em>Une main est un ensemble de cartes sans ordre → combinaisons.</em></p>
 <ol>
-<li>\(\dbinom{32}5=201\,376\).</li>
-<li>2 as parmi 4 <em>et</em> 3 cartes parmi les 28 non-as : \(\dbinom42\times\dbinom{28}3=6\times3\,276=19\,656\).</li>
-<li>Il y a 8 cœurs : \(\dbinom85=56\) mains. Probabilité : \(\dfrac{56}{201\,376}\approx0{,}00028\).</li>
+<li>5 cartes parmi 32 : \(\dbinom{32}5=201\,376\).</li>
+<li>« Exactement 2 as » : on choisit 2 as parmi les 4 <em>et</em> les 3 autres cartes parmi les 28 non-as : \(\dbinom42\times\dbinom{28}3=6\times3\,276=19\,656\).</li>
+<li>Il y a 8 cœurs dans le jeu ; « uniquement des cœurs » = 5 cœurs parmi 8 : \(\dbinom85=56\) mains. Probabilité (cas favorables / cas possibles) : \(\dfrac{56}{201\,376}\approx0{,}00028\).</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 6</div>
+<div class="cor"><div class="cor-head">Corrigé 6 — démonstrations</div>
 <ol>
-<li>Calcul : \(\dbinom{n}{n-k}=\dfrac{n!}{(n-k)!\,\big(n-(n-k)\big)!}=\dfrac{n!}{(n-k)!\,k!}=\dbinom nk\). Interprétation : choisir les \(k\) membres d'un groupe revient exactement à choisir les \(n-k\) exclus — il y a donc autant de choix des uns que des autres.</li>
-<li>Fixons un élément \(a\) d'un ensemble \(E\) à \(n+1\) éléments, et comptons les parties à \(k+1\) éléments de \(E\). Celles qui <strong>contiennent</strong> \(a\) : il reste \(k\) éléments à choisir parmi les \(n\) autres, soit \(\binom nk\). Celles qui <strong>ne contiennent pas</strong> \(a\) : \(k+1\) éléments parmi \(n\), soit \(\binom n{k+1}\). Les deux cas sont disjoints et couvrent tout : \(\binom{n+1}{k+1}=\binom nk+\binom n{k+1}\). ∎</li>
-<li>Lignes du triangle : 1 · 1 1 · 1 2 1 · 1 3 3 1 · 1 4 6 4 1 · 1 5 10 10 5 1 · 1 6 15 20 15 6 1.</li>
+<li><strong>Symétrie.</strong> Par le calcul : \(\dbinom{n}{n-k}=\dfrac{n!}{(n-k)!\,\big(n-(n-k)\big)!}=\dfrac{n!}{(n-k)!\,k!}=\dbinom nk\). Interprétation combinatoire : choisir les \(k\) éléments qui <em>entrent</em> dans une partie revient à choisir les \(n-k\) qui <em>restent</em> dehors ; il y a donc autant de façons de faire l'un que l'autre.</li>
+<li><strong>Relation de Pascal.</strong> On fixe un élément \(a\) dans un ensemble \(E\) à \(n+1\) éléments, et on compte les parties à \(k+1\) éléments selon qu'elles contiennent \(a\) ou non. Celles qui <strong>contiennent \(a\)</strong> : il reste à choisir \(k\) éléments parmi les \(n\) autres → \(\dbinom nk\). Celles qui <strong>ne contiennent pas \(a\)</strong> : on choisit \(k+1\) éléments parmi les \(n\) autres → \(\dbinom n{k+1}\). Ces deux cas sont disjoints et forment toutes les parties comptées, donc (principe additif) \(\dbinom{n+1}{k+1}=\dbinom nk+\dbinom n{k+1}\). ∎</li>
+<li>Le triangle de Pascal (chaque terme = somme des deux du dessus) :
+<br>\(n=0\) : 1
+<br>\(n=1\) : 1 1
+<br>\(n=2\) : 1 2 1
+<br>\(n=3\) : 1 3 3 1
+<br>\(n=4\) : 1 4 6 4 1
+<br>\(n=5\) : 1 5 10 10 5 1
+<br>\(n=6\) : 1 6 15 20 15 6 1</li>
 </ol>
 </div>
 
-<div class="cor"><div class="cor-head">Corrigé 7</div>
+<div class="cor"><div class="cor-head">Corrigé 7 — dénombrement et probabilités</div>
 <ol>
-<li>Tirage simultané = sans ordre : \(\dbinom{10}3=120\).</li>
-<li>\(P(X=k)=\dfrac{\binom6k\binom4{3-k}}{120}\) :
-\(P(X=0)=\dfrac{1\times4}{120}=\dfrac{4}{120}\) ; \(P(X=1)=\dfrac{6\times6}{120}=\dfrac{36}{120}\) ; \(P(X=2)=\dfrac{15\times4}{120}=\dfrac{60}{120}\) ; \(P(X=3)=\dfrac{20\times1}{120}=\dfrac{20}{120}\). Somme : \(\dfrac{4+36+60+20}{120}=1\). ✓</li>
-<li>\(E(X)=\dfrac{0\times4+1\times36+2\times60+3\times20}{120}=\dfrac{216}{120}=1{,}8\). Or \(3\times\dfrac{6}{10}=1{,}8\) : en moyenne, la proportion de rouges du sac (60 %) se retrouve dans le tirage. <span class="rappel-inline">(Résultat général élégant — et non évident, car les tirages ne sont pas indépendants !)</span></li>
+<li>Tirage <em>simultané</em> = sans ordre : nombre de tirages \(=\dbinom{10}3=120\).</li>
+<li>Pour obtenir exactement \(k\) rouges, on choisit \(k\) rouges parmi 6 <em>et</em> \(3-k\) bleues parmi 4 : \(P(X=k)=\dfrac{\dbinom6k\dbinom4{3-k}}{120}\).
+<br>\(P(X=0)=\dfrac{\binom60\binom43}{120}=\dfrac{1\times4}{120}=\dfrac{4}{120}\) ;
+\(P(X=1)=\dfrac{\binom61\binom42}{120}=\dfrac{6\times6}{120}=\dfrac{36}{120}\) ;
+\(P(X=2)=\dfrac{\binom62\binom41}{120}=\dfrac{15\times4}{120}=\dfrac{60}{120}\) ;
+\(P(X=3)=\dfrac{\binom63\binom40}{120}=\dfrac{20\times1}{120}=\dfrac{20}{120}\).
+<br>Somme : \(\dfrac{4+36+60+20}{120}=\dfrac{120}{120}=1\). ✓ <span class="rappel-inline">Vérifier que les probabilités somment à 1 est un bon contrôle d'erreur.</span></li>
+<li>\(E(X)=\dfrac{0\times4+1\times36+2\times60+3\times20}{120}=\dfrac{0+36+120+60}{120}=\dfrac{216}{120}=1{,}8\). Or \(3\times\dfrac{6}{10}=1{,}8\) : en moyenne, la proportion de rouges du sac (60 %) se retrouve dans les 3 boules tirées. <span class="rappel-inline">Résultat élégant et non évident : les tirages simultanés ne sont pas indépendants, et pourtant l'espérance se comporte comme si on tirait 3 fois avec 60 % de chance à chaque fois.</span></li>
 </ol>
 </div>
 </div>
-
 <div id="quiz-mount"></div>
 <p class="footer-note">Parcours d'été — Module M6 · Combinatoire et dénombrement.</p>
 
