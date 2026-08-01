@@ -306,3 +306,12 @@ th { background: var(--accent-light); font-family: 'Helvetica Neue', Arial, sans
 }
 .synthese ul { margin: 5px 0; padding-left: 20px; }
 .synthese li { margin: 4px 0; }
+
+/* Bouton de téléchargement PDF (écran uniquement) */
+.pdf-dl { margin: 6px 0 14px; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10pt; }
+.pdf-dl a {
+  display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+  padding: 6px 13px; border-radius: 6px;
+}
+.pdf-dl a:hover { opacity: .9; }
+@media print { .pdf-dl { display: none !important; } }
