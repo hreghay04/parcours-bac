@@ -332,6 +332,40 @@ La suite \((u_n)\) est définie par \(u_0=0\) et \(u_{n+1}=\sqrt{u_n+2}\).
 </ol>
 </div>
 
+<h3 style="margin-top:24px;border-top:2px solid var(--accent);padding-top:12px">🔁 Entraînement intensif — Récurrence</h3>
+<p style="font-style:italic;font-size:9.5pt;margin-top:0">Dix exercices supplémentaires pour ancrer la <strong>rédaction</strong> (c'est elle qui est notée au bac), couvrant les grands types : égalités, inégalités, <strong>divisibilité</strong> et <strong>sommes</strong>. (Le type « suite bornée / monotone » est, lui, travaillé aux exercices 6 et 8 ci-dessus.) Corrigés détaillés en fin de module.</p>
+
+<div class="exo"><div class="exo-head">Récurrence R1 — égalité <span class="stars">★</span> <span class="duree">(10 min)</span></div>
+La suite \((u_n)\) est définie par \(u_0=0\) et \(u_{n+1}=u_n+2n+1\). Démontrer par récurrence que pour tout \(n\geq0\) : \(u_n=n^2\).</div>
+
+<div class="exo"><div class="exo-head">Récurrence R2 — égalité <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+La suite \((u_n)\) est définie par \(u_1=1\) et \(u_{n+1}=\dfrac{u_n}{1+u_n}\). Démontrer par récurrence que pour tout \(n\geq1\) : \(u_n=\dfrac1n\). <em>(On admettra que tous les termes sont strictement positifs.)</em></div>
+
+<div class="exo"><div class="exo-head">Récurrence R3 — inégalité <span class="stars">★</span> <span class="duree">(10 min)</span></div>
+Démontrer par récurrence que pour tout entier \(n\geq0\) : \(2^n\geq n+1\).</div>
+
+<div class="exo"><div class="exo-head">Récurrence R4 — inégalité de Bernoulli <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Soit \(x\) un réel positif fixé. Démontrer par récurrence que pour tout entier \(n\geq0\) : \((1+x)^n\geq 1+nx\).</div>
+
+<div class="exo"><div class="exo-head">Récurrence R5 — divisibilité <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+Démontrer par récurrence que pour tout entier \(n\geq0\), \(4^n-1\) est divisible par \(3\).</div>
+
+<div class="exo"><div class="exo-head">Récurrence R6 — divisibilité <span class="stars">★★</span> <span class="duree">(15 min)</span></div>
+Démontrer par récurrence que pour tout entier \(n\geq0\), \(3^{2n}-1\) est divisible par \(8\). <em>(On remarquera que \(3^{2n}=9^n\).)</em></div>
+
+<div class="exo"><div class="exo-head">Récurrence R7 — divisibilité <span class="stars">★★★</span> <span class="duree">(20 min)</span></div>
+Démontrer par récurrence que pour tout entier \(n\geq0\), \(3^{2n}-2^n\) est divisible par \(7\). <em>(Indication pour l'hérédité : écrire \(9\times9^n=2\times9^n+7\times9^n\).)</em></div>
+
+<div class="exo"><div class="exo-head">Récurrence R8 — somme <span class="stars">★</span> <span class="duree">(10 min)</span></div>
+Démontrer par récurrence que pour tout entier \(n\geq1\) : \(1+2+3+\cdots+n=\dfrac{n(n+1)}{2}\).</div>
+
+<div class="exo"><div class="exo-head">Récurrence R9 — somme des carrés <span class="stars">★★</span> <span class="duree">(20 min)</span></div>
+Démontrer par récurrence que pour tout entier \(n\geq1\) : \(1^2+2^2+\cdots+n^2=\dfrac{n(n+1)(2n+1)}{6}\).</div>
+
+<div class="exo"><div class="exo-head">Récurrence R10 — somme des cubes <span class="stars">★★★</span> <span class="duree">(20 min)</span></div>
+Démontrer par récurrence que pour tout entier \(n\geq1\) : \(1^3+2^3+\cdots+n^3=\left(\dfrac{n(n+1)}{2}\right)^2\). <em>(Joli résultat : la somme des cubes est le carré de la somme des entiers !)</em></div>
+
+
 <div class="corriges-start">
 <div class="corriges-banner">Corrigés détaillés — Module M3</div>
 <p class="corriges-warn">Au bac, c'est la <strong>rédaction</strong> des récurrences et la justification des limites qui rapportent les points. Comparer sa copie à la démarche, pas seulement au résultat.</p>
@@ -415,6 +449,43 @@ Ensuite \(\dfrac{n+\cos n}{n}=1+\dfrac{\cos n}{n}\), et \(-\dfrac1n\le\dfrac{\co
 <li>La limite vérifie \(\ell=\sqrt{\ell+2}\). Cette égalité impose \(\ell\ge0\) ; en élevant au carré : \(\ell^2=\ell+2\), soit \(\ell^2-\ell-2=0\). Les racines sont \(-1\) et \(2\). Comme \(\ell\ge0\), on retient \(\boxed{\ell=2}\).</li>
 </ol>
 </div>
+<div class="cor" style="border-top:2px solid var(--accent);padding-top:8px"><div class="cor-head" style="font-size:11pt">— Corrigés : Entraînement intensif — Récurrence —</div>
+<p class="rappel-inline">Pour chaque exercice, on suit le rituel : énoncé de \(P(n)\) → initialisation (calcul explicite) → hérédité (on part de l'hypothèse et on fait apparaître le rang \(n+1\)) → conclusion.</p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R1</div>
+<p>Soit \(P(n)\) : « \(u_n=n^2\) ». <em>Init.</em> : \(u_0=0=0^2\) ✓. <em>Hérédité</em> : si \(u_n=n^2\), alors \(u_{n+1}=u_n+2n+1=n^2+2n+1=(n+1)^2\) ✓. <em>Conclusion</em> : \(u_n=n^2\) pour tout \(n\geq0\). ∎</p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R2</div>
+<p>Soit \(P(n)\) : « \(u_n=\dfrac1n\) » (pour \(n\geq1\)). <em>Init.</em> : \(u_1=1=\dfrac11\) ✓. <em>Hérédité</em> : si \(u_n=\dfrac1n\), alors \(u_{n+1}=\dfrac{u_n}{1+u_n}=\dfrac{1/n}{1+1/n}=\dfrac{1/n}{(n+1)/n}=\dfrac{1}{n+1}\) ✓. <em>Conclusion</em> : \(u_n=\dfrac1n\) pour tout \(n\geq1\). ∎ <span class="rappel-inline">Le point clé est de simplifier la fraction \(\dfrac{1/n}{(n+1)/n}\) en multipliant haut et bas par \(n\).</span></p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R3</div>
+<p>Soit \(P(n)\) : « \(2^n\geq n+1\) ». <em>Init.</em> : \(2^0=1\geq0+1=1\) ✓. <em>Hérédité</em> : si \(2^n\geq n+1\), alors (en multipliant par \(2>0\)) \(2^{n+1}=2\times2^n\geq2(n+1)=2n+2\). Or \(2n+2\geq n+2=(n+1)+1\) car \(n\geq0\). Donc \(2^{n+1}\geq(n+1)+1\) ✓. <em>Conclusion</em> : vrai pour tout \(n\geq0\). ∎</p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R4 — inégalité de Bernoulli</div>
+<p>Soit \(P(n)\) : « \((1+x)^n\geq1+nx\) » (avec \(x\geq0\) fixé). <em>Init.</em> : \((1+x)^0=1\geq1+0=1\) ✓. <em>Hérédité</em> : comme \(x\geq0\), \(1+x>0\), donc on peut multiplier l'hypothèse par \(1+x\) sans changer le sens : \((1+x)^{n+1}\geq(1+x)(1+nx)=1+nx+x+nx^2=1+(n+1)x+nx^2\). Or \(nx^2\geq0\), d'où \((1+x)^{n+1}\geq1+(n+1)x\) ✓. <em>Conclusion</em> : vrai pour tout \(n\geq0\). ∎ <span class="rappel-inline">⚠ On vérifie bien que le facteur \(1+x\) est positif avant de multiplier l'inégalité.</span></p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R5 — divisibilité</div>
+<p><em>« Divisible par 3 » signifie « s'écrit \(3k\) avec \(k\) entier ».</em> Soit \(P(n)\) : « il existe un entier \(k\) tel que \(4^n-1=3k\) ». <em>Init.</em> : \(4^0-1=0=3\times0\) ✓. <em>Hérédité</em> : si \(4^n-1=3k\), alors \(4^{n+1}-1=4\times4^n-1=4(4^n-1)+3=4\times3k+3=3(4k+1)\), qui est bien un multiple de 3 ✓. <em>Conclusion</em> : \(4^n-1\) est divisible par 3 pour tout \(n\geq0\). ∎ <span class="rappel-inline">L'astuce récurrente : faire apparaître \((4^n-1)\) en écrivant \(4\times4^n=4(4^n-1)+4\).</span></p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R6 — divisibilité</div>
+<p>Comme \(3^{2n}=9^n\), soit \(P(n)\) : « il existe un entier \(k\) tel que \(9^n-1=8k\) ». <em>Init.</em> : \(9^0-1=0=8\times0\) ✓. <em>Hérédité</em> : si \(9^n-1=8k\), alors \(9^{n+1}-1=9\times9^n-1=9(9^n-1)+8=9\times8k+8=8(9k+1)\), multiple de 8 ✓. <em>Conclusion</em> : vrai pour tout \(n\geq0\). ∎</p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R7 — divisibilité</div>
+<p>Soit \(P(n)\) : « il existe un entier \(k\) tel que \(9^n-2^n=7k\) ». <em>Init.</em> : \(9^0-2^0=1-1=0=7\times0\) ✓. <em>Hérédité</em> : supposons \(9^n-2^n=7k\). Alors \(9^{n+1}-2^{n+1}=9\times9^n-2\times2^n\). On décompose \(9\times9^n=2\times9^n+7\times9^n\), d'où
+\(9^{n+1}-2^{n+1}=2\times9^n+7\times9^n-2\times2^n=2(9^n-2^n)+7\times9^n=2\times7k+7\times9^n=7(2k+9^n)\), multiple de 7 ✓. <em>Conclusion</em> : vrai pour tout \(n\geq0\). ∎ <span class="rappel-inline">L'idée : faire réapparaître \((9^n-2^n)\) en « cassant » le coefficient 9 en \(2+7\).</span></p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R8 — somme</div>
+<p>Notons \(S_n=1+2+\cdots+n\) et soit \(P(n)\) : « \(S_n=\dfrac{n(n+1)}{2}\) ». <em>Init.</em> (\(n=1\)) : \(S_1=1=\dfrac{1\times2}{2}\) ✓. <em>Hérédité</em> : si \(S_n=\dfrac{n(n+1)}{2}\), alors \(S_{n+1}=S_n+(n+1)=\dfrac{n(n+1)}{2}+(n+1)=(n+1)\left(\dfrac n2+1\right)=(n+1)\dfrac{n+2}{2}=\dfrac{(n+1)(n+2)}{2}\) ✓. <em>Conclusion</em> : vrai pour tout \(n\geq1\). ∎ <span class="rappel-inline">Réflexe : factoriser par \((n+1)\) pour retrouver la forme voulue.</span></p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R9 — somme des carrés</div>
+<p>Notons \(S_n=1^2+\cdots+n^2\) et soit \(P(n)\) : « \(S_n=\dfrac{n(n+1)(2n+1)}{6}\) ». <em>Init.</em> (\(n=1\)) : \(S_1=1=\dfrac{1\times2\times3}{6}\) ✓. <em>Hérédité</em> : \(S_{n+1}=S_n+(n+1)^2=\dfrac{n(n+1)(2n+1)}{6}+(n+1)^2\). On factorise par \(\dfrac{n+1}{6}\) :
+\(S_{n+1}=\dfrac{n+1}{6}\big[n(2n+1)+6(n+1)\big]=\dfrac{n+1}{6}\big[2n^2+7n+6\big]=\dfrac{n+1}{6}(n+2)(2n+3)\).
+Or la formule attendue au rang \(n+1\) est \(\dfrac{(n+1)(n+2)(2n+3)}{6}\) : c'est exactement le résultat ✓. <em>Conclusion</em> : vrai pour tout \(n\geq1\). ∎</p></div>
+
+<div class="cor"><div class="cor-head">Corrigé R10 — somme des cubes</div>
+<p>Notons \(S_n=1^3+\cdots+n^3\) et soit \(P(n)\) : « \(S_n=\left(\dfrac{n(n+1)}{2}\right)^2\) ». <em>Init.</em> (\(n=1\)) : \(S_1=1=\left(\dfrac{1\times2}{2}\right)^2=1\) ✓. <em>Hérédité</em> : \(S_{n+1}=S_n+(n+1)^3=\left(\dfrac{n(n+1)}{2}\right)^2+(n+1)^3=\dfrac{n^2(n+1)^2}{4}+(n+1)^3\). On factorise par \((n+1)^2\) :
+\(S_{n+1}=(n+1)^2\left[\dfrac{n^2}{4}+(n+1)\right]=(n+1)^2\dfrac{n^2+4n+4}{4}=(n+1)^2\dfrac{(n+2)^2}{4}=\left(\dfrac{(n+1)(n+2)}{2}\right)^2\) ✓. <em>Conclusion</em> : vrai pour tout \(n\geq1\). ∎ <span class="rappel-inline">On retrouve bien « le carré de la somme des entiers » au rang \(n+1\).</span></p></div>
+
 </div>
 <div id="quiz-mount"></div>
 <p class="footer-note">Parcours d'été — Module M3 · Suites : récurrence et limites · Premier chapitre du programme de terminale.</p>
